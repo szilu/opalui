@@ -1,0 +1,27 @@
+{
+  "name": "opalui",
+  "version": "0.9.0",
+  "description": "A minimalistic CSS framework",
+  "main": "dist/opalui.css",
+  "files": ["dist/", "themes/", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "rimraf dist/* && postcss -o dist/opalui.css src/opalui.css && cross-env NODE_ENV=production postcss -o dist/opalui.min.css src/opalui.css && gzip -c dist/opalui.min.css |wc -c |xargs echo 'Size:'",
+    "watch": "postcss -w -o dist/opalui.css src/opalui.css"
+  },
+  "keywords": ["css", "minimalistic", "frosted", "glass"],
+  "author": "Szilard Hajba",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "cross-env": "^7.0.3",
+    "normalize.css": "^8.0.1",
+    "postcss": "^8.4.31",
+    "postcss-banner": "^4.0.1",
+    "postcss-cli": "^10.1.0",
+    "postcss-import": "^15.1.0",
+    "rimraf": "^5.0.5",
+    "stylelint": "^15.11.0",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-standard": "^34.0.0"
+  }
+}

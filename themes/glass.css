@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=swap');
+
+body {
+	--border-w-lg: calc(2rem / 16);
+	--border-radius-lg: 0.5rem;
+	--border-w-sm: calc(1rem / 16);
+	--border-radius-sm: 0.25rem;
+	--blur-radius: 1rem;
+	--p-nav: 0.5em;
+	--p-panel: 1rem;
+	--m-container: 0.5rem;
+	--m-button-y: 0.5rem;
+	--m-button-r: 0.5rem;
+	--p-fieldset: 0.5rem 1rem;
+	--g-grid: 1rem;
+
+	--op-glass: 0.3;
+	--op-button: 0.5;
+	--col-txt-emph: hsla(0, 0%, 0%, 0.87);
+	--col-txt: hsla(0, 0%, 0%, 0.6);
+	--col-txt-dis: hsla(0, 0%, 0%, 0.38);
+	--col-txt-inv-emph: hsla(0, 100%, 100%, 0.87);
+	--col-txt-inv: hsla(0, 100%, 100%, 0.6);
+	--col-txt-inv-dis: hsla(0, 100%, 100%, 0.38);
+
+	--col-bg-base: hsla(0, 100%, 100%, 1);
+	--col-bg: hsla(0, 100%, 100%, 0.25);
+	--col-bg: hsla(0, 100%, 100%, var(--op-glass));
+	--col-bg-v: hsla(200, 98%, 98%, var(--op-glass));
+	--col-bg-emph: hsla(0, 0%, 0%, 0.15);
+	--col-focus: hsla(0, 0%, 0%, var(--op-glass));
+	--col-primary: hsla(20, 30%, 60%, var(--op-button));
+	--col-primary-v: hsla(20, 30%, 50%, var(--op-button));
+	--col-secondary: hsla(200, 30%, 60%, var(--op-button));
+	--col-secondary-v: hsla(200, 30%, 50%, var(--op-button));
+
+	--col-bg-success: hsla(120, 30%, 60%, var(--op-button));
+	--col-bg-success-v: hsla(120, 30%, 50%, var(--op-button));
+	--col-bg-warning: hsla(40, 60%, 60%, var(--op-button));
+	--col-bg-warning-v: hsla(40, 50%, 50%, var(--op-button));
+	--col-bg-danger: hsla(0, 60%, 60%, var(--op-button));
+	--col-bg-danger-v: hsla(0, 50%, 50%, var(--op-button));
+
+	font-family: 'Roboto', sans-serif;
+	color: var(--col-txt);
+	background: url(bg.png);
+	transition: background 0.3s, color 0.2s;
+}
+
+body.dark {
+	--op-glass: 0.3;
+	--op-button: 0.5;
+	--col-txt-emph: hsla(0, 100%, 100%, 0.87);
+	--col-txt: hsla(0, 100%, 100%, 0.6);
+	--col-txt-dis: hsla(0, 100%, 100%, 0.38);
+	--col-txt-inv-emph: hsla(0, 0%, 0%, 0.87);
+	--col-txt-inv: hsla(0, 0%, 0%, 0.6);
+	--col-txt-inv-dis: hsla(0, 0%, 0%, 0.38);
+
+	--col-bg-base: hsla(200, 30%, 24%, 1);
+	--col-bg: hsla(200, 30%, 4%, var(--op-glass));
+	--col-bg-v: hsla(200, 30%, 32%, var(--op-glass));
+	--col-bg-emph: hsla(0, 100%, 100%, 0.15);
+	--col-focus: hsla(0, 100%, 100%, var(--op-glass));
+	--col-primary: hsla(20, 30%, 25%, var(--op-button));
+	--col-primary-v: hsla(20, 30%, 50%, var(--op-button));
+	--col-secondary: hsla(200, 30%, 20%, var(--op-button));
+	--col-secondary-v: hsla(200, 30%, 40%, var(--op-button));
+
+	--col-bg-success: hsla(120, 30%, 25%, var(--op-button));
+	--col-bg-success-v: hsla(120, 30%, 50%, var(--op-button));
+	--col-bg-warning: hsla(60, 30%, 25%, var(--op-button));
+	--col-bg-warning-v: hsla(60, 30%, 50%, var(--op-button));
+	--col-bg-danger: hsla(0, 60%, 25%, var(--op-button));
+	--col-bg-danger-v: hsla(0, 50%, 50%, var(--op-button));
+
+	background: url(bg-dark.png);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oswald', sans-serif;
+}
+
+h1, h2, h3 {
+	color: var(--col-txt-emph);
+}
+
+a, a:link, a:visited {
+	color: var(--col-txt);
+}
+
+/* vim: ts=4
+ */
