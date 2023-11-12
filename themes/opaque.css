@@ -41,7 +41,7 @@ body {
 
 	font-family: 'Roboto', sans-serif;
 	color: var(--col-txt);
-	background: url(bg.png);
+	background: url(bg.jpg);
 	transition: background 0.3s, color 0.2s;
 }
 
@@ -71,7 +71,7 @@ body.dark {
 	--col-bg-danger: hsl(0, 60%, 25%);
 	--col-bg-danger-v: hsl(0, 50%, 50%);
 
-	background: url(bg-dark.png);
+	background: url(bg-dark.jpg);
 }
 
 h1, h2, h3, h4, h5, h6 {

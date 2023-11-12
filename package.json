@@ -1,5 +1,5 @@
 {
-  "name": "opalui",
+  "name": "@symbion/opalui",
   "version": "0.9.0",
   "description": "A minimalistic CSS framework",
   "main": "dist/opalui.css",
@@ -11,7 +11,8 @@
   ],
   "scripts": {
     "build": "rimraf dist/* && postcss -o dist/opalui.css src/opalui.css && cross-env NODE_ENV=production postcss -o dist/opalui.min.css src/opalui.css && gzip -c dist/opalui.min.css |wc -c |xargs echo 'Size:'",
-    "watch": "postcss -w -o dist/opalui.css src/opalui.css"
+    "watch": "postcss -w -o dist/opalui.css src/opalui.css",
+    "pub": "npm publish --access public"
   },
   "keywords": [
     "css",
