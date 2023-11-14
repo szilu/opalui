@@ -27,11 +27,11 @@ body {
 	--col-bg: hsla(0, 100%, 100%, 0.25);
 	--col-bg: hsla(0, 100%, 100%, var(--op-glass));
 	--col-bg-v: hsla(200, 98%, 98%, var(--op-glass));
-	--col-bg-emph: hsla(0, 0%, 0%, 0.15);
+	--col-bg-emph: hsla(0, 100%, 100%, 0.25);
 	--col-focus: hsla(0, 0%, 0%, var(--op-glass));
 	--col-primary: hsla(20, 30%, 60%, var(--op-button));
 	--col-primary-v: hsla(20, 30%, 50%, var(--op-button));
-	--col-secondary: hsla(200, 30%, 60%, var(--op-button));
+	--col-secondary: hsla(200, 30%, 70%, var(--op-button));
 	--col-secondary-v: hsla(200, 30%, 50%, var(--op-button));
 
 	--col-bg-success: hsla(120, 30%, 60%, var(--op-button));
