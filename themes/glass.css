@@ -7,6 +7,8 @@ body {
 	--border-radius-sm: 0.25rem;
 	--blur-radius: 1rem;
 	--p-nav: 0.5em;
+	--p-nav-item-y: 0.15em;
+	--p-nav-item-x: 0.5em;
 	--p-panel: 1rem;
 	--m-container: 0.5rem;
 	--m-button-y: 0.5rem;
