@@ -77,8 +77,8 @@ body {
 	padding: var(--p-panel);
 	/*
 	box-shadow: inset 0px 0px 2rem var(--col-bg-emph);
+	transition: background 0.3s, border 0.3s, color 0.3s, opacity 0.2s;
 	*/
-	transition: background 0.3s, border 0.3s, color 0.3s;
 	position: relative;
 }
 
@@ -140,6 +140,29 @@ body {
 	box-shadow: inset 0px 0px 1rem var(--col-bg-emph), 0px 0px 1rem var(--col-focus);
 }
 
+/* Toggle buttons */
+.m-button input[type="radio"], .m-button input[type="checkbox"] {
+	display: none;
+}
+
+.m-button:has(> input[type="radio"]:not(:checked)), .m-button:has(> input[type="checkbox"]:not(:checked)) {
+	background: none;
+	box-shadow: none;
+}
+
+.m-button:has(> input[type="radio"]:checked), .m-button:has(input[type="checkbox"]:checked) {
+}
+
+/* animation */
+.m-button {
+	transition: scale 0.2s;
+}
+
+.m-button.clicked {
+	scale: 0.95;
+}
+
+/* Links */
 .m-link {
 	display: flex;
 	border: none;
@@ -176,11 +199,13 @@ body {
 	display: flex;
 	align-items: center;
 	margin: 0;
+	padding-inline-start: 0;
 	& li { display: flex; }
 }
 
 .m-nav-item, .m-nav-link {
 	display: flex;
+	align-items: center;
 	border-radius: var(--border-radius-sm);
 	cursor: pointer;
 	user-select: none;
@@ -189,6 +214,11 @@ body {
 	background: none;
 	color: var(--col-txt);
 	padding: 0;
+	transition: background 0.3s;
+}
+
+.m-nav-item:hover, .m-nav-link:hover, .m-nav-item.selected, .m-nav-link.selected {
+	background: var(--col-bg);
 }
 
 .m-nav.flex-column, .m-nav-group.flex-column {
@@ -334,7 +364,6 @@ body {
 .m-input-group > *, .m-input-group > details.m-dropdown > summary > input {
 	border-width: var(--border-w-sm);
 	background: transparent;
-	padding: 0;
 	box-shadow: none;
 	align-items: center;
 	display: flex;
@@ -348,6 +377,28 @@ body {
 .m-input-group > *:not(:first-child) {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
+}
+
+/*********/
+/* Table */
+/*********/
+.m-scroll, .m-table .sui-scroll {
+	position: relative;
+	overflow: auto;
+}
+.m-scroll, .m-table .sui-scroll > .wrapper {
+	display: inline-block;
+}
+.m-scroll.sui-fill, .m-table .sui-scroll.sui-fill {
+	width: 100%;
+}
+.m-scroll.sui-fill, .m-table .sui-scroll.sui-fill > .wrapper {
+	min-width: 100%;
+}
+
+table.m-table {
+	width: 100%;
+	overflow: auto;
 }
 
 /*********/

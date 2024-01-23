@@ -16,6 +16,13 @@ body {
 	--p-fieldset: 0.5rem 1rem;
 	--g-grid: 1rem;
 
+	font-family: 'Roboto', sans-serif;
+	color: var(--col-txt);
+	transition: background 0.3s, color 0.2s;
+}
+
+body.light {
+
 	--op-glass: 0.5;
 	--op-button: 0.6;
 	--col-txt-emph: hsla(0, 0%, 0%, 0.87);
@@ -43,14 +50,11 @@ body {
 	--col-bg-danger: hsla(0, 60%, 60%, var(--op-button));
 	--col-bg-danger-v: hsla(0, 50%, 50%, var(--op-button));
 
-	font-family: 'Roboto', sans-serif;
-	color: var(--col-txt);
 	background: url(bg.jpg);
-	transition: background 0.3s, color 0.2s;
 }
 
 body.dark {
-	--op-glass: 0.3;
+	--op-glass: 0.5;
 	--op-button: 0.5;
 	--col-txt-emph: hsla(0, 100%, 100%, 0.87);
 	--col-txt: hsla(0, 100%, 100%, 0.6);
@@ -58,6 +62,8 @@ body.dark {
 	--col-txt-inv-emph: hsla(0, 0%, 0%, 0.87);
 	--col-txt-inv: hsla(0, 0%, 0%, 0.6);
 	--col-txt-inv-dis: hsla(0, 0%, 0%, 0.38);
+	--col-txt-primary: hsla(20, 30%, 75%, var(--op-button));
+	--col-txt-secondary: hsla(200, 30%, 75%, var(--op-button));
 
 	--col-bg-base: hsla(200, 30%, 24%, 1);
 	--col-bg: hsla(200, 30%, 4%, var(--op-glass));
