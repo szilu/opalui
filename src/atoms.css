@@ -5,6 +5,7 @@
 	box-sizing: border-box;
 	scrollbar-color: var(--col-bg-emph) transparent;
 	scrollbar-width: thin;
+	color: var(--col-txt);
 }
 button {
 	cursor: pointer;
@@ -98,7 +99,7 @@ body {
 	border-radius: var(--border-radius-sm);
 	background: var(--col-secondary);
 	border: var(--border-w-sm) solid var(--col-secondary-v);
-	color: var(--col-text);
+	color: var(--col-txt);
 	box-shadow: inset 0px 0px 1rem var(--col-bg-emph);
 	padding: 0.5rem 1rem;
 	cursor: pointer;
@@ -219,6 +220,7 @@ body {
 
 .m-nav-item:hover, .m-nav-link:hover, .m-nav-item.selected, .m-nav-link.selected {
 	background: var(--col-bg);
+	color: var(--col-txt-emph);
 }
 
 .m-nav.flex-column, .m-nav-group.flex-column {
@@ -277,7 +279,7 @@ body {
 	border-radius: var(--border-radius-sm);
 	background: var(--col-secondary);
 	border: var(--border-w-sm) solid var(--col-secondary-v);
-	color: var(--col-text);
+	color: var(--col-txt);
 	box-shadow: inset 0px 0px 1rem var(--col-bg-emph);
 	padding: 0.5rem 1rem;
 	user-select: none;
@@ -333,7 +335,7 @@ body {
 	border-radius: var(--border-radius-sm);
 	border: var(--border-w-sm) solid var(--col-tertiary-v);
 	background: var(--col-bg-emph);
-	color: var(--col-text);
+	color: var(--col-txt);
 	box-shadow: inset 0px 0px 1rem var(--col-bg-emph);
 	width: 100%;
 }
@@ -341,7 +343,7 @@ body {
 	padding: 0.5rem 0.5rem;
 }
 .m-select > option {
-	color: var(--col-text);
+	color: var(--col-txt);
 	background: var(--col-bg-base);
 }
 
