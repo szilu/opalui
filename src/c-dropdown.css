@@ -1,0 +1,28 @@
+.c-dropdown {
+	position: relative;
+	display: inline-block;
+}
+
+.c-dropdown > summary {
+	display: flex;
+}
+
+.c-dropdown > :last-child {
+	position: absolute;
+	left: 0;
+	white-space: nowrap;
+	z-index: 100;
+	background: var(--col-bg-v);
+	box-shadow: inset 0px 0px 1rem var(--col-bg-emph);
+}
+
+.c-dropdown.up > :last-child {
+	bottom: 2rem;
+}
+.c-dropdown.right > :last-child {
+	left: auto;
+	right: 0;
+}
+
+/* vim: ts=4
+ */

@@ -1,0 +1,147 @@
+body {
+	/* DEFAULTS */
+	--color-primary: lch(35 60 250);
+	--color-secondary: lch(from var(--color-primary) l calc(c / 2) h);
+	--color-accent: lch(from var(--color-primary) l c calc(h + 180));
+	--color-neutral: lch(35 20 250);
+
+	--color-error: lch(35 50 25);
+	--color-warning: lch(35 50 80);
+	--color-success: lch(35 50 155);
+
+	--op-panel: 1;
+	--op-button: 1;
+	--op-disabled: 0.5;
+
+	/* WCAG 2 Contrast Recommendations:
+		minimum for large text: 3:1	(2 levels)
+		minimum: 4.5:1				(3 levels)
+		enhanced: 7:1				(4 levels)
+   */
+
+	/* OVERRIDABLE DEFAULTS */
+	--col-primary-m2: lch(from var(--col-primary) calc(l - 30) calc(c * 0.3) h);
+	--col-primary-m1: lch(from var(--col-primary) calc(l - 15) calc(c * 0.8) h);
+	--col-primary: lch(from var(--color-primary) 35 c h);
+	--col-primary-p1: lch(from var(--col-primary) calc(l + 15) c h);
+	--col-primary-p2: lch(from var(--col-primary) calc(l + 30) c h);
+	--col-primary-p3: lch(from var(--col-primary) calc(l + 45) calc(c * 0.8) h);
+	--col-primary-p4: lch(from var(--col-primary) calc(l + 60) calc(c * 0.3) h);
+
+	--col-secondary-m2: lch(from var(--col-secondary) calc(l - 30) calc(c * 0.3) h);
+	--col-secondary-m1: lch(from var(--col-secondary) calc(l - 15) calc(c * 0.8) h);
+	--col-secondary: lch(from var(--color-secondary) 35 c h);
+	--col-secondary-p1: lch(from var(--col-secondary) calc(l + 15) c h);
+	--col-secondary-p2: lch(from var(--col-secondary) calc(l + 30) c h);
+	--col-secondary-p3: lch(from var(--col-secondary) calc(l + 45) calc(c * 0.8) h);
+	--col-secondary-p4: lch(from var(--col-secondary) calc(l + 60) calc(c * 0.3) h);
+
+	--col-accent-m2: lch(from var(--col-accent) calc(l - 30) calc(c * 0.3) h);
+	--col-accent-m1: lch(from var(--col-accent) calc(l - 15) calc(c * 0.8) h);
+	--col-accent: lch(from var(--color-accent) 35 c h);
+	--col-accent-p1: lch(from var(--col-accent) calc(l + 15) c h);
+	--col-accent-p2: lch(from var(--col-accent) calc(l + 30) c h);
+	--col-accent-p3: lch(from var(--col-accent) calc(l + 45) calc(c * 0.8) h);
+	--col-accent-p4: lch(from var(--col-accent) calc(l + 60) calc(c * 0.3) h);
+
+	--col-error: lch(from var(--color-error) 35 c h);
+	--col-warning: lch(from var(--color-warning) 35 c h);
+	--col-success: lch(from var(--color-success) 35 c h);
+
+	--col-on-primary: var(--col-primary-p4);
+	--col-on-secondary: var(--col-secondary-p4);
+	--col-on-accent: var(--col-accent-p4);
+	--col-on-error: lch(from var(--color-error) calc(l + 60) c h);
+	--col-on-warning: lch(from var(--color-warning) calc(l + 60) c h);
+	--col-on-success: lch(from var(--color-success) calc(l + 60) c h);
+
+	--col-surface: lch(from var(--color-neutral) 99 calc(c * 0.2) h);
+	--col-container-low: lch(from var(--color-neutral) 95 calc(c * 0.3) h);
+	--col-container: lch(from var(--color-neutral) 90 calc(c * 0.5) h);
+	--col-container-high: lch(from var(--color-neutral) 85 calc(c * 0.6) h);
+	--col-container-primary: lch(from var(--color-primary) 90 calc(c * 0.5) h);
+	--col-container-secondary: lch(from var(--color-secondary) 90 calc(c * 0.5) h);
+	--col-container-accent: lch(from var(--color-accent) 90 calc(c * 0.5) h);
+	--col-container-error: lch(from var(--color-error) 90 calc(c * 0.5) h);
+	--col-container-warning: lch(from var(--color-warning) 90 calc(c * 0.5) h);
+	--col-container-success: lch(from var(--color-success) 90 calc(c * 0.5) h);
+
+	--col-on-surface: lch(from var(--color-neutral) 39 c h);
+	--col-on-container-low: lch(from var(--color-neutral) 35 c h);
+	--col-on-container: lch(from var(--color-neutral) 30 c h);
+	--col-on-container-high: lch(from var(--color-neutral) 25 c h);
+	--col-on-container-primary: lch(from var(--color-primary) 30 c h);
+	--col-on-container-secondary: lch(from var(--color-secondary) 30 c h);
+	--col-on-container-accent: lch(from var(--color-accent) 30 c h);
+	--col-on-container-error: lch(from var(--color-error) 30 c h);
+	--col-on-container-warning: lch(from var(--color-warning) 30 c h);
+	--col-on-container-success: lch(from var(--color-success) 30 c h);
+}
+
+body.dark {
+	/* DEFAULTS */
+	--color-primary: lch(68 60 250);
+	--color-secondary: lch(from var(--color-primary) l calc(c / 2) h);
+	--color-accent: lch(from var(--color-primary) l c calc(h + 180));
+
+	/* OVERRIDABLE DEFAULTS */
+	--col-primary-m2: lch(from var(--col-primary) calc(l + 30) calc(c * 0.3) h);
+	--col-primary-m1: lch(from var(--col-primary) calc(l + 15) calc(c * 0.8) h);
+	--col-primary: lch(from var(--color-primary) 65 c h);
+	--col-primary-p1: lch(from var(--col-primary) calc(l - 15) c h);
+	--col-primary-p2: lch(from var(--col-primary) calc(l - 30) c h);
+	--col-primary-p3: lch(from var(--col-primary) calc(l - 45) calc(c * 0.8) h);
+	--col-primary-p4: lch(from var(--col-primary) calc(l - 60) calc(c * 0.3) h);
+
+	--col-secondary-m2: lch(from var(--col-secondary) calc(l + 30) calc(c * 0.3) h);
+	--col-secondary-m1: lch(from var(--col-secondary) calc(l + 15) calc(c * 0.8) h);
+	--col-secondary: lch(from var(--color-secondary) 65 c h);
+	--col-secondary-p1: lch(from var(--col-secondary) calc(l - 15) c h);
+	--col-secondary-p2: lch(from var(--col-secondary) calc(l - 30) c h);
+	--col-secondary-p3: lch(from var(--col-secondary) calc(l - 45) calc(c * 0.8) h);
+	--col-secondary-p4: lch(from var(--col-secondary) calc(l - 60) calc(c * 0.3) h);
+
+	--col-accent-m2: lch(from var(--col-accent) calc(l + 30) calc(c * 0.3) h);
+	--col-accent-m1: lch(from var(--col-accent) calc(l + 15) calc(c * 0.8) h);
+	--col-accent: lch(from var(--color-accent) 65 c h);
+	--col-accent-p1: lch(from var(--col-accent) calc(l - 15) c h);
+	--col-accent-p2: lch(from var(--col-accent) calc(l - 30) c h);
+	--col-accent-p3: lch(from var(--col-accent) calc(l - 45) calc(c * 0.8) h);
+	--col-accent-p4: lch(from var(--col-accent) calc(l - 60) calc(c * 0.3) h);
+
+	--col-error: lch(from var(--color-error) 65 c h);
+	--col-warning: lch(from var(--color-warning) 65 c h);
+	--col-success: lch(from var(--color-success) 65 c h);
+
+	--col-on-primary: var(--col-primary-p4);
+	--col-on-secondary: var(--col-secondary-p4);
+	--col-on-accent: var(--col-accent-p4);
+	--col-on-error: lch(from var(--color-error) calc(l - 60) c h);
+	--col-on-warning: lch(from var(--color-warning) calc(l - 60) c h);
+	--col-on-success: lch(from var(--color-success) calc(l - 60) c h);
+
+	--col-surface: lch(from var(--color-neutral) 1 calc(c * 0.2) h);
+	--col-container-low: lch(from var(--color-neutral) 6 calc(c * 0.3) h);
+	--col-container: lch(from var(--color-neutral) 10 calc(c * 0.5) h);
+	--col-container-high: lch(from var(--color-neutral) 16 calc(c * 0.6) h);
+	--col-container-primary: lch(from var(--color-primary) 10 calc(c * 0.5) h);
+	--col-container-secondary: lch(from var(--color-secondary) 10 calc(c * 0.5) h);
+	--col-container-accent: lch(from var(--color-accent) 10 calc(c * 0.5) h);
+	--col-container-error: lch(from var(--color-error) 10 calc(c * 0.5) h);
+	--col-container-warning: lch(from var(--color-warning) 10 calc(c * 0.5) h);
+	--col-container-success: lch(from var(--color-success) 10 calc(c * 0.5) h);
+
+	--col-on-surface: lch(from var(--color-neutral) 61 c h);
+	--col-on-container-low: lch(from var(--color-neutral) 65 c h);
+	--col-on-container: lch(from var(--color-neutral) 70 c h);
+	--col-on-container-high: lch(from var(--color-neutral) 75 c h);
+	--col-on-container-primary: lch(from var(--color-primary) 70 c h);
+	--col-on-container-secondary: lch(from var(--color-secondary) 70 c h);
+	--col-on-container-accent: lch(from var(--color-accent) 70 c h);
+	--col-on-container-error: lch(from var(--color-error) 70 c h);
+	--col-on-container-warning: lch(from var(--color-warning) 70 c h);
+	--col-on-container-success: lch(from var(--color-success) 70 c h);
+}
+
+/* vim: ts=4
+ */

@@ -6,7 +6,7 @@ let plugins = [
 		important: true,
 	}),
 	require("postcss-import")({
-		plugins: [require("stylelint")({ fix: true, formatter: "compact" })],
+		//plugins: [require("stylelint")({ fix: true, formatter: "compact" })],
 	}),
 	require("autoprefixer")(),
 	require("postcss-reporter")({ clearReportedMessages: true }),
@@ -16,8 +16,14 @@ let plugins = [
 if (process.env.NODE_ENV == "production")
 	plugins.push(
 		require("cssnano")({
-			preset: "default",
+			preset: [require('cssnano-preset-default'), { calc: false }]
 		})
+		/*
+		require("cssnano")({
+			preset: "default",
+			calc: false
+		})
+		*/
 	);
 
 module.exports = {

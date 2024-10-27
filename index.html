@@ -12,147 +12,166 @@
 	<body style="background: url(fa.jpg);">
 	-->
 	<body>
-		<!--
-		<div class="m-container fluid"><div class="row">
-			<div class="m-panel col">
-				<h1>OpalUI</h1>
-				<div class="m-card-body">
-					<h2>Introducing OpalUI: Elevate Your Web Design Experience!</h2>
-				</div>
-			</div>
-		</div></div>
-		-->
-		<main class="m-container g-1"><div class="row">
-			<div class="m-panel col">
-				<h1>OpalUI</h1>
-				<div class="m-card-body">
-					<h2>Introducing OpalUI: Elevate Your Web Design Experience!</h2>
-				</div>
-			</div>
-
-			<div class="m-panel col-lg-6 col-md-12">
-				<h3>Typography</h3>
-				<div class="m-card-body">
-
-					<p>OpalUI is a cutting-edge CSS framework designed to bring
-					elegance and sophistication to your web projects. With a
-					sleek and minimalistic aesthetic, OpalUI combines form and
-					function, making it the perfect choice for designers and
-					developers seeking a user-friendly, theming-capable
-					solution.
-					</p>
-
-					<h4>Key Features:</h4>
-					<p>Frosty Glass & Opaque Themes: OpalUI's default themes
-					offer a unique frosty glass and opaque design that adds a
-					touch of modern artistry to your websites.</p>
-
-					<p>🌓 <b>Daylight and Dark Modes:</b> Seamlessly transition
-					between daylight and dark modes, ensuring an optimal user
-					experience in any lighting condition.</p>
-
-					<p>🎨 <b>Theming Capabilities:</b> Customize OpalUI to match your
-					brand's identity with ease. Create unique, stunning designs
-					that resonate with your audience.</p>
-
-					<p>💻 <b>Responsive Design:</b> OpalUI is built with
-					responsiveness in mind, ensuring your websites look and
-					function flawlessly on various devices and screen sizes.</p>
-
-					<p>⚙️ <b>Lightweight and Easy to Use:</b> OpalUI's intuitive and
-					well-organized codebase simplifies development, saving you
-					time and effort.</p>
-
-					<p>Whether you're building a personal blog, an e-commerce
-					platform, or a corporate website, OpalUI empowers you to
-					craft exceptional web experiences that captivate and engage
-					your visitors. Join the OpalUI community today and discover
-					the limitless possibilities of modern web design.</p>
-				</div>
-				<div class="m-container w-100">
-					<div class="row">
-						<div class="m-panel col-6 bg-success">This is an</div>
-						<div class="m-panel col-3 bg-warning">embedded</div>
-						<div class="m-panel col-3 bg-danger">grid</div>
+		<main class="c-container g-2">
+			<div class="row">
+				<div class="c-panel col">
+					<h1>OpalUI</h1>
+					<div class="c-card-body">
+						<h2>Introducing OpalUI: Elevate Your Web Design Experience!</h2>
 					</div>
 				</div>
 			</div>
 
-			<div class="m-panel col-lg-3 col-md-6">
-				<h3>Buttons</h3>
-				<div class="m-hbox wrap align-items-center g-1">
-					<button class="m-button primary fill my-1">Primary button</button>
-					<button class="m-button fill my-1">Secondary button</button>
-					<button class="m-button fill my-1">Button</button>
-					<button class="m-button fill my-1">Another button</button>
+			<div class="row mt-2 pos relative">
+				<div id="filterbar" class="c-panel sm-hide hide-left col-md-4 col-lg-3">
+					<button class="c-link m-1 md-hide lg-hide pos absolute top-0 right-0" onclick="toggleFilter()">&#10005;</button>
+					<h3>Left sidebar</h3>
 				</div>
-				<div class="m-hbox wrap align-items-center g-1">
-					<button class="m-button large">Large button</button>
-					<button class="m-button small">Small button</button>
-				</div>
-				<div class="m-hbox wrap align-items-center g-1">
-					<button class="m-button primary fill my-1" disabled>Primary button disabled</button>
-					<button class="m-button fill my-1" disabled>Secondary button disabled</button>
-				</div>
-				<div class="m-hbox wrap g-1">
-					<button class="m-button bg-success fill my-1">Success button</button>
-					<button class="m-button bg-warning fill my-1">Warning button</button>
-					<button class="m-button bg-danger fill my-1">Danger button</button>
-				</div>
-			</div>
-			<div class="m-panel col-lg-3 col-md-6">
-				<h3>Forms</h3>
-				<form name="form">
-					<fieldset class="m-fieldset">
-						<legend>Legend</legend>
 
-						<label>Text input
-							<input class="m-input" type="text">
-						</label>
-						<label>Date input
-							<input class="m-input" type="date">
-						</label>
-						<label>Color input
-							<input class="m-input" type="color">
-						</label>
-						<label>Range input
-							<input class="m-input" type="range">
-						</label>
-						<label>Textarea
-							<textarea class="m-input"></textarea>
-						</label>
-						<label>Select
-							<select class="m-select">
-								<option value="1">Option 1</option>
-								<option value="2">Option 2</option>
-								<option value="3">Option 3</option>
-							</select>
-						</label>
-						<label>Input group
-							<div class="m-input-group">
-								<span class="m-1">&#128512;</span>
-								<input class="m-input" type="text" placeholder="Text input">
-								<button class="m-button secondary">&times;</button>
-							</div>
-						</label>
-					</fieldset>
-				</form>
+				<div class="col col-md-8 col-lg-6">
+					<div class="c-nav flex-row mb-1 md-hide lg-hide">
+						<button class="c-link" onclick="toggleFilter()">&#10729;</button>
+						<div class="fill"></div>
+					</div>
+					<div class="c-panel">
+						<h3>Main area</h3>
+						<p>Some content here</p>
+						<p>This is a <button class="c-link primary" onclick="toggleDetails()">Link</button></p>
+					</div>
+				</div>
+
+				<div id="details-bar" class="c-panel sm-hide md-hide hide-right col-lg-3">
+					<button class="c-link m-1 lg-hide pos absolute top-0 right-0" onclick="toggleDetails()">&#10005;</button>
+					<h3>Right sidebar</h3>
+				</div>
 			</div>
-		</div></main>
-		<div class="pos fixed bottom-0 right-0 m-2 m-hbox g-1">
-			<details id="theme-dropdown" class="m-dropdown up">
-				<summary class="m-button float">Themes</summary>
-				<ul class="m-panel">
-					<li class="m-nav-item p-1"><button class="m-link" onclick="changeTheme('glass')">Glass</button></li>
-					<li class="m-nav-item p-1"><button class="m-link" onclick="changeTheme('opaque')">Opaque</button></li>
+
+			<div class="row mt-2">
+				<div class="c-panel col col-lg-3">
+					<h3>Buttons</h3>
+					<div class="c-hbox wrap align-items-center g-1">
+						<button class="c-button primary fill my-1">Primary button</button>
+						<button class="c-button fill my-1">Secondary button</button>
+						<button class="c-button fill my-1">Button</button>
+						<button class="c-button fill my-1">Another button</button>
+					</div>
+					<div class="c-hbox wrap align-items-center g-1">
+						<button class="c-button large">Large button</button>
+						<button class="c-button small">Small button</button>
+					</div>
+					<div class="c-hbox wrap align-items-center g-1">
+						<button class="c-button primary fill my-1" disabled>Primary button disabled</button>
+						<button class="c-button fill my-1" disabled>Secondary button disabled</button>
+					</div>
+					<div class="c-hbox wrap g-1">
+						<button class="c-button success fill my-1">Success button</button>
+						<button class="c-button warning fill my-1">Warning button</button>
+						<button class="c-button error fill my-1">Error button</button>
+					</div>
+				</div>
+
+				<div class="c-panel col col-lg-6">
+					<h3>Typography</h3>
+					<div class="c-card-body">
+
+						<p>OpalUI is a cutting-edge CSS framework designed to bring
+						elegance and sophistication to your web projects. With a
+						sleek and minimalistic aesthetic, OpalUI combines form and
+						function, making it the perfect choice for designers and
+						developers seeking a user-friendly, theming-capable
+						solution.
+						</p>
+
+						<h4>Key Features:</h4>
+						<p>Frosty Glass & Opaque Themes: OpalUI's default themes
+						offer a unique frosty glass and opaque design that adds a
+						touch of modern artistry to your websites.</p>
+
+						<p>🌓 <b>Daylight and Dark Modes:</b> Seamlessly transition
+						between daylight and dark modes, ensuring an optimal user
+						experience in any lighting condition.</p>
+
+						<p>🎨 <b>Theming Capabilities:</b> Customize OpalUI to match your
+						brand's identity with ease. Create unique, stunning designs
+						that resonate with your audience.</p>
+
+						<p>💻 <b>Responsive Design:</b> OpalUI is built with
+						responsiveness in mind, ensuring your websites look and
+						function flawlessly on various devices and screen sizes.</p>
+
+						<p>⚙️ <b>Lightweight and Easy to Use:</b> OpalUI's intuitive and
+						well-organized codebase simplifies development, saving you
+						time and effort.</p>
+
+						<p>Whether you're building a personal blog, an e-commerce
+						platform, or a corporate website, OpalUI empowers you to
+						craft exceptional web experiences that captivate and engage
+						your visitors. Join the OpalUI community today and discover
+						the limitless possibilities of modern web design.</p>
+					</div>
+					<div class="c-container w-100">
+						<div class="row">
+							<div class="c-panel col-6 success">This is an</div>
+							<div class="c-panel col-3 warning">embedded</div>
+							<div class="c-panel col-3 error">grid</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="c-panel col col-lg-3">
+					<h3>Forms</h3>
+					<form name="form">
+						<fieldset class="c-fieldset">
+							<legend>Legend</legend>
+
+							<label>Text input
+								<input class="c-input" type="text">
+							</label>
+							<label>Date input
+								<input class="c-input" type="date">
+							</label>
+							<label>Color input
+								<input class="c-input" type="color">
+							</label>
+							<label>Range input
+								<input class="c-input" type="range">
+							</label>
+							<label>Textarea
+								<textarea class="c-input resize"></textarea>
+							</label>
+							<label>Select
+								<select class="c-select">
+									<option value="1">Option 1</option>
+									<option value="2">Option 2</option>
+									<option value="3">Option 3</option>
+								</select>
+							</label>
+							<label>Input group
+								<div class="c-input-group">
+									<span class="m-1">&#128512;</span>
+									<input class="c-input" type="text" placeholder="Text input">
+									<button class="c-button secondary p-1">&times;</button>
+								</div>
+							</label>
+						</fieldset>
+					</form>
+				</div>
+			</div>
+		</main>
+		<div class="c-hbox g-1 pos fixed bottom-0 right-0 m-2">
+			<details id="theme-dropdown" class="c-dropdown up">
+				<summary class="c-button float">Themes</summary>
+				<ul class="c-panel">
+					<li class="c-nav-item p-1"><button class="c-link" onclick="changeTheme('glass')">Glass</button></li>
+					<li class="c-nav-item p-1"><button class="c-link" onclick="changeTheme('opaque')">Opaque</button></li>
 				</ul>
 			</details>
-			<button class="m-button float" type="button" onClick="document.body.classList.toggle('dark')">Day/night</button>
+			<button class="c-button float" type="button" onClick="toggleDark()">Day/night</button>
 		</div>
-		<div class="m-modal">
-			<div class="dialog m-panel">
+		<div class="c-modal">
+			<div class="c-dialog c-panel">
 				<h1>Modal</h1>
-				<div class="m-card-body">
+				<div class="c-card-body">
 					<p>Some text</p>
 				</div>
 			</div>
@@ -168,6 +187,18 @@
 				console.log('link', link)
 				link.href = `themes/${theme}.css`
 				document.getElementById('theme-dropdown').open = false
+			}
+
+			function toggleDark() {
+				document.body.classList.toggle('dark')
+			}
+
+			function toggleFilter() {
+				document.getElementById('filterbar').classList.toggle('show')
+			}
+
+			function toggleDetails() {
+				document.getElementById('details-bar').classList.toggle('show')
 			}
 		</script>
 	</body>

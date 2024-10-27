@@ -1,0 +1,61 @@
+.c-panel {
+	display: flex;
+	flex-direction: column;
+	backdrop-filter: blur(var(--blur-radius));
+	border-radius: var(--border-radius-lg);
+	padding: var(--p-panel);
+	background-color: lch(from var(--col-surface) l c h / var(--op-panel));
+	color: var(--col-on-surface);
+	/*
+	box-shadow: inset 0px 0px 2rem var(--col-bg-emph);
+	*/
+	transition: background 0.3s, border 0.3s, color 0.3s;
+	position: relative;
+
+	&.primary {
+		background-color: lch(from var(--col-container-primary) l c h / var(--op-panel));
+		color: var(--col-on-container-primary);
+	}
+	&.secondary {
+		background-color: lch(from var(--col-container-secondary) l c h / var(--op-panel));
+		color: var(--col-on-container-primary);
+	}
+	&.accent {
+		background-color: lch(from var(--col-container-accent) l c h / var(--op-panel));
+		color: var(--col-on-container-accent);
+	}
+
+	&.low {
+		background-color: lch(from var(--col-container-low) l c h / var(--op-panel));
+		color: var(--col-on-container-low);
+	}
+	&.mid {
+		background-color: lch(from var(--col-container) l c h / var(--op-panel));
+		color: var(--col-on-container);
+	}
+	&.high {
+		background-color: lch(from var(--col-container-high) l c h / var(--op-panel));
+		color: var(--col-on-container-high);
+	}
+
+	&.error {
+		background-color: lch(from var(--col-container-error) l c h / var(--op-panel));
+		color: var(--col-on-container-error);
+	}
+	&.warning {
+		background-color: lch(from var(--col-container-warning) l c h / var(--op-panel));
+		color: var(--col-on-container-warning);
+	}
+	&.success {
+		background-color: lch(from var(--col-container-success) l c h / var(--op-panel));
+		color: var(--col-on-container-success);
+	}
+
+	/**/
+	.body {
+		flex: 1;
+	}
+}
+
+/* vim: ts=4
+ */

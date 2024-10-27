@@ -1,0 +1,58 @@
+.c-nav {
+	display: flex;
+	align-items: center;
+	position: relative;
+	background: var(--col-container-high);
+	color: var(--col-on-container-high);
+	backdrop-filter: blur(var(--blur-radius));
+	border-radius: var(--border-radius-lg);
+	z-index: 1;
+	margin: 0;
+	padding: var(--p-nav);
+}
+
+.c-nav a {
+	text-decoration: none;
+}
+
+.c-nav-group {
+	display: flex;
+	align-items: center;
+	margin: 0;
+	& li { display: flex; }
+}
+
+.c-nav-item, .m-nav-link {
+	display: flex;
+	border-radius: var(--border-radius-sm);
+	cursor: pointer;
+	user-select: none;
+	/* Reset button styles */
+	border: none;
+	background: none;
+	/* color: var(--col-txt); */
+	padding: 0;
+}
+
+.c-nav.flex-column, .m-nav-group.flex-column {
+	align-items: stretch;
+}
+
+.c-nav.flex-column > .m-nav-item, .m-nav-group.flex-column > .m-nav-item {
+	padding: var(--p-nav-item-y) 0;
+}
+.c-nav > .m-nav-item, .m-nav-group > .m-nav-item {
+	padding: 0 var(--p-nav-item-x);
+}
+
+.c-nav-item.active, .m-nav-link.active {
+	color: var(--col-frost);
+}
+
+.c-nav-item:focus-visible, .m-nav-link:focus-visible {
+	outline: none;
+	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px 1rem var(--col-focus);
+}
+
+/* vim: ts=4
+ */

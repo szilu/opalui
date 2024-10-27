@@ -5,7 +5,7 @@ body {
 	--border-radius-lg: 0.5rem;
 	--border-w-sm: calc(1rem / 16);
 	--border-radius-sm: 0.25rem;
-	--blur-radius: 0.5rem;
+	--blur-radius: 0;
 	--p-nav: 0.5rem;
 	--p-panel: 1rem;
 	--m-container: 0.5rem;
@@ -14,30 +14,8 @@ body {
 	--p-fieldset: 0.5rem 1rem;
 	--g-grid: 1rem;
 
-
-	--col-txt-emph: hsla(0, 0%, 0%, 0.87);
-	--col-txt: hsla(0, 0%, 0%, 0.6);
-	--col-txt-dis: hsla(0, 0%, 0%, 0.38);
-	--col-txt-inv-emph: hsla(0, 100%, 100%, 0.87);
-	--col-txt-inv: hsla(0, 100%, 100%, 0.6);
-	--col-txt-inv-dis: hsla(0, 100%, 100%, 0.38);
-
-	--col-bg-base: hsl(0, 100%, 100%);
-	--col-bg: hsl(0, 100%, 100%);
-	--col-bg-v: hsl(200, 98%, 98%);
-	--col-bg-emph: hsla(0, 0%, 0%, 0.15);
-	--col-focus: hsl(0, 0%, 0%);
 	--col-primary: hsl(20, 30%, 80%);
-	--col-primary-v: hsl(20, 30%, 60%);
-	--col-secondary: hsl(200, 30%, 80%);
-	--col-secondary-v: hsl(200, 30%, 60%);
-
-	--col-bg-success: hsl(120, 30%, 80%);
-	--col-bg-success-v: hsl(120, 30%, 60%);
-	--col-bg-warning: hsl(40, 60%, 80%);
-	--col-bg-warning-v: hsl(40, 50%, 60%);
-	--col-bg-danger: hsl(0, 60%, 80%);
-	--col-bg-danger-v: hsl(0, 50%, 60%);
+	--col-frost: hsla(0, 0%, 100%, 0.25);
 
 	font-family: 'Roboto', sans-serif;
 	color: var(--col-txt);
@@ -46,31 +24,6 @@ body {
 }
 
 body.dark {
-
-	--col-txt-emph: hsla(0, 100%, 100%, 0.87);
-	--col-txt: hsla(0, 100%, 100%, 0.6);
-	--col-txt-dis: hsla(0, 100%, 100%, 0.38);
-	--col-txt-inv-emph: hsla(0, 0%, 0%, 0.87);
-	--col-txt-inv: hsla(0, 0%, 0%, 0.6);
-	--col-txt-inv-dis: hsla(0, 0%, 0%, 0.38);
-
-	--col-bg-base: hsl(200, 30%, 24%);
-	--col-bg: hsl(200, 30%, 4%);
-	--col-bg-v: hsl(200, 30%, 32%);
-	--col-bg-emph: hsla(0, 100%, 100%, 0.15);
-	--col-focus: hsl(0, 100%, 100%);
-	--col-primary: hsl(20, 30%, 25%);
-	--col-primary-v: hsl(20, 30%, 50%);
-	--col-secondary: hsl(200, 30%, 20%);
-	--col-secondary-v: hsl(200, 30%, 40%);
-
-	--col-bg-success: hsl(120, 30%, 25%);
-	--col-bg-success-v: hsl(120, 30%, 50%);
-	--col-bg-warning: hsl(60, 30%, 25%);
-	--col-bg-warning-v: hsl(60, 30%, 50%);
-	--col-bg-danger: hsl(0, 60%, 25%);
-	--col-bg-danger-v: hsl(0, 50%, 50%);
-
 	background: url(bg-dark.jpg);
 }
 
@@ -79,11 +32,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-	color: var(--col-txt-emph);
+	color: var(--col-on-surface);
 }
 
 a, a:link, a:visited {
-	color: var(--col-txt);
+	color: var(--col-on-surface);
 }
 
 /* vim: ts=4

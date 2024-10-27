@@ -1,0 +1,44 @@
+.c-tag {
+	border-radius: var(--border-radius-sm);
+	background: var(--col-secondary);
+	border: var(--border-w-sm) solid var(--col-secondary-v);
+	color: var(--col-on-secondary);
+	box-shadow: inset 0px 0px 1rem var(--col-frost);
+	padding: 0.5rem 1rem;
+	user-select: none;
+	transition: color, background 0.3s;
+
+	&.primary {
+		background: var(--col-primary);
+		color: var(--col-on-primary);
+		border-color: var(--col-primary-v);
+	}
+	&.secondary {
+		background: var(--col-secondary);
+		color: var(--col-on-secondary);
+		border-color: var(--col-secondary-v);
+	}
+
+	&.bg-success {
+		border-color: var(--col-bg-success-v);
+	}
+	&.bg-warning {
+		border-color: var(--col-bg-warning-v);
+	}
+	&.bg-error {
+		border-color: var(--col-bg-error-v);
+	}
+}
+
+.c-tag.small {
+	font-size: 0.75rem;
+	padding: 0.25rem 0.75rem;
+}
+
+.c-tag.large {
+	font-size: 1.5rem;
+	padding: 0.5rem 1.5rem;
+}
+
+/* vim: ts=4
+ */

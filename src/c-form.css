@@ -1,0 +1,79 @@
+.c-fieldset {
+	border: 1px solid lch(from var(--col-secondary) l c h / var(--op-disabled));
+	padding: var(--p-fieldset);
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.c-fieldset > legend {
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+}
+
+.c-input, .c-select, .c-input-group {
+	border-radius: var(--border-radius-sm);
+	border: var(--border-w-sm) solid var(--col-secondary);
+	background: var(--col-bg-emph);
+	color: var(--col-text);
+	box-shadow: inset 0px 0px 1rem var(--col-frost);
+	width: 100%;
+}
+.c-input, .c-select {
+	padding: 0.5rem 0.5rem;
+}
+.c-select > option {
+	color: var(--col-text);
+	background: var(--col-bg-base);
+}
+
+.c-input:focus-visible, .c-select:focus-visible {
+	outline: none;
+	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px 1rem var(--col-focus);
+}
+
+input.c-input[type="color"] {
+	padding: 0.1rem;
+	min-height: calc(1rem + 2 * 0.5rem);
+}
+
+textarea.c-input {
+	resize: none;
+}
+
+textarea.c-input.resize {
+	resize: vertical;
+}
+
+.c-input-group {
+	display: flex;
+}
+
+.c-input-group:has(:focus) {
+	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px 1rem var(--col-focus);
+}
+.c-input-group > .c-input:focus-visible, .c-input-group > .c-select:focus-visible {
+	box-shadow: none;
+}
+
+.c-input-group > *, .c-input-group > details.c-dropdown > summary > input {
+	border-width: var(--border-w-sm);
+	background: transparent;
+	padding: 0;
+	box-shadow: none;
+	align-items: center;
+	display: flex;
+}
+
+.c-input-group > *:not(:last-child) {
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.c-input-group > *:not(:first-child) {
+	border-top-left-radius: 0;
+	border-bottom-left-radius: 0;
+}
+
+/* vim: ts=4
+ */

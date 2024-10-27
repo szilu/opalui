@@ -1,0 +1,110 @@
+.c-button {
+	display: flex;
+	border-radius: var(--border-radius-sm);
+	border: 0px;
+	/*
+	border: var(--border-w-sm) solid var(--col-secondary-v);
+	*/
+	box-shadow: inset 0px 0px 1rem var(--col-frost);
+	padding: 0.5rem 1rem;
+	cursor: pointer;
+	user-select: none;
+	transition: color, background 0.3s;
+	background-color: lch(from var(--col-secondary) l c h / var(--op-button));
+	color: var(--col-on-secondary);
+
+	&.small {
+		font-size: 0.75rem;
+		padding: 0.25rem 0.75rem;
+	}
+
+	&.large {
+		font-size: 1.5rem;
+		padding: 0.5rem 1.5rem;
+	}
+
+	&.float {
+		border-radius: 2rem;
+	}
+
+	&[disabled] {
+		opacity: var(--op-disabled);
+		cursor: not-allowed;
+	}
+
+	&:focus-visible {
+		outline: none;
+		box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px 1rem var(--col-focus);
+	}
+
+	&.primary {
+		background-color: var(--col-primary);
+		color: var(--col-on-primary);
+	}
+	&.secondary {
+		background-color: var(--col-secondary);
+		color: var(--col-on-secondary);
+	}
+	&.accent {
+		background-color: var(--col-accent);
+		color: var(--col-on-accent);
+	}
+
+	&.error {
+		background-color: var(--col-error);
+		color: var(--col-on-error);
+	}
+	&.warning {
+		background-color: var(--col-warning);
+		color: var(--col-on-warning);
+	}
+	&.success {
+		background-color: var(--col-success);
+		color: var(--col-on-success);
+	}
+
+	&.float {
+		border-radius: 50%;
+		/*
+		position: fixed;
+		bottom: 1rem;
+		right: 1rem;
+		*/
+	}
+}
+
+.c-link {
+	display: flex;
+	border: none;
+	border-radius: var(--border-radius-sm);
+	background: none;
+	color: var(--col-secondary);
+
+	&.primary {
+		color: var(--col-primary);
+	}
+	&.secondary {
+		color: var(--col-secondary);
+	}
+	&.accent {
+		color: var(--col-accent);
+	}
+
+	&.error {
+		color: var(--col-error);
+	}
+	&.warning {
+		color: var(--col-warning);
+	}
+	&.success {
+		color: var(--col-success);
+	}
+}
+
+.c-link:focus-visible {
+	outline: none;
+	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px 1rem var(--col-focus);
+}
+
+/* vim: ts=4
+ */

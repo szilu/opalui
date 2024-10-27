@@ -1,0 +1,22 @@
+body {
+	overflow-x: hidden;
+}
+
+* {
+	box-sizing: border-box;
+	scrollbar-color: var(--col-frost) transparent;
+	scrollbar-width: thin;
+}
+
+*::-webkit-scrollbar {
+	width: 10px;
+	background: var(--col-primary);
+}
+*::-webkit-scrollbar-thumb {
+	width: 0.5rem;
+	background: var(--col-frost);
+	box-shadow: none;
+}
+*::-webkit-scrollbar-track, *::-webkit-scrollbar-track-piece {
+	background: var(--col-on-primary);
+}

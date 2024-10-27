@@ -16,65 +16,21 @@ body {
 	--p-fieldset: 0.5rem 1rem;
 	--g-grid: 1rem;
 
-	--op-glass: 0.5;
-	--op-button: 0.6;
-	--col-txt-emph: hsla(0, 0%, 0%, 0.87);
-	--col-txt: hsla(0, 0%, 0%, 0.6);
-	--col-txt-dis: hsla(0, 0%, 0%, 0.38);
-	--col-txt-inv-emph: hsla(0, 100%, 100%, 0.87);
-	--col-txt-inv: hsla(0, 100%, 100%, 0.6);
-	--col-txt-inv-dis: hsla(0, 100%, 100%, 0.38);
+	--op-panel: 0.6 !important;
+	--op-button: 0.8 !important;
 
-	--col-bg-base: hsla(0, 100%, 100%, 1);
-	--col-bg: hsla(0, 100%, 100%, 0.25);
-	--col-bg: hsla(0, 100%, 100%, var(--op-glass));
-	--col-bg-v: hsla(200, 98%, 98%, var(--op-glass));
-	--col-bg-emph: hsla(0, 100%, 100%, 0.25);
-	--col-focus: hsla(0, 0%, 0%, var(--op-glass));
-	--col-primary: hsla(20, 30%, 60%, var(--op-button));
-	--col-primary-v: hsla(20, 30%, 50%, var(--op-button));
-	--col-secondary: hsla(200, 30%, 70%, var(--op-button));
-	--col-secondary-v: hsla(200, 30%, 50%, var(--op-button));
-
-	--col-bg-success: hsla(120, 30%, 60%, var(--op-button));
-	--col-bg-success-v: hsla(120, 30%, 50%, var(--op-button));
-	--col-bg-warning: hsla(40, 60%, 60%, var(--op-button));
-	--col-bg-warning-v: hsla(40, 50%, 50%, var(--op-button));
-	--col-bg-danger: hsla(0, 60%, 60%, var(--op-button));
-	--col-bg-danger-v: hsla(0, 50%, 50%, var(--op-button));
+	--col-primary: hsl(20, 30%, 60%);
+	--col-frost: hsla(0, 0%, 100%, 0.25);
 
 	font-family: 'Roboto', sans-serif;
-	color: var(--col-txt);
+	color: var(--col-on-surface);
 	background: url(bg.jpg);
 	transition: background 0.3s, color 0.2s;
 }
 
 body.dark {
-	--op-glass: 0.3;
-	--op-button: 0.5;
-	--col-txt-emph: hsla(0, 100%, 100%, 0.87);
-	--col-txt: hsla(0, 100%, 100%, 0.6);
-	--col-txt-dis: hsla(0, 100%, 100%, 0.38);
-	--col-txt-inv-emph: hsla(0, 0%, 0%, 0.87);
-	--col-txt-inv: hsla(0, 0%, 0%, 0.6);
-	--col-txt-inv-dis: hsla(0, 0%, 0%, 0.38);
-
-	--col-bg-base: hsla(200, 30%, 24%, 1);
-	--col-bg: hsla(200, 30%, 4%, var(--op-glass));
-	--col-bg-v: hsla(200, 30%, 32%, var(--op-glass));
-	--col-bg-emph: hsla(0, 100%, 100%, 0.15);
-	--col-focus: hsla(0, 100%, 100%, var(--op-glass));
-	--col-primary: hsla(20, 30%, 25%, var(--op-button));
-	--col-primary-v: hsla(20, 30%, 50%, var(--op-button));
-	--col-secondary: hsla(200, 30%, 20%, var(--op-button));
-	--col-secondary-v: hsla(200, 30%, 40%, var(--op-button));
-
-	--col-bg-success: hsla(120, 30%, 25%, var(--op-button));
-	--col-bg-success-v: hsla(120, 30%, 50%, var(--op-button));
-	--col-bg-warning: hsla(60, 30%, 25%, var(--op-button));
-	--col-bg-warning-v: hsla(60, 30%, 50%, var(--op-button));
-	--col-bg-danger: hsla(0, 60%, 25%, var(--op-button));
-	--col-bg-danger-v: hsla(0, 50%, 50%, var(--op-button));
+	--op-glass: 0.6;
+	--op-button: 0.8;
 
 	background: url(bg-dark.jpg);
 }
@@ -84,11 +40,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2, h3 {
-	color: var(--col-txt-emph);
+	color: var(--col-on-container-high);
 }
 
 a, a:link, a:visited {
-	color: var(--col-txt);
+	color: var(--col-on-surface);
 }
 
 /* vim: ts=4
