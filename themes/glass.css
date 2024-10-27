@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=block');
 
 body {
 	--border-w-lg: calc(2rem / 16);
@@ -19,19 +19,19 @@ body {
 	--op-panel: 0.6 !important;
 	--op-button: 0.8 !important;
 
-	--col-primary: hsl(20, 30%, 60%);
-	--col-frost: hsla(0, 0%, 100%, 0.25);
-
 	font-family: 'Roboto', sans-serif;
 	color: var(--col-on-surface);
-	background: url(bg.jpg);
 	transition: background 0.3s, color 0.2s;
 }
 
-body.dark {
-	--op-glass: 0.6;
-	--op-button: 0.8;
+body.light {
+	--color-primary: hsl(20, 30%, 60%);
+	--color-frost: hsla(0, 0%, 100%, 0.25);
 
+	background: url(bg.jpg);
+}
+
+body.dark {
 	background: url(bg-dark.jpg);
 }
 
