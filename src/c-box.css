@@ -3,11 +3,13 @@
 /****************/
 .c-hbox {
 	display: flex;
+	gap: var(--gap);
 }
 
 .c-vbox {
 	display: flex;
 	flex-direction: column;
+	gap: var(--gap);
 }
 
 .c-hbox.wrap, .c-vbox.wrap {
@@ -17,6 +19,20 @@
 .c-hbox > .fill, .c-vbox > .fill {
 	flex: 1;
 }
+
+/* c-group */
+.c-group {
+	display: flex;
+	align-items: center;
+	gap: var(--gap);
+
+	/*
+	*:not(:first-child) {
+		margin-left: 0.25rem;
+	}
+	*/
+}
+
 
 /* vim: ts=4
  */

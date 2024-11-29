@@ -1,0 +1,12 @@
+.c-progress-bar {
+	background-color: var(--col-secondary);
+	height: 4px;
+
+	.bar {
+		background-color: var(--col-primary);
+		height: 100%;
+	}
+}
+
+/* vim: ts=4
+ */

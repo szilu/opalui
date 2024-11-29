@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=block');
 
-body {
+body.theme-glass {
 	--border-w-lg: calc(2rem / 16);
 	--border-radius-lg: 0.5rem;
 	--border-w-sm: calc(1rem / 16);
@@ -10,6 +10,7 @@ body {
 	--p-nav-item-y: 0.15em;
 	--p-nav-item-x: 0.5em;
 	--p-panel: 1rem;
+	--sh-focus: 0.25rem;
 	--m-container: 0.5rem;
 	--m-button-y: 0.5rem;
 	--m-button-r: 0.5rem;
@@ -20,18 +21,23 @@ body {
 	--op-button: 0.8 !important;
 
 	font-family: 'Roboto', sans-serif;
-	color: var(--col-on-surface);
+	color: var(--col-on);
 	transition: background 0.3s, color 0.2s;
 }
 
-body.light {
-	--color-primary: hsl(20, 30%, 60%);
-	--color-frost: hsla(0, 0%, 100%, 0.25);
+body.theme-glass.light {
+	--color-primary: lch(68 50 250);
+	--color-frost: lch(100 0 0 / 0.25);
+	--color-focus: lch(100 0 0);
 
 	background: url(bg.jpg);
 }
 
-body.dark {
+body.theme-glass.dark {
+	--color-primary: lch(68 50 250);
+	--color-frost: lch(100 0 0 / 0.25);
+	--color-focus: lch(100 0 0);
+
 	background: url(bg-dark.jpg);
 }
 
@@ -39,9 +45,11 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Oswald', sans-serif;
 }
 
+/*
 h1, h2, h3 {
 	color: var(--col-on-container-high);
 }
+*/
 
 a, a:link, a:visited {
 	color: var(--col-on-surface);

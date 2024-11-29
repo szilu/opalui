@@ -2,12 +2,9 @@
 .c-container {
 	max-width: 1200px;
 	margin: 0 auto;
-	/*
-	padding: 0 calc(var(--gap) / 2) calc(var(--gap) / 2);
-	padding: calc(var(--gap) / 2);
-	background-color: var(--col-surface);
-	color: var(--col-on-surface);
-	*/
+	--gap: 0px;
+	overflow-x: hidden;
+	overflow-y: auto;
 	&.fluid {
 		max-width: 100%;
 	}
@@ -17,14 +14,15 @@
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: flex-start;
+	position: relative;
 	gap: 0 !important;
 	margin: 0 calc(var(--gap) / -2);
-	/*
-	margin-left: calc(var(--gap) / -2);
-	margin-right: calc(var(--gap) / -2);
-	*/
 	& > .col, & > [class^="col-"], & > [class*=" col-"] {
 		margin: 0 calc(var(--gap) / 2);
+	}
+
+	&:not(:last-child) {
+		margin-bottom: var(--gap);
 	}
 }
 

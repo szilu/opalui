@@ -1,6 +1,3 @@
-body {
-	overflow-x: hidden;
-}
 
 * {
 	box-sizing: border-box;
@@ -8,15 +5,38 @@ body {
 	scrollbar-width: thin;
 }
 
+body {
+	overflow-x: hidden;
+
+	--col-bg: var(--col-surface);
+	--col-on: var(--col-on-surface);
+	--col-em: var(--col-em-surface);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+h1, h2, h3 {
+	color: var(--col-em);
+}
+
+button {
+	padding: 0;
+}
+
 *::-webkit-scrollbar {
-	width: 10px;
+	width: 0.25rem;
 	background: var(--col-primary);
 }
 *::-webkit-scrollbar-thumb {
-	width: 0.5rem;
+	width: 0.25rem;
 	background: var(--col-frost);
 	box-shadow: none;
 }
 *::-webkit-scrollbar-track, *::-webkit-scrollbar-track-piece {
 	background: var(--col-on-primary);
 }
+
+/* vim: ts=4
+ */

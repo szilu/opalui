@@ -1,0 +1,38 @@
+/********/
+/* Tabs */
+/********/
+.c-tabs {
+	display: flex;
+	align-items: center;
+}
+
+.c-tab {
+	border-bottom: var(--border-w-lg) solid var(--col-secondary);
+	margin: 0 var(--border-radius-lg);
+	padding: 0.5rem 1rem;
+	text-decoration: none;
+	cursor: pointer;
+	user-select: none;
+	transition: color, background 0.3s;
+}
+.c-tab.active {
+	color: var(--col-txt-emph);
+	border-color: var(--col-txt-emph);
+}
+
+.c-tab.primary {
+	color: var(--col-primary);
+}
+.c-tab.primary.active {
+	border-color: var(--col-primary);
+}
+
+.c-tab.secondary {
+	color: var(--col-secondary);
+}
+.c-tab.secondary.active {
+	border-color: var(--col-secondary);
+}
+
+/* vim: ts=4
+ */

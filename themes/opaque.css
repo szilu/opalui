@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=swap');
 
-body {
+body.theme-opaque {
 	--border-w-lg: calc(2rem / 16);
 	--border-radius-lg: 0.5rem;
 	--border-w-sm: calc(1rem / 16);
@@ -14,23 +14,30 @@ body {
 	--p-fieldset: 0.5rem 1rem;
 	--g-grid: 1rem;
 
-	--col-primary: hsl(20, 30%, 80%);
-	--col-frost: hsla(0, 0%, 100%, 0.25);
-
 	font-family: 'Roboto', sans-serif;
 	color: var(--col-txt);
+	background-color: var(--col-container-low);
+	/*
 	background: url(bg.jpg);
+	*/
 	transition: background 0.3s, color 0.2s;
 }
 
-body.dark {
+body.theme-opaque.dark {
+	--color-primary: lch(68 50 250);
+	--color-frost: lch(100 0 0 / 0.25);
+	--color-focus: lch(100 0 0 / 0.5);
+
+	/*
 	background: url(bg-dark.jpg);
+	*/
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Oswald', sans-serif;
 }
 
+/*
 h1, h2, h3 {
 	color: var(--col-on-surface);
 }
@@ -38,6 +45,7 @@ h1, h2, h3 {
 a, a:link, a:visited {
 	color: var(--col-on-surface);
 }
+*/
 
 /* vim: ts=4
  */

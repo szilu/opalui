@@ -1,22 +1,23 @@
 .c-tag {
-	border-radius: var(--border-radius-sm);
-	background: var(--col-secondary);
+	display: flex;
+	align-items: center;
+	border-radius: var(--border-radius-lg);
+	background: var(--col-container-secondary);
 	border: var(--border-w-sm) solid var(--col-secondary-v);
-	color: var(--col-on-secondary);
+	color: var(--col-on-container-secondary);
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
-	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
+	padding: 0.125rem 0.25rem;
 	user-select: none;
 	transition: color, background 0.3s;
 
 	&.primary {
-		background: var(--col-primary);
-		color: var(--col-on-primary);
-		border-color: var(--col-primary-v);
+		background: var(--col-container-primary);
+		color: var(--col-on-container-primary);
 	}
 	&.secondary {
-		background: var(--col-secondary);
-		color: var(--col-on-secondary);
-		border-color: var(--col-secondary-v);
+		background: var(--col-container-secondary);
+		color: var(--col-on-container-secondary);
 	}
 
 	&.bg-success {

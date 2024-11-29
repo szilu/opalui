@@ -48,12 +48,22 @@ body {
 	--col-warning: lch(from var(--color-warning) 35 c h);
 	--col-success: lch(from var(--color-success) 35 c h);
 
-	--col-on-primary: var(--col-primary-p4);
-	--col-on-secondary: var(--col-secondary-p4);
-	--col-on-accent: var(--col-accent-p4);
+	--col-frost: var(--color-frost);
+	--col-focus: var(--color-focus);
+
+	--col-on-primary: lch(from var(--col-primary) calc(l + 60) calc(c * 0.3) h);
+	--col-on-secondary: lch(from var(--col-secondary) calc(l + 60) calc(c * 0.3) h);
+	--col-on-accent: lch(from var(--col-accent) calc(l + 60) calc(c * 0.3) h);
 	--col-on-error: lch(from var(--color-error) calc(l + 60) c h);
 	--col-on-warning: lch(from var(--color-warning) calc(l + 60) c h);
 	--col-on-success: lch(from var(--color-success) calc(l + 60) c h);
+
+	--col-em-primary: lch(from var(--col-primary) calc(l + 65) calc(c * 0.3) h);
+	--col-em-secondary: lch(from var(--col-secondary) calc(l + 65) calc(c * 0.3) h);
+	--col-em-accent: lch(from var(--col-accent) calc(l + 65) calc(c * 0.3) h);
+	--col-em-error: lch(from var(--color-error) calc(l + 65) c h);
+	--col-em-warning: lch(from var(--color-warning) calc(l + 65) c h);
+	--col-em-success: lch(from var(--color-success) calc(l + 65) c h);
 
 	--col-surface: lch(from var(--color-neutral) 99 calc(c * 0.2) h);
 	--col-container-low: lch(from var(--color-neutral) 95 calc(c * 0.3) h);
@@ -76,6 +86,17 @@ body {
 	--col-on-container-error: lch(from var(--color-error) 30 c h);
 	--col-on-container-warning: lch(from var(--color-warning) 30 c h);
 	--col-on-container-success: lch(from var(--color-success) 30 c h);
+
+	--col-em-surface: lch(from var(--color-neutral) 29 c h);
+	--col-em-container-low: lch(from var(--color-neutral) 25 c h);
+	--col-em-container: lch(from var(--color-neutral) 20 c h);
+	--col-em-container-high: lch(from var(--color-neutral) 15 c h);
+	--col-em-container-primary: lch(from var(--color-primary) 20 c h);
+	--col-em-container-secondary: lch(from var(--color-secondary) 20 c h);
+	--col-em-container-accent: lch(from var(--color-accent) 20 c h);
+	--col-em-container-error: lch(from var(--color-error) 20 c h);
+	--col-em-container-warning: lch(from var(--color-warning) 20 c h);
+	--col-em-container-success: lch(from var(--color-success) 20 c h);
 }
 
 body.dark {
@@ -113,12 +134,19 @@ body.dark {
 	--col-warning: lch(from var(--color-warning) 65 c h);
 	--col-success: lch(from var(--color-success) 65 c h);
 
-	--col-on-primary: var(--col-primary-p4);
-	--col-on-secondary: var(--col-secondary-p4);
-	--col-on-accent: var(--col-accent-p4);
+	--col-on-primary: lch(from var(--col-primary) calc(l - 60) calc(c * 0.3) h);
+	--col-on-secondary: lch(from var(--col-secondary) calc(l - 60) calc(c * 0.3) h);
+	--col-on-accent: lch(from var(--col-accent) calc(l - 60) calc(c * 0.3) h);
 	--col-on-error: lch(from var(--color-error) calc(l - 60) c h);
 	--col-on-warning: lch(from var(--color-warning) calc(l - 60) c h);
 	--col-on-success: lch(from var(--color-success) calc(l - 60) c h);
+
+	--col-em-primary: lch(from var(--col-primary) calc(l - 65) calc(c * 0.3) h);
+	--col-em-secondary: lch(from var(--col-secondary) calc(l - 65) calc(c * 0.3) h);
+	--col-em-accent: lch(from var(--col-accent) calc(l - 65) calc(c * 0.3) h);
+	--col-em-error: lch(from var(--color-error) calc(l - 65) c h);
+	--col-em-warning: lch(from var(--color-warning) calc(l - 65) c h);
+	--col-em-success: lch(from var(--color-success) calc(l - 65) c h);
 
 	--col-surface: lch(from var(--color-neutral) 1 calc(c * 0.2) h);
 	--col-container-low: lch(from var(--color-neutral) 6 calc(c * 0.3) h);
@@ -141,6 +169,17 @@ body.dark {
 	--col-on-container-error: lch(from var(--color-error) 70 c h);
 	--col-on-container-warning: lch(from var(--color-warning) 70 c h);
 	--col-on-container-success: lch(from var(--color-success) 70 c h);
+
+	--col-em-surface: lch(from var(--color-neutral) 71 c h);
+	--col-em-container-low: lch(from var(--color-neutral) 75 c h);
+	--col-em-container: lch(from var(--color-neutral) 80 c h);
+	--col-em-container-high: lch(from var(--color-neutral) 85 c h);
+	--col-em-container-primary: lch(from var(--color-primary) 80 c h);
+	--col-em-container-secondary: lch(from var(--color-secondary) 80 c h);
+	--col-em-container-accent: lch(from var(--color-accent) 80 c h);
+	--col-em-container-error: lch(from var(--color-error) 80 c h);
+	--col-em-container-warning: lch(from var(--color-warning) 80 c h);
+	--col-em-container-success: lch(from var(--color-success) 80 c h);
 }
 
 /* vim: ts=4
