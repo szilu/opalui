@@ -15,9 +15,9 @@
 	/*
 	--col-bg: lch(from var(--col-surface) l c h / var(--op-panel));
 	*/
-	--col-bg: var(--col-surface);
-	--col-on: var(--col-on-surface);
-	--col-em: var(--col-em-surface);
+	--col-bg: var(--col-container-low);
+	--col-on: var(--col-on-container-low);
+	--col-em: var(--col-em-surface-low);
 
 	&.primary {
 		/*

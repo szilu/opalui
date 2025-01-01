@@ -21,16 +21,29 @@
 }
 
 /* c-group */
+/*
 .c-group {
 	display: flex;
+	align-self: start;
 	align-items: center;
+	flex: 1 0 0;
 	gap: var(--gap);
 
-	/*
-	*:not(:first-child) {
-		margin-left: 0.25rem;
+	& > * {
+		flex: 1 0 0;
 	}
-	*/
+}
+
+.c-group > * {
+	flex: 1 1 0;
+	width: 0;
+}
+*/
+.c-group {
+	align-self: start;
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	gap: var(--gap);
 }
 
 

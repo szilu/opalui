@@ -1,6 +1,7 @@
 .c-button {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	border-radius: var(--border-radius-sm);
 	border: 0px;
 	/*
@@ -8,12 +9,13 @@
 	*/
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	height: 2.5rem;
-	padding: 0 0.5rem;
+	padding: 0 1rem;
 	cursor: pointer;
 	user-select: none;
 	transition: color, background 0.3s;
 	background-color: lch(from var(--col-secondary) l c h / var(--op-button));
 	color: var(--col-on-secondary);
+	white-space: nowrap;
 
 	&.link {
 		background: none;

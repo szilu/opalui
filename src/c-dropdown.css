@@ -12,8 +12,8 @@
 	left: 0;
 	white-space: nowrap;
 	z-index: 100;
-	background: var(--col-bg-v);
-	box-shadow: inset 0px 0px 1rem var(--col-bg-emph);
+	background: var(--col-container-high);
+	box-shadow: inset 0px 0px 1rem var(--col-shadow);
 }
 
 .c-dropdown.up > :last-child {

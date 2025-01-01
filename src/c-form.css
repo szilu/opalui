@@ -47,6 +47,7 @@ textarea.c-input.resize {
 
 .c-input-group {
 	display: flex;
+	align-items: stretch;
 
 	> .c-input {
 		border: none;
@@ -65,11 +66,12 @@ textarea.c-input.resize {
 
 .c-input-group > *, .c-input-group > details.c-dropdown > summary > input {
 	border-width: var(--border-w-sm);
+	/*
 	background: transparent;
+	*/
+	/*
 	padding-top: 0;
 	padding-bottom: 0;
-	/*
-	padding: 0;
 	*/
 	box-shadow: none;
 	/*

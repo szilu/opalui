@@ -48,6 +48,7 @@ body {
 	--col-warning: lch(from var(--color-warning) 35 c h);
 	--col-success: lch(from var(--color-success) 35 c h);
 
+	--col-shadow: #000;
 	--col-frost: var(--color-frost);
 	--col-focus: var(--color-focus);
 

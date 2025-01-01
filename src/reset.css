@@ -25,6 +25,14 @@ button {
 	padding: 0;
 }
 
+ul {
+	margin: 0;
+}
+
+hr {
+	border: 1px solid var(--col-on);
+}
+
 *::-webkit-scrollbar {
 	width: 0.25rem;
 	background: var(--col-primary);

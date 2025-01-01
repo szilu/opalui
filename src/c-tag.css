@@ -2,32 +2,39 @@
 	display: flex;
 	align-items: center;
 	border-radius: var(--border-radius-lg);
-	background: var(--col-container-secondary);
 	border: var(--border-w-sm) solid var(--col-secondary-v);
-	color: var(--col-on-container-secondary);
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	font-size: 0.75rem;
 	padding: 0.125rem 0.25rem;
 	user-select: none;
+	background-color: lch(from var(--col-secondary) l c h / var(--op-button));
+	color: var(--col-on-secondary);
 	transition: color, background 0.3s;
 
 	&.primary {
-		background: var(--col-container-primary);
-		color: var(--col-on-container-primary);
+		background-color: var(--col-primary);
+		color: var(--col-on-primary);
 	}
 	&.secondary {
-		background: var(--col-container-secondary);
-		color: var(--col-on-container-secondary);
+		background-color: var(--col-secondary);
+		color: var(--col-on-secondary);
+	}
+	&.accent {
+		background-color: var(--col-accent);
+		color: var(--col-on-accent);
 	}
 
-	&.bg-success {
-		border-color: var(--col-bg-success-v);
+	&.error {
+		background-color: var(--col-error);
+		color: var(--col-on-error);
 	}
-	&.bg-warning {
-		border-color: var(--col-bg-warning-v);
+	&.warning {
+		background-color: var(--col-warning);
+		color: var(--col-on-warning);
 	}
-	&.bg-error {
-		border-color: var(--col-bg-error-v);
+	&.success {
+		background-color: var(--col-success);
+		color: var(--col-on-success);
 	}
 }
 
@@ -39,6 +46,13 @@
 .c-tag.large {
 	font-size: 1.5rem;
 	padding: 0.5rem 1.5rem;
+}
+
+.c-tag-list {
+	display: flex;
+	--gap: 0.25rem;
+	flex-flow: row wrap;
+	gap: var(--gap);
 }
 
 /* vim: ts=4
