@@ -49,8 +49,17 @@ textarea.c-input.resize {
 	display: flex;
 	align-items: stretch;
 
+	> * {
+		margin: auto;
+	}
+
 	> .c-input {
 		border: none;
+	}
+
+	> .c-dropdown > * > .c-input {
+		border: none;
+		background: none;
 	}
 }
 
@@ -64,7 +73,7 @@ textarea.c-input.resize {
 	box-shadow: none;
 }
 
-.c-input-group > *, .c-input-group > details.c-dropdown > summary > input {
+.c-input-group > *, .c-input-group > .c-dropdown > * > input {
 	border-width: var(--border-w-sm);
 	/*
 	background: transparent;

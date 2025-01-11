@@ -29,6 +29,11 @@ ul {
 	margin: 0;
 }
 
+a, a:link, a:visited {
+	text-decoration: none;
+	color: var(--col-on);
+}
+
 hr {
 	border: 1px solid var(--col-on);
 }

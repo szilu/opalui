@@ -7,7 +7,7 @@
 	display: flex;
 }
 
-.c-dropdown > :last-child {
+details.c-dropdown > :last-child {
 	position: absolute;
 	left: 0;
 	white-space: nowrap;
