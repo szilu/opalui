@@ -4,11 +4,11 @@ body.theme-glass {
 	--border-w-lg: calc(2rem / 16);
 	--border-radius-lg: 0.5rem;
 	--border-w-sm: calc(1rem / 16);
-	--border-radius-sm: 0.25rem;
+	--border-radius-sm: 1.25rem;
 	--blur-radius: 1rem;
-	--p-nav: 0.5em;
-	--p-nav-item-y: 0.15em;
-	--p-nav-item-x: 0.5em;
+	--p-nav: 0.5rem 1rem;
+	--p-nav-item-y: 0.5em;
+	--p-nav-item-x: 0.5rem;
 	--p-panel: 1rem;
 	--sh-focus: 0.25rem;
 	--m-container: 0.5rem;

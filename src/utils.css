@@ -43,6 +43,7 @@
 .overflow-y-auto { overflow-y: auto !important; }
 .scroll-smooth { scroll-behavior: smooth !important; }
 
+.cursor-default { cursor: default !important; }
 .cursor-pointer { cursor: pointer !important; }
 .cursor-text { cursor: text !important; }
 
@@ -136,6 +137,9 @@
 .pb-4 { padding-bottom: 2rem !important; }
 .pb-5 { padding-bottom: 4rem !important; }
 
+.border-on { border-color: var(--col-on) !important; }
+.border-em { border-color: var(--col-em) !important; }
+.border-dashed { border-style: dashed !important; }
 .border-radius-0 { border-radius: 0 !important; }
 .border-radius-sm { border-radius: var(--border-radius-sm) !important; }
 .border-radius-lg { border-radius: var(--border-radius-lg) !important; }
@@ -145,6 +149,13 @@
 .border-2 { border: 1rem; }
 .border-3 { border: 2rem; }
 .border-4 { border: 4rem; }
+.border-end-0 { border-right: 0 !important; }
+.border-end-1 { border-right: 1px !important; }
+.border-end-2 { border-right: 2px !important; }
+.border-start-0 { border-left: 0 !important; }
+.border-start-1 { border-left: 1px !important; }
+.border-start-2 { border-left: 2px !important; }
+
 
 .text-emph { color: var(--col-txt-emph) !important; }
 .text-disabled { color: var(--col-txt-dis) !important; }
@@ -152,6 +163,7 @@
 .text-secondary { color: var(--col-secondary) !important; }
 .text-accent { color: var(--col-accent) !important; }
 .text-success { color: var(--col-success) !important; }
+.text-em-success { color: var(--col-em-success) !important; }
 .text-warning { color: var(--col-warning) !important; }
 .text-error { color: var(--col-error) !important; }
 .bg-primary { background-color: var(--col-container-primary) !important; }

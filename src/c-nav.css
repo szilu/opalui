@@ -1,9 +1,13 @@
 .c-nav {
 	display: flex;
 	align-items: center;
+	/*
+	--gap: 1rem;
+	gap: var(--gap);
+	*/
 	position: relative;
-	background: var(--col-container-high);
-	color: var(--col-on-container-high);
+	background: var(--col-bg);
+	color: var(--col-on);
 	backdrop-filter: blur(var(--blur-radius));
 	border-radius: var(--border-radius-lg);
 	z-index: 9;
@@ -13,8 +17,27 @@
 	--col-on: var(--col-on-container-high);
 	--col-em: var(--col-em-container-high);
 
+	&.emph {
+		box-shadow: inset 0px 0px 2rem var(--col-frost);
+	}
 	a {
 		text-decoration: none;
+	}
+
+	&.low {
+		--col-on: var(--col-on-container-low);
+		--col-em: var(--col-em-container-low);
+		--col-bg: var(--col-container-low);
+	}
+	&.mid {
+		--col-on: var(--col-on-container);
+		--col-em: var(--col-em-container);
+		--col-bg: var(--col-container);
+	}
+	&.high {
+		--col-on: var(--col-on-container-high);
+		--col-em: var(--col-em-container-high);
+		--col-bg: var(--col-container-high);
 	}
 }
 
@@ -25,10 +48,27 @@
 	& li { display: flex; }
 }
 
+.c-nav.vertical, c-nav-group.vertical {
+	flex-direction: column;
+	align-items: stretch;
+}
+
+ul.c-nav {
+	li {
+		list-style: none;
+		hr {
+			margin: 0;
+		}
+	}
+}
+
 .c-nav-item, .c-nav-link {
 	display: flex;
 	align-items: center;
+	--gap: .5rem;
+	/*
 	border-radius: var(--border-radius-sm);
+	*/
 	/* margin: 0.125rem; */
 	cursor: pointer;
 	user-select: none;
@@ -41,16 +81,15 @@
 	gap: var(--gap);
 }
 
-.c-nav.vertical, c-nav-group.vertical {
-	flex-direction: column;
-	align-items: stretch;
+.c-nav > .c-nav-item, .c-nav-group > .c-nav-item,
+.c-nav > li > .c-nav-item, .c-nav-group > li > .c-nav-item {
+	padding: 0 var(--p-nav-item-x);
 }
 
-.c-nav.flex-column > .c-nav-item, .c-nav-group.flex-column > .c-nav-item {
+.c-nav.vertical > .c-nav-item, .c-nav-group.vertical > .c-nav-item,
+.c-nav.vertical > li > .c-nav-item, .c-nav-group.vertical > li > .c-nav-item {
 	padding: var(--p-nav-item-y) 0;
-}
-.c-nav > .c-nav-item, .c-nav-group > .c-nav-item {
-	padding: 0 var(--p-nav-item-x);
+	width: 100%;
 }
 
 .c-nav-item.active, .c-nav-link.active {

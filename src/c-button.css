@@ -1,21 +1,30 @@
 .c-button {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	border-radius: var(--border-radius-sm);
-	border: 0px;
+	justify-content: center;
+	gap: var(--gap);
 	/*
-	border: var(--border-w-sm) solid var(--col-secondary-v);
+	border-radius: var(--border-radius-sm);
 	*/
+	border-radius: 1.25rem;
+	border: 0px;
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	height: 2.5rem;
 	padding: 0 1rem;
 	cursor: pointer;
 	user-select: none;
+	--col-bg: var(--col-secondary);
+	--col-on: var(--col-on-secondary);
+	--col-em: var(--col-em-secondary);
+	background-color: lch(from var(--col-bg) l c h / var(--op-button));
+	color: var(--col-on);
 	transition: color, background 0.3s;
-	background-color: lch(from var(--col-secondary) l c h / var(--op-button));
-	color: var(--col-on-secondary);
 	white-space: nowrap;
+
+	&.clicked {
+		background-color: lch(from var(--col-on) l c h);
+		color: var(--col-bg);
+	}
 
 	&.link {
 		background: none;
@@ -65,16 +74,19 @@
 	}
 
 	&.primary {
-		background-color: var(--col-primary);
-		color: var(--col-on-primary);
+		--col-bg: var(--col-primary);
+		--col-on: var(--col-on-primary);
+		--col-em: var(--col-em-primary);
 	}
 	&.secondary {
-		background-color: var(--col-secondary);
-		color: var(--col-on-secondary);
+		--col-bg: var(--col-secondary);
+		--col-on: var(--col-on-secondary);
+		--col-em: var(--col-em-secondary);
 	}
 	&.accent {
-		background-color: var(--col-accent);
-		color: var(--col-on-accent);
+		--col-bg: var(--col-accent);
+		--col-on: var(--col-on-accent);
+		--col-em: var(--col-em-accent);
 	}
 
 	&.error {
@@ -98,15 +110,21 @@
 		right: 1rem;
 		*/
 	}
+
+	.separator {
+		align-self: stretch;
+		margin: 0.25rem 0.5rem;
+		border-right: 1px dashed var(--col-on);
+		cursor: default;
+	}
 }
 
 .c-link {
 	display: flex;
 	align-items: center;
 	border: none;
-	border-radius: var(--border-radius-sm);
 	background: none;
-	color: var(--col-secondary);
+	color: var(--col-em);
 	cursor: pointer;
 	user-select: none;
 

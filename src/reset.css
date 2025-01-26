@@ -38,6 +38,10 @@ hr {
 	border: 1px solid var(--col-on);
 }
 
+details summary::marker {
+	content: none;
+}
+
 *::-webkit-scrollbar {
 	width: 0.25rem;
 	background: var(--col-primary);
