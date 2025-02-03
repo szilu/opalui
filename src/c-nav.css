@@ -79,6 +79,11 @@ ul.c-nav {
 	color: var(--col-on);
 	padding: 0;
 	gap: var(--gap);
+
+	&[disabled] {
+		opacity: var(--op-disabled);
+		cursor: not-allowed;
+	}
 }
 
 .c-nav > .c-nav-item, .c-nav-group > .c-nav-item,

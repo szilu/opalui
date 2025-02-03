@@ -149,16 +149,16 @@ body.dark {
 	--col-em-warning: lch(from var(--color-warning) calc(l - 65) c h);
 	--col-em-success: lch(from var(--color-success) calc(l - 65) c h);
 
-	--col-surface: lch(from var(--color-neutral) 1 calc(c * 0.2) h);
-	--col-container-low: lch(from var(--color-neutral) 6 calc(c * 0.3) h);
-	--col-container: lch(from var(--color-neutral) 10 calc(c * 0.5) h);
-	--col-container-high: lch(from var(--color-neutral) 16 calc(c * 0.6) h);
-	--col-container-primary: lch(from var(--color-primary) 10 calc(c * 0.5) h);
-	--col-container-secondary: lch(from var(--color-secondary) 10 calc(c * 0.5) h);
-	--col-container-accent: lch(from var(--color-accent) 10 calc(c * 0.5) h);
-	--col-container-error: lch(from var(--color-error) 10 calc(c * 0.5) h);
-	--col-container-warning: lch(from var(--color-warning) 10 calc(c * 0.5) h);
-	--col-container-success: lch(from var(--color-success) 10 calc(c * 0.5) h);
+	--col-surface: lch(from var(--color-neutral) 4 calc(c * 0.2) h);
+	--col-container-low: lch(from var(--color-neutral) 11 calc(c * 0.3) h);
+	--col-container: lch(from var(--color-neutral) 17 calc(c * 0.5) h);
+	--col-container-high: lch(from var(--color-neutral) 23 calc(c * 0.6) h);
+	--col-container-primary: lch(from var(--color-primary) 17 calc(c * 0.5) h);
+	--col-container-secondary: lch(from var(--color-secondary) 17 calc(c * 0.5) h);
+	--col-container-accent: lch(from var(--color-accent) 17 calc(c * 0.5) h);
+	--col-container-error: lch(from var(--color-error) 17 calc(c * 0.5) h);
+	--col-container-warning: lch(from var(--color-warning) 17 calc(c * 0.5) h);
+	--col-container-success: lch(from var(--color-success) 17 calc(c * 0.5) h);
 
 	--col-on-surface: lch(from var(--color-neutral) 61 c h);
 	--col-on-container-low: lch(from var(--color-neutral) 65 c h);

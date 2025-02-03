@@ -43,7 +43,11 @@
 	}
 
 	&.float {
-		border-radius: 2rem;
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		border-radius: 3rem;
+		height: auto;
 		padding: 1rem;
 		z-index: 10;
 	}
@@ -102,15 +106,6 @@
 		color: var(--col-on-success);
 	}
 
-	&.float {
-		border-radius: 50%;
-		/*
-		position: fixed;
-		bottom: 1rem;
-		right: 1rem;
-		*/
-	}
-
 	.separator {
 		align-self: stretch;
 		margin: 0.25rem 0.5rem;
@@ -125,6 +120,7 @@
 	border: none;
 	background: none;
 	color: var(--col-em);
+	transition: color 0.3s;
 	cursor: pointer;
 	user-select: none;
 
@@ -148,9 +144,18 @@
 		color: var(--col-success);
 	}
 
+	&[disabled] {
+		opacity: var(--op-disabled);
+		cursor: not-allowed;
+	}
+
 	&:focus-visible {
 		outline: none;
 		box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px var(--sh-focus) var(--col-focus);
+	}
+
+	&.clicked {
+		color: var(--col-focus);
 	}
 }
 

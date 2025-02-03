@@ -34,6 +34,12 @@ a, a:link, a:visited {
 	color: var(--col-on);
 }
 
+a[disabled] {
+	pointer-events: none;
+	opacity: var(--op-disabled);
+	cursor: not-allowed;
+}
+
 hr {
 	border: 1px solid var(--col-on);
 }

@@ -20,5 +20,9 @@
 	width: auto;
 }
 
+.c-dialog {
+	border: 0;
+}
+
 /* vim: ts=4
  */
