@@ -9,10 +9,16 @@
 	align-items: center;
 	justify-content: center;
 	white-space: nowrap;
+	position: absolute;
 	transform: translate(-50%, -50%) !important;
 	/*
 	padding: 0.25rem;
 	*/
+
+	&.tl { top: 0; left: 0; }
+	&.tr { top: 0; left: 100%; }
+	&.bl { top: 100%; left: 0; }
+	&.br { top: 100%; left: 100%; }
 }
 
 /* vim: ts=4
