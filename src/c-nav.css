@@ -88,12 +88,12 @@ ul.c-nav {
 
 .c-nav > .c-nav-item, .c-nav-group > .c-nav-item,
 .c-nav > li > .c-nav-item, .c-nav-group > li > .c-nav-item {
-	padding: 0 var(--p-nav-item-x);
+	margin: 0 var(--p-nav-item-x);
 }
 
 .c-nav.vertical > .c-nav-item, .c-nav-group.vertical > .c-nav-item,
 .c-nav.vertical > li > .c-nav-item, .c-nav-group.vertical > li > .c-nav-item {
-	padding: var(--p-nav-item-y) 0;
+	margin: var(--p-nav-item-y) 0;
 	width: 100%;
 }
 

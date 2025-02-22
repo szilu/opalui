@@ -65,16 +65,8 @@
 		box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px 1rem var(--col-focus);
 	}
 	&.active {
-		background: var(--col-secondary-container);
-		color: var(--col-on-secondary-container);
-	}
-	&.primary.active {
-		background: var(--col-primary-container);
-		color: var(--col-on-primary-container);
-	}
-	&.accent.active {
-		background: var(--col-accent-container);
-		color: var(--col-on-accent-container);
+		background: var(--col-container-secondary);
+		color: var(--col-on-container-secondary);
 	}
 
 	&.primary {
@@ -82,28 +74,83 @@
 		--col-on: var(--col-on-primary);
 		--col-em: var(--col-em-primary);
 	}
+	&.primary.active {
+		background: var(--col-container-primary);
+		color: var(--col-on-container-primary);
+	}
+	&.container-primary {
+		--col-bg: var(--col-container-primary);
+		--col-on: var(--col-on-container-primary);
+		--col-em: var(--col-em-container-primary);
+	}
+	&.container-primary.active {
+		background: var(--col-primary);
+		color: var(--col-on-primary);
+	}
+
 	&.secondary {
 		--col-bg: var(--col-secondary);
 		--col-on: var(--col-on-secondary);
 		--col-em: var(--col-em-secondary);
 	}
+	&.secondary.active {
+		background: var(--col-container-secondary);
+		color: var(--col-on-container-secondary);
+	}
+	&.container-secondary {
+		--col-bg: var(--col-container-secondary);
+		--col-on: var(--col-on-container-secondary);
+		--col-em: var(--col-em-container-secondary);
+	}
+	&.container-secondary.active {
+		background: var(--col-secondary);
+		color: var(--col-on-secondary);
+	}
+
 	&.accent {
 		--col-bg: var(--col-accent);
 		--col-on: var(--col-on-accent);
 		--col-em: var(--col-em-accent);
+	}
+	&.accent.active {
+		background: var(--col-container-accent);
+		color: var(--col-on-container-accent);
+	}
+	&.container-accent {
+		--col-bg: var(--col-container-accent);
+		--col-on: var(--col-on-container-accent);
+		--col-em: var(--col-em-container-accent);
+	}
+	&.container-accent.active {
+		background: var(--col-accent);
+		color: var(--col-on-accent);
 	}
 
 	&.error {
 		background-color: var(--col-error);
 		color: var(--col-on-error);
 	}
+	&.container-error {
+		background-color: var(--col-container-error);
+		color: var(--col-on-container-error);
+	}
+
 	&.warning {
 		background-color: var(--col-warning);
 		color: var(--col-on-warning);
 	}
+	&.container-warning {
+		background-color: var(--col-container-warning);
+		color: var(--col-on-container-warning);
+	}
+
 	&.success {
 		background-color: var(--col-success);
 		color: var(--col-on-success);
+	}
+	&.container-success {
+		background-color: var(--col-container-success);
+		color: var(--col-on-container-success);
 	}
 
 	.separator {
@@ -123,6 +170,8 @@
 	transition: color 0.3s;
 	cursor: pointer;
 	user-select: none;
+	text-decoration: dotted;
+	text-decoration-line: underline;
 
 	&.primary {
 		color: var(--col-primary);

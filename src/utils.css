@@ -165,7 +165,7 @@
 .border-start-2 { border-left: 2px !important; }
 
 
-.text-emph { color: var(--col-txt-emph) !important; }
+.text-emph { color: var(--col-em) !important; }
 .text-disabled { color: var(--col-txt-dis) !important; }
 .text-primary { color: var(--col-primary) !important; }
 .text-secondary { color: var(--col-secondary) !important; }

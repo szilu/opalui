@@ -18,6 +18,7 @@
 .c-modal > .c-dialog {
 	position: relative;
 	width: auto;
+	max-width: 60rem;
 }
 
 .c-dialog {

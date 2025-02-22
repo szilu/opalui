@@ -110,6 +110,9 @@
 	.c-dialog {
 		width: 100%;
 	}
+
+	.sm-hide { display: none !important; }
+	.md-hide { display: none !important; }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
@@ -136,6 +139,8 @@
 			transform: translateX(100%);
 		}
 	}
+
+	.md-hide { display: none !important; }
 }
 
 @media screen and (min-width: 1200px) {
