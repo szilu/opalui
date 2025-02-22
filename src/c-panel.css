@@ -17,7 +17,7 @@
 	*/
 	--col-bg: var(--col-container-low);
 	--col-on: var(--col-on-container-low);
-	--col-em: var(--col-em-surface-low);
+	--col-em: var(--col-em-container-low);
 
 	&.emph {
 		box-shadow: inset 0px 0px 2rem var(--col-frost);
