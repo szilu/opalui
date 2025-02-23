@@ -82,7 +82,7 @@
 }
 
 @media screen and (max-width: 767px) {
-	.c-container > .row .sm-hide {
+	.c-container > .row .sm-hide-dyn {
 		transition: transform .2s ease-in-out;
 		position: absolute;
 		left: 0;
@@ -115,7 +115,7 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1200px) {
-	.c-container > .row .md-hide {
+	.c-container > .row .md-hide-dyn {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -143,7 +143,7 @@
 }
 
 @media screen and (min-width: 1200px) {
-	.c-container > .row .lg-hide {
+	.c-container > .row .lg-hide-dyn {
 		transition: transform .2s ease-in-out;
 		position: absolute;
 		left: 0;
