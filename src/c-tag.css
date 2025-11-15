@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	border-radius: var(--border-radius-lg);
-	border: var(--border-w-sm) solid var(--col-secondary-v);
+	border: var(--border-w-sm) solid var(--col-secondary);
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	font-size: 0.75rem;
 	padding: 0.125rem 0.25rem;

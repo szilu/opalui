@@ -16,8 +16,8 @@
 	transition: color, background 0.3s;
 }
 .c-tab.active {
-	color: var(--col-txt-emph);
-	border-color: var(--col-txt-emph);
+	color: var(--col-em);
+	border-color: var(--col-em);
 }
 
 .c-tab.primary {

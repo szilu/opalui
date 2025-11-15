@@ -14,8 +14,8 @@
 .c-input, .c-select, .c-input-group {
 	border-radius: var(--border-radius-sm);
 	border: var(--border-w-sm) solid var(--col-secondary);
-	background: var(--col-bg-emph);
-	color: var(--col-text);
+	background: var(--col-container);
+	color: var(--col-on-container);
 	min-height: 2.5rem;
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	width: 100%;
@@ -24,8 +24,8 @@
 	padding: 0.5rem 0.5rem;
 }
 .c-select > option {
-	color: var(--col-text);
-	background: var(--col-bg-base);
+	color: var(--col-on-surface);
+	background: var(--col-surface);
 }
 
 .c-input:focus-visible, .c-select:focus-visible {

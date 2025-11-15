@@ -2,7 +2,7 @@ const { version } = require("./package.json");
 
 let plugins = [
 	require("postcss-banner")({
-		banner: `cl-ds.css v${version} | MIT License | https://github.com/szilu/cloudillo-ds`,
+		banner: `OpalUI v${version} | MIT License | https://github.com/szilu/opalui`,
 		important: true,
 	}),
 	require("postcss-import")({
@@ -16,14 +16,8 @@ let plugins = [
 if (process.env.NODE_ENV == "production")
 	plugins.push(
 		require("cssnano")({
-			preset: [require('cssnano-preset-default'), { calc: false }]
+			preset: ['default', { calc: false }]
 		})
-		/*
-		require("cssnano")({
-			preset: "default",
-			calc: false
-		})
-		*/
 	);
 
 module.exports = {

@@ -7,6 +7,8 @@ body.theme-opaque {
 	--border-radius-sm: 0.25rem;
 	--blur-radius: 0;
 	--p-nav: 0.5rem;
+	--p-nav-item-y: 0.5rem;
+	--p-nav-item-x: 0.5rem;
 	--p-panel: 1rem;
 	--m-container: 0.5rem;
 	--m-button-y: 0.5rem;
@@ -15,7 +17,7 @@ body.theme-opaque {
 	--g-grid: 1rem;
 
 	font-family: 'Roboto', sans-serif;
-	color: var(--col-txt);
+	color: var(--col-on);
 	background-color: var(--col-container-low);
 	/*
 	background: url(bg.jpg);
