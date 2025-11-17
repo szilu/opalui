@@ -5,21 +5,36 @@
 
 .c-dropdown > summary {
 	display: flex;
+	cursor: pointer;
+	list-style: none;
 }
 
-details.c-dropdown > :last-child {
+.c-dropdown > summary::-webkit-details-marker {
+	display: none;
+}
+
+details.c-dropdown:not([open]) > :last-child {
+	display: none;
+}
+
+details.c-dropdown[open] > :last-child {
+	display: block;
 	position: absolute;
 	left: 0;
 	white-space: nowrap;
 	z-index: 100;
 	background: var(--col-container-high);
 	box-shadow: inset 0px 0px 1rem var(--col-shadow);
+	margin-top: 0.5rem;
 }
 
-.c-dropdown.up > :last-child {
-	bottom: 2rem;
+.c-dropdown.up[open] > :last-child {
+	bottom: 100%;
+	margin-top: 0;
+	margin-bottom: 0.5rem;
 }
-.c-dropdown.right > :last-child {
+
+.c-dropdown.right[open] > :last-child {
 	left: auto;
 	right: 0;
 }

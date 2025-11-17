@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<title>OpalUI Design System</title>
 		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0">
-		<link rel="stylesheet" href="themes/glass.css">
+		<link rel="stylesheet" href="themes/glass.css" id="theme-link">
 		<link rel="stylesheet" href="dist/opalui.css">
 		<!--
 		<script src="https://unpkg.com/feather-icons"></script>
@@ -15,7 +15,7 @@
 	<!--
 	<body style="background: url(fa.jpg);">
 	-->
-	<body>
+	<body class="theme-glass">
 		<main class="c-container g-2">
 			<div class="row">
 				<div class="c-panel col">
@@ -161,16 +161,74 @@
 					</form>
 				</div>
 			</div>
+
+			<div class="row mt-2">
+				<div class="c-panel col col-lg-4">
+					<h3>Avatars</h3>
+					<div class="c-hbox wrap align-items-center g-2">
+						<div class="c-avatar xs">AB</div>
+						<div class="c-avatar sm">CD</div>
+						<div class="c-avatar md">EF</div>
+						<div class="c-avatar lg">GH</div>
+						<div class="c-avatar xl">IJ</div>
+					</div>
+					<div class="c-hbox wrap align-items-center g-2 mt-2">
+						<div class="c-avatar md">
+							<span>KL</span>
+							<span class="c-avatar-status online"></span>
+						</div>
+						<div class="c-avatar md">
+							<span>MN</span>
+							<span class="c-avatar-status offline"></span>
+						</div>
+						<div class="c-avatar md ring">
+							<span>OP</span>
+							<span class="c-avatar-badge">3</span>
+						</div>
+					</div>
+					<div class="c-hbox wrap align-items-center g-2 mt-2">
+						<div class="c-avatar md square">SQ</div>
+						<div class="c-avatar md rounded">RD</div>
+					</div>
+					<div class="c-hbox wrap align-items-center g-2 mt-2">
+						<div class="c-avatar-group">
+							<div class="c-avatar sm">U1</div>
+							<div class="c-avatar sm">U2</div>
+							<div class="c-avatar sm">U3</div>
+							<div class="c-avatar sm">U4</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="c-panel col col-lg-8">
+					<h3>Toast Notifications</h3>
+					<p>Click buttons to show toast notifications:</p>
+					<div class="c-hbox wrap g-1">
+						<button class="c-button" onclick="showToast('success')">Success Toast</button>
+						<button class="c-button" onclick="showToast('error')">Error Toast</button>
+						<button class="c-button" onclick="showToast('warning')">Warning Toast</button>
+						<button class="c-button" onclick="showToast('info')">Info Toast</button>
+					</div>
+				</div>
+			</div>
 		</main>
 		<div class="c-hbox g-1 pos-fixed bottom-0 right-0 m-2">
-			<details id="theme-dropdown" class="c-dropdown up">
-				<summary class="c-button float">Themes</summary>
+			<details id="theme-dropdown" class="c-dropdown up right">
+				<summary class="c-button">🎨 Themes</summary>
 				<ul class="c-panel">
-					<li class="c-nav-item p-1"><button class="c-link" onclick="changeTheme('glass')">Glass</button></li>
-					<li class="c-nav-item p-1"><button class="c-link" onclick="changeTheme('opaque')">Opaque</button></li>
+					<li class="c-nav-item p-1">
+						<button class="c-link" onclick="event.stopPropagation(); changeTheme('glass');" id="theme-glass">
+							<span id="glass-check">✓ </span>Glass
+						</button>
+					</li>
+					<li class="c-nav-item p-1">
+						<button class="c-link" onclick="event.stopPropagation(); changeTheme('opaque');" id="theme-opaque">
+							<span id="opaque-check" style="opacity: 0">✓ </span>Opaque
+						</button>
+					</li>
 				</ul>
 			</details>
-			<button class="c-button float" type="button" onClick="toggleDark()">Day/night</button>
+			<button class="c-button" type="button" onClick="toggleDark()">☀️/🌙</button>
 		</div>
 		<div class="c-modal">
 			<div class="c-dialog c-panel">
@@ -180,6 +238,7 @@
 				</div>
 			</div>
 		</div>
+	<div class="c-toast-container top-right" id="toast-container"></div>
 		<script>
 			//feather.replace()
 			lucide.createIcons()
@@ -189,10 +248,22 @@
 				document.body.classList.add('dark');
 			}
 
-			function changeTheme(theme) {
-				const link = document.getElementsByTagName('link')[0]
-				console.log('link', link)
+			window.changeTheme = function(theme) {
+				console.log('changeTheme called with:', theme)
+				const link = document.getElementById('theme-link')
+				console.log('Link element:', link)
 				link.href = `themes/${theme}.css`
+
+				// Update body class - remove old theme class and add new one
+				document.body.classList.remove('theme-glass', 'theme-opaque')
+				document.body.classList.add(`theme-${theme}`)
+
+				// Update checkmarks
+				const glassCheck = document.getElementById('glass-check')
+				const opaqueCheck = document.getElementById('opaque-check')
+				if (glassCheck) glassCheck.style.opacity = theme === 'glass' ? '1' : '0'
+				if (opaqueCheck) opaqueCheck.style.opacity = theme === 'opaque' ? '1' : '0'
+
 				document.getElementById('theme-dropdown').open = false
 			}
 
@@ -207,6 +278,50 @@
 			function toggleDetails() {
 				document.getElementById('details-bar').classList.toggle('show')
 			}
+
+		// Toast notifications
+		let toastId = 0
+		const toastMessages = {
+			success: { title: "Success!", message: "Operation completed successfully" },
+			error: { title: "Error!", message: "Something went wrong" },
+			warning: { title: "Warning!", message: "Please review this action" },
+			info: { title: "Info", message: "Here is some information" }
+		}
+
+		function showToast(variant) {
+			const container = document.getElementById("toast-container")
+			const id = "toast-" + (toastId++)
+			const msg = toastMessages[variant]
+
+			const toast = document.createElement("div")
+			toast.id = id
+			toast.className = `c-toast ${variant} with-progress`
+			toast.style.setProperty("--toast-duration", "5s")
+			toast.innerHTML = `
+				<div class="c-toast-icon">
+					${variant === "success" ? "✓" : variant === "error" ? "✗" : variant === "warning" ? "⚠" : "ℹ"}
+				</div>
+				<div class="c-toast-content">
+					<div class="c-toast-title">${msg.title}</div>
+					<div class="c-toast-message">${msg.message}</div>
+				</div>
+				<button class="c-toast-close" onclick="dismissToast('${id}')">&times;</button>
+				<div class="c-toast-progress"></div>
+			`
+
+			container.appendChild(toast)
+
+			// Auto dismiss after 5 seconds
+			setTimeout(() => dismissToast(id), 5000)
+		}
+
+		function dismissToast(id) {
+			const toast = document.getElementById(id)
+			if (toast) {
+				toast.classList.add("dismissing")
+				setTimeout(() => toast.remove(), 300)
+			}
+		}
 		</script>
 	</body>
 	<!-- vim: ts=4
