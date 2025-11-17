@@ -1,0 +1,292 @@
+/* Toast Notification System
+ * Dismissible notifications with variants, positioning, and animations
+ */
+
+/* Toast container - positioned at viewport edges */
+.c-toast-container {
+	position: fixed;
+	z-index: 1000;
+	pointer-events: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding: 1rem;
+	max-width: 24rem;
+
+	/* Position variants */
+	&.top-left {
+		top: 0;
+		left: 0;
+	}
+
+	&.top-center {
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&.top-right {
+		top: 0;
+		right: 0;
+	}
+
+	&.bottom-left {
+		bottom: 0;
+		left: 0;
+	}
+
+	&.bottom-center {
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+
+	&.bottom-right {
+		bottom: 0;
+		right: 0;
+	}
+
+	&.middle-left {
+		top: 50%;
+		left: 0;
+		transform: translateY(-50%);
+	}
+
+	&.middle-right {
+		top: 50%;
+		right: 0;
+		transform: translateY(-50%);
+	}
+
+	&.middle-center {
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+/* Individual toast */
+.c-toast {
+	pointer-events: auto;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	padding: 1rem;
+	border-radius: var(--border-radius-lg);
+	background: var(--col-surface);
+	border: var(--border-w-lg) solid var(--col-outline);
+	box-shadow: 0 4px 12px lch(from var(--col-on) l c h / 0.1), 0 0 0 1px lch(from var(--col-on) l c h / 0.05);
+	backdrop-filter: blur(var(--blur-radius));
+	min-width: 18rem;
+	max-width: 100%;
+	animation: toast-slide-in 0.3s ease-out;
+
+	/* Variant colors */
+	&.success {
+		--toast-color: var(--col-success);
+		border-color: var(--col-success);
+	}
+
+	&.error {
+		--toast-color: var(--col-error);
+		border-color: var(--col-error);
+	}
+
+	&.warning {
+		--toast-color: var(--col-warning);
+		border-color: var(--col-warning);
+	}
+
+	&.info {
+		--toast-color: var(--col-secondary);
+		border-color: var(--col-secondary);
+	}
+}
+
+/* Toast icon */
+.c-toast-icon {
+	flex-shrink: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	color: var(--toast-color, var(--col-on));
+}
+
+/* Toast content */
+.c-toast-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.c-toast-title {
+	font-weight: 600;
+	margin: 0 0 0.25rem 0;
+	color: var(--col-on);
+}
+
+.c-toast-message {
+	margin: 0;
+	color: lch(from var(--col-on) l c h / 0.8);
+	font-size: 0.875rem;
+	line-height: 1.4;
+}
+
+/* Toast actions */
+.c-toast-actions {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+}
+
+/* Close button */
+.c-toast-close {
+	flex-shrink: 0;
+	background: transparent;
+	border: none;
+	color: lch(from var(--col-on) l c h / 0.5);
+	cursor: pointer;
+	padding: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--border-radius-sm);
+	transition: background 0.2s, color 0.2s;
+
+	&:hover {
+		background: lch(from var(--col-on) l c h / 0.1);
+		color: var(--col-on);
+	}
+}
+
+/* Progress bar for auto-dismiss */
+.c-toast-progress {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 3px;
+	background: lch(from var(--col-on) l c h / 0.1);
+	border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		display: block;
+		height: 100%;
+		background: var(--toast-color, var(--col-primary));
+		animation: toast-progress var(--toast-duration, 5s) linear;
+	}
+}
+
+.c-toast.with-progress {
+	padding-bottom: calc(1rem + 3px);
+	position: relative;
+}
+
+/* Animations */
+@keyframes toast-slide-in {
+	from {
+		opacity: 0;
+		transform: translateY(-1rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes toast-slide-out {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+		max-height: 10rem;
+		margin-bottom: 0.5rem;
+	}
+	to {
+		opacity: 0;
+		transform: translateY(-1rem);
+		max-height: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+@keyframes toast-progress {
+	from {
+		width: 100%;
+	}
+	to {
+		width: 0%;
+	}
+}
+
+/* Dismissing animation */
+.c-toast.dismissing {
+	animation: toast-slide-out 0.3s ease-in forwards;
+}
+
+/* Bottom positioned containers slide from bottom */
+.c-toast-container.bottom-left .c-toast,
+.c-toast-container.bottom-center .c-toast,
+.c-toast-container.bottom-right .c-toast {
+	animation: toast-slide-in-bottom 0.3s ease-out;
+}
+
+@keyframes toast-slide-in-bottom {
+	from {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.c-toast-container.bottom-left .c-toast.dismissing,
+.c-toast-container.bottom-center .c-toast.dismissing,
+.c-toast-container.bottom-right .c-toast.dismissing {
+	animation: toast-slide-out-bottom 0.3s ease-in forwards;
+}
+
+@keyframes toast-slide-out-bottom {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+		max-height: 10rem;
+		margin-bottom: 0.5rem;
+	}
+	to {
+		opacity: 0;
+		transform: translateY(1rem);
+		max-height: 0;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+	.c-toast-container {
+		left: 0;
+		right: 0;
+		max-width: 100%;
+		transform: none !important;
+
+		&.top-center,
+		&.bottom-center,
+		&.middle-center {
+			left: 0;
+		}
+	}
+
+	.c-toast {
+		min-width: 0;
+	}
+}
+
+/* vim: ts=4
+ */
