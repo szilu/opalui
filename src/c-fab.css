@@ -1,0 +1,69 @@
+/* Floating Action Button */
+.c-fab {
+	position: fixed;
+	bottom: 5rem; /* Above mobile nav */
+	right: 1.5rem;
+	z-index: 100;
+	width: 3.5rem;
+	height: 3.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: none;
+	text-decoration: none;
+	font-size: 1.5rem;
+	cursor: pointer;
+	user-select: none;
+	box-shadow: 0 4px 12px lch(from var(--col-neutral) l c h / 0.3);
+	transition: transform 0.2s, box-shadow 0.2s;
+
+	--col-bg: var(--col-secondary);
+	--col-on: var(--col-on-secondary);
+	background-color: var(--col-bg);
+	color: var(--col-on);
+
+	&:hover {
+		transform: scale(1.1);
+		box-shadow: 0 6px 16px lch(from var(--col-neutral) l c h / 0.4);
+	}
+
+	&:focus-visible {
+		outline: none;
+		box-shadow:
+			0 4px 12px lch(from var(--col-neutral) l c h / 0.3),
+			0 0 0 3px var(--col-focus);
+	}
+
+	&.primary {
+		--col-bg: var(--col-primary);
+		--col-on: var(--col-on-primary);
+	}
+
+	&.accent {
+		--col-bg: var(--col-accent);
+		--col-on: var(--col-on-accent);
+	}
+
+	&.small {
+		width: 2.5rem;
+		height: 2.5rem;
+		font-size: 1rem;
+	}
+
+	&.large {
+		width: 4.5rem;
+		height: 4.5rem;
+		font-size: 2rem;
+	}
+}
+
+/* Desktop: position lower, no bottom nav */
+@media (min-width: 1024px) {
+	.c-fab {
+		bottom: 2rem;
+	}
+}
+
+/* vim: ts=4
+ */

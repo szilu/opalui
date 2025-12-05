@@ -33,8 +33,8 @@
     "postcss-cli": "^11.0.1",
     "postcss-import": "^16.1.1",
     "postcss-reporter": "^7.1.0",
-    "rimraf": "^6.1.0",
-    "stylelint": "^16.25.0",
+    "rimraf": "^6.1.2",
+    "stylelint": "^16.26.1",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-standard": "^39.0.1"
   }

@@ -41,7 +41,6 @@
 
 	/* Pinned state (desktop: push content mode) */
 	&.pinned {
-		position: relative;
 		transform: translateX(0);
 	}
 }
@@ -178,7 +177,6 @@
 @media (min-width: 1024px) {
 	/* Desktop: prefer pinned mode */
 	.c-sidebar.auto-pin {
-		position: relative;
 		transform: translateX(0);
 	}
 }
