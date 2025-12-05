@@ -1,0 +1,277 @@
+/* ==========================================================================
+   Alert Component - OpalUI
+   Notification banners and alert messages
+   ========================================================================== */
+
+.c-alert {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.75rem;
+	padding: 1rem;
+	border-radius: var(--border-radius-lg, 0.5rem);
+	border: 1px solid var(--col-outline);
+	background-color: var(--col-container-low);
+	color: var(--col-on-container-low);
+}
+
+/* -------------------------------------------------------------------------
+   Alert Sections
+   ------------------------------------------------------------------------- */
+.c-alert-icon {
+	flex-shrink: 0;
+	width: 1.25rem;
+	height: 1.25rem;
+	margin-top: 0.125rem;
+}
+
+.c-alert-icon > svg {
+	width: 100%;
+	height: 100%;
+}
+
+.c-alert-content {
+	flex: 1;
+	min-width: 0;
+}
+
+.c-alert-title {
+	font-weight: 600;
+	margin-bottom: 0.25rem;
+	line-height: 1.4;
+}
+
+.c-alert-message {
+	font-size: 0.875rem;
+	line-height: 1.5;
+	opacity: 0.9;
+}
+
+.c-alert-actions {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+}
+
+.c-alert-close {
+	flex-shrink: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	padding: 0.25rem;
+	margin: -0.25rem -0.25rem -0.25rem 0;
+	background: transparent;
+	border: none;
+	border-radius: var(--border-radius-sm, 0.25rem);
+	color: currentColor;
+	cursor: pointer;
+	opacity: 0.5;
+	transition: opacity 0.15s, background-color 0.15s;
+}
+
+.c-alert-close:hover {
+	opacity: 1;
+	background-color: var(--col-outline);
+}
+
+.c-alert-close:focus-visible {
+	opacity: 1;
+	outline: 2px solid var(--col-focus);
+	outline-offset: 2px;
+}
+
+.c-alert-close > svg {
+	width: 100%;
+	height: 100%;
+}
+
+/* -------------------------------------------------------------------------
+   Severity Variants
+   ------------------------------------------------------------------------- */
+.c-alert.info {
+	background-color: var(--col-container-primary);
+	border-color: var(--col-primary);
+	color: var(--col-on-container-primary);
+}
+
+.c-alert.info .c-alert-icon {
+	color: var(--col-primary);
+}
+
+.c-alert.success {
+	background-color: var(--col-container-success);
+	border-color: var(--col-success);
+	color: var(--col-on-container-success);
+}
+
+.c-alert.success .c-alert-icon {
+	color: var(--col-success);
+}
+
+.c-alert.warning {
+	background-color: var(--col-container-warning);
+	border-color: var(--col-warning);
+	color: var(--col-on-container-warning);
+}
+
+.c-alert.warning .c-alert-icon {
+	color: var(--col-warning);
+}
+
+.c-alert.error {
+	background-color: var(--col-container-error);
+	border-color: var(--col-error);
+	color: var(--col-on-container-error);
+}
+
+.c-alert.error .c-alert-icon {
+	color: var(--col-error);
+}
+
+/* -------------------------------------------------------------------------
+   Filled Variants (Solid background)
+   ------------------------------------------------------------------------- */
+.c-alert.filled.info {
+	background-color: var(--col-primary);
+	border-color: var(--col-primary);
+	color: var(--col-on-primary);
+}
+
+.c-alert.filled.info .c-alert-icon {
+	color: var(--col-on-primary);
+}
+
+.c-alert.filled.success {
+	background-color: var(--col-success);
+	border-color: var(--col-success);
+	color: var(--col-on-success);
+}
+
+.c-alert.filled.success .c-alert-icon {
+	color: var(--col-on-success);
+}
+
+.c-alert.filled.warning {
+	background-color: var(--col-warning);
+	border-color: var(--col-warning);
+	color: var(--col-on-warning);
+}
+
+.c-alert.filled.warning .c-alert-icon {
+	color: var(--col-on-warning);
+}
+
+.c-alert.filled.error {
+	background-color: var(--col-error);
+	border-color: var(--col-error);
+	color: var(--col-on-error);
+}
+
+.c-alert.filled.error .c-alert-icon {
+	color: var(--col-on-error);
+}
+
+/* -------------------------------------------------------------------------
+   Outline Variants
+   ------------------------------------------------------------------------- */
+.c-alert.outline {
+	background-color: transparent;
+}
+
+.c-alert.outline.info {
+	border-color: var(--col-primary);
+	color: var(--col-primary);
+}
+
+.c-alert.outline.success {
+	border-color: var(--col-success);
+	color: var(--col-success);
+}
+
+.c-alert.outline.warning {
+	border-color: var(--col-warning);
+	color: var(--col-warning);
+}
+
+.c-alert.outline.error {
+	border-color: var(--col-error);
+	color: var(--col-error);
+}
+
+/* -------------------------------------------------------------------------
+   Compact Alert
+   ------------------------------------------------------------------------- */
+.c-alert.compact {
+	padding: 0.75rem;
+	gap: 0.5rem;
+}
+
+.c-alert.compact .c-alert-icon {
+	width: 1rem;
+	height: 1rem;
+}
+
+.c-alert.compact .c-alert-title {
+	font-size: 0.875rem;
+	margin-bottom: 0;
+}
+
+.c-alert.compact .c-alert-message {
+	font-size: 0.8125rem;
+}
+
+/* -------------------------------------------------------------------------
+   Inline Alert (single line)
+   ------------------------------------------------------------------------- */
+.c-alert.inline {
+	align-items: center;
+	padding: 0.5rem 0.75rem;
+}
+
+.c-alert.inline .c-alert-content {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+}
+
+.c-alert.inline .c-alert-title {
+	margin-bottom: 0;
+}
+
+.c-alert.inline .c-alert-message {
+	font-size: inherit;
+}
+
+/* -------------------------------------------------------------------------
+   Banner Alert (full width, no border radius)
+   ------------------------------------------------------------------------- */
+.c-alert.banner {
+	border-radius: 0;
+	border-left: none;
+	border-right: none;
+	padding: 0.75rem 1rem;
+}
+
+/* -------------------------------------------------------------------------
+   Dismissible Animation
+   ------------------------------------------------------------------------- */
+.c-alert.dismissing {
+	animation: alert-dismiss 0.2s ease-out forwards;
+}
+
+@keyframes alert-dismiss {
+	to {
+		opacity: 0;
+		transform: translateX(1rem);
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Alert Group
+   ------------------------------------------------------------------------- */
+.c-alert-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* vim: ts=4
+ */

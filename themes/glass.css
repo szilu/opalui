@@ -1,47 +1,80 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=block');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=swap');
 
 body.theme-glass {
+	/* Border sizing */
 	--border-w-lg: calc(2rem / 16);
-	--border-radius-lg: 0.5rem;
 	--border-w-sm: calc(1rem / 16);
-	--border-radius-sm: 1.25rem;
+
+	/* Border radius */
+	--border-radius-lg: 0.5rem;
+	--border-radius-sm: 0.25rem;
+
+	/* Glass effect */
 	--blur-radius: 1rem;
-	--p-nav: 0.5rem 0.5rem;
+
+	/* Spacing */
+	--p-nav: 0.5rem;
 	--p-nav-item-y: 0.5rem;
 	--p-nav-item-x: 0.5rem;
 	--p-panel: 1rem;
-	--sh-focus: 0.25rem;
+	--p-fieldset: 0.5rem 1rem;
 	--m-container: 0.5rem;
 	--m-button-y: 0.5rem;
 	--m-button-r: 0.5rem;
-	--p-fieldset: 0.5rem 1rem;
 	--g-grid: 1rem;
 
+	/* Focus shadow */
+	--sh-focus: 0.25rem;
+
+	/* Opacity - Glass effect */
 	--op-panel: 0.8 !important;
 	--op-button: 0.8 !important;
 
+	/* Typography */
 	font-family: 'Roboto', sans-serif;
 	color: var(--col-on);
-	transition: background 0.3s, color 0.2s;
+	transition: background-color 0.3s, color 0.2s;
 }
 
+/* Light mode - Glass theme */
 body.theme-glass.light {
 	--color-primary: lch(68 50 250);
 	--color-frost: lch(100 0 0 / 0.25);
 	--color-focus: lch(100 0 0);
 
-	background: url(bg.jpg);
+	/* Gradient fallback for missing bg.jpg */
+	background: linear-gradient(135deg,
+		lch(from var(--col-primary-p3) l c h) 0%,
+		lch(from var(--col-accent-p3) l c h) 50%,
+		lch(from var(--col-secondary-p3) l c h) 100%
+	);
+	background-attachment: fixed;
+	min-height: 100vh;
 }
 
+/* Dark mode - Glass theme */
 body.theme-glass.dark {
 	--color-primary: lch(68 50 250);
-	--color-frost: lch(100 0 0 / 0.25);
+	--color-frost: lch(100 0 0 / 0.15);
 	--color-focus: lch(100 0 0);
 
-	background: url(bg-dark.jpg);
+	/* Gradient fallback for missing bg-dark.jpg */
+	background: linear-gradient(135deg,
+		lch(from var(--col-primary-p4) calc(l - 60) c h) 0%,
+		lch(from var(--col-accent-p4) calc(l - 60) c h) 50%,
+		lch(from var(--col-secondary-p4) calc(l - 60) c h) 100%
+	);
+	background-attachment: fixed;
+	min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* Heading typography */
+body.theme-glass h1,
+body.theme-glass h2,
+body.theme-glass h3,
+body.theme-glass h4,
+body.theme-glass h5,
+body.theme-glass h6 {
 	font-family: 'Oswald', sans-serif;
 }
 

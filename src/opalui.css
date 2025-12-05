@@ -1,8 +1,19 @@
+/* ==========================================================================
+   OpalUI - A minimalistic CSS framework with theme support
+   ========================================================================== */
+
+/* Core */
 @import url("normalize.css");
 @import url("reset.css");
-@import url("utils.css");
+@import url("tokens.css");
 @import url("color.css");
+@import url("utils.css");
 @import url("layout.css");
+
+/* Layout Helpers */
+@import url("c-layout-helpers.css");
+
+/* Components */
 @import url("c-avatar.css");
 @import url("c-badge.css");
 @import url("c-box.css");
@@ -18,6 +29,10 @@
 @import url("c-toast.css");
 @import url("c-fab.css");
 
-/*
-@import url("atoms.css");
-*/
+/* New Components */
+@import url("c-progress.css");
+@import url("c-table.css");
+@import url("c-spinner.css");
+@import url("c-alert.css");
+@import url("c-tooltip.css");
+@import url("c-skeleton.css");

@@ -55,7 +55,7 @@
 		& > .col-md-8 { flex: 0 0 calc(800% / 12 - var(--gap)); max-width: calc(800% / 12 - var(--gap)); }
 		& > .col-md-9 { flex: 0 0 calc(900% / 12 - var(--gap)); max-width: calc(900% / 12 - var(--gap)); }
 		& > .col-md-10 { flex: 0 0 calc(1000% / 12 - var(--gap)); max-width: calc(1000% / 12 - var(--gap)); }
-		& > .col-md-11 { flex: 0 0 calc(1100% / 12 - var(--gap)); }
+		& > .col-md-11 { flex: 0 0 calc(1100% / 12 - var(--gap)); max-width: calc(1100% / 12 - var(--gap)); }
 		& > .col-md-12 { flex: 0 0 calc(1200% / 12 - var(--gap)); max-width: calc(1200% / 12 - var(--gap)); }
 	}
 

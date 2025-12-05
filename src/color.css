@@ -1,5 +1,13 @@
+/* ==========================================================================
+   Color System - OpalUI
+   LCH color space with relative color syntax
+   ========================================================================== */
+
 body {
-	/* DEFAULTS */
+	/* -------------------------------------------------------------------------
+	   Base Color Definitions
+	   These are the source colors that generate the entire palette
+	   ------------------------------------------------------------------------- */
 	--color-primary: lch(35 60 250);
 	--color-secondary: lch(from var(--color-primary) l calc(c / 2) h);
 	--color-accent: lch(from var(--color-primary) l c calc(h + 180));
@@ -9,6 +17,9 @@ body {
 	--color-warning: lch(35 50 80);
 	--color-success: lch(35 50 155);
 
+	/* -------------------------------------------------------------------------
+	   Opacity Tokens
+	   ------------------------------------------------------------------------- */
 	--op-panel: 1;
 	--op-button: 1;
 	--op-disabled: 0.5;
@@ -17,9 +28,21 @@ body {
 		minimum for large text: 3:1	(2 levels)
 		minimum: 4.5:1				(3 levels)
 		enhanced: 7:1				(4 levels)
-   */
+	*/
 
-	/* OVERRIDABLE DEFAULTS */
+	/* -------------------------------------------------------------------------
+	   Core UI Colors (always defined, theme-independent)
+	   ------------------------------------------------------------------------- */
+	--col-shadow: lch(0 0 0 / 0.15);
+	--col-frost: lch(100 0 0 / 0.15);
+	--col-focus: var(--col-primary);
+	--col-outline: lch(from var(--color-neutral) l c h / 0.3);
+	--sh-focus: 0.25rem;
+
+	/* -------------------------------------------------------------------------
+	   Primary Color Scale
+	   m2, m1 = darker variants; p1-p4 = lighter variants
+	   ------------------------------------------------------------------------- */
 	--col-primary-m2: lch(from var(--col-primary) calc(l - 30) calc(c * 0.3) h);
 	--col-primary-m1: lch(from var(--col-primary) calc(l - 15) calc(c * 0.8) h);
 	--col-primary: lch(from var(--color-primary) 35 c h);
@@ -28,6 +51,9 @@ body {
 	--col-primary-p3: lch(from var(--col-primary) calc(l + 45) calc(c * 0.8) h);
 	--col-primary-p4: lch(from var(--col-primary) calc(l + 60) calc(c * 0.3) h);
 
+	/* -------------------------------------------------------------------------
+	   Secondary Color Scale
+	   ------------------------------------------------------------------------- */
 	--col-secondary-m2: lch(from var(--col-secondary) calc(l - 30) calc(c * 0.3) h);
 	--col-secondary-m1: lch(from var(--col-secondary) calc(l - 15) calc(c * 0.8) h);
 	--col-secondary: lch(from var(--color-secondary) 35 c h);
@@ -36,6 +62,9 @@ body {
 	--col-secondary-p3: lch(from var(--col-secondary) calc(l + 45) calc(c * 0.8) h);
 	--col-secondary-p4: lch(from var(--col-secondary) calc(l + 60) calc(c * 0.3) h);
 
+	/* -------------------------------------------------------------------------
+	   Accent Color Scale
+	   ------------------------------------------------------------------------- */
 	--col-accent-m2: lch(from var(--col-accent) calc(l - 30) calc(c * 0.3) h);
 	--col-accent-m1: lch(from var(--col-accent) calc(l - 15) calc(c * 0.8) h);
 	--col-accent: lch(from var(--color-accent) 35 c h);
@@ -44,28 +73,69 @@ body {
 	--col-accent-p3: lch(from var(--col-accent) calc(l + 45) calc(c * 0.8) h);
 	--col-accent-p4: lch(from var(--col-accent) calc(l + 60) calc(c * 0.3) h);
 
+	/* -------------------------------------------------------------------------
+	   Neutral Color Scale
+	   ------------------------------------------------------------------------- */
+	--col-neutral-m2: lch(from var(--color-neutral) calc(l - 30) calc(c * 0.3) h);
+	--col-neutral-m1: lch(from var(--color-neutral) calc(l - 15) calc(c * 0.8) h);
+	--col-neutral: lch(from var(--color-neutral) l c h);
+	--col-neutral-p1: lch(from var(--color-neutral) calc(l + 15) c h);
+	--col-neutral-p2: lch(from var(--color-neutral) calc(l + 30) c h);
+	--col-neutral-p3: lch(from var(--color-neutral) calc(l + 45) calc(c * 0.8) h);
+	--col-neutral-p4: lch(from var(--color-neutral) calc(l + 60) calc(c * 0.3) h);
+
+	/* -------------------------------------------------------------------------
+	   Semantic Color Scales (Error, Warning, Success)
+	   ------------------------------------------------------------------------- */
+	--col-error-m2: lch(from var(--color-error) calc(l - 30) calc(c * 0.3) h);
+	--col-error-m1: lch(from var(--color-error) calc(l - 15) calc(c * 0.8) h);
 	--col-error: lch(from var(--color-error) 35 c h);
+	--col-error-p1: lch(from var(--color-error) calc(l + 15) c h);
+	--col-error-p2: lch(from var(--color-error) calc(l + 30) c h);
+	--col-error-p3: lch(from var(--color-error) calc(l + 45) calc(c * 0.8) h);
+	--col-error-p4: lch(from var(--color-error) calc(l + 60) calc(c * 0.3) h);
+
+	--col-warning-m2: lch(from var(--color-warning) calc(l - 30) calc(c * 0.3) h);
+	--col-warning-m1: lch(from var(--color-warning) calc(l - 15) calc(c * 0.8) h);
 	--col-warning: lch(from var(--color-warning) 35 c h);
+	--col-warning-p1: lch(from var(--color-warning) calc(l + 15) c h);
+	--col-warning-p2: lch(from var(--color-warning) calc(l + 30) c h);
+	--col-warning-p3: lch(from var(--color-warning) calc(l + 45) calc(c * 0.8) h);
+	--col-warning-p4: lch(from var(--color-warning) calc(l + 60) calc(c * 0.3) h);
+
+	--col-success-m2: lch(from var(--color-success) calc(l - 30) calc(c * 0.3) h);
+	--col-success-m1: lch(from var(--color-success) calc(l - 15) calc(c * 0.8) h);
 	--col-success: lch(from var(--color-success) 35 c h);
+	--col-success-p1: lch(from var(--color-success) calc(l + 15) c h);
+	--col-success-p2: lch(from var(--color-success) calc(l + 30) c h);
+	--col-success-p3: lch(from var(--color-success) calc(l + 45) calc(c * 0.8) h);
+	--col-success-p4: lch(from var(--color-success) calc(l + 60) calc(c * 0.3) h);
 
-	--col-shadow: #000;
-	--col-frost: var(--color-frost);
-	--col-focus: var(--color-focus);
-
+	/* -------------------------------------------------------------------------
+	   "On" Colors - Text on colored backgrounds
+	   ------------------------------------------------------------------------- */
 	--col-on-primary: lch(from var(--col-primary) calc(l + 60) calc(c * 0.3) h);
 	--col-on-secondary: lch(from var(--col-secondary) calc(l + 60) calc(c * 0.3) h);
 	--col-on-accent: lch(from var(--col-accent) calc(l + 60) calc(c * 0.3) h);
+	--col-on-neutral: lch(from var(--color-neutral) calc(l + 60) calc(c * 0.3) h);
 	--col-on-error: lch(from var(--color-error) calc(l + 60) c h);
 	--col-on-warning: lch(from var(--color-warning) calc(l + 60) c h);
 	--col-on-success: lch(from var(--color-success) calc(l + 60) c h);
 
+	/* -------------------------------------------------------------------------
+	   Emphasis Colors - Higher contrast text
+	   ------------------------------------------------------------------------- */
 	--col-em-primary: lch(from var(--col-primary) calc(l + 65) calc(c * 0.3) h);
 	--col-em-secondary: lch(from var(--col-secondary) calc(l + 65) calc(c * 0.3) h);
 	--col-em-accent: lch(from var(--col-accent) calc(l + 65) calc(c * 0.3) h);
+	--col-em-neutral: lch(from var(--color-neutral) calc(l + 65) calc(c * 0.3) h);
 	--col-em-error: lch(from var(--color-error) calc(l + 65) c h);
 	--col-em-warning: lch(from var(--color-warning) calc(l + 65) c h);
 	--col-em-success: lch(from var(--color-success) calc(l + 65) c h);
 
+	/* -------------------------------------------------------------------------
+	   Surface & Container Colors
+	   ------------------------------------------------------------------------- */
 	--col-surface: lch(from var(--color-neutral) 99 calc(c * 0.2) h);
 	--col-container-low: lch(from var(--color-neutral) 95 calc(c * 0.3) h);
 	--col-container: lch(from var(--color-neutral) 90 calc(c * 0.5) h);
@@ -77,6 +147,9 @@ body {
 	--col-container-warning: lch(from var(--color-warning) 90 calc(c * 0.5) h);
 	--col-container-success: lch(from var(--color-success) 90 calc(c * 0.5) h);
 
+	/* -------------------------------------------------------------------------
+	   "On Container" Colors - Text on container backgrounds
+	   ------------------------------------------------------------------------- */
 	--col-on-surface: lch(from var(--color-neutral) 39 c h);
 	--col-on-container-low: lch(from var(--color-neutral) 35 c h);
 	--col-on-container: lch(from var(--color-neutral) 30 c h);
@@ -88,6 +161,9 @@ body {
 	--col-on-container-warning: lch(from var(--color-warning) 30 c h);
 	--col-on-container-success: lch(from var(--color-success) 30 c h);
 
+	/* -------------------------------------------------------------------------
+	   Emphasis on Container Colors
+	   ------------------------------------------------------------------------- */
 	--col-em-surface: lch(from var(--color-neutral) 29 c h);
 	--col-em-container-low: lch(from var(--color-neutral) 25 c h);
 	--col-em-container: lch(from var(--color-neutral) 20 c h);
@@ -100,13 +176,22 @@ body {
 	--col-em-container-success: lch(from var(--color-success) 20 c h);
 }
 
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
+
 body.dark {
-	/* DEFAULTS */
+	/* Base colors - lighter in dark mode */
 	--color-primary: lch(68 60 250);
 	--color-secondary: lch(from var(--color-primary) l calc(c / 2) h);
 	--color-accent: lch(from var(--color-primary) l c calc(h + 180));
 
-	/* OVERRIDABLE DEFAULTS */
+	/* Core UI colors for dark mode */
+	--col-shadow: lch(0 0 0 / 0.3);
+	--col-frost: lch(100 0 0 / 0.1);
+	--col-outline: lch(from var(--color-neutral) calc(l + 30) c h / 0.3);
+
+	/* Primary scale - inverted direction */
 	--col-primary-m2: lch(from var(--col-primary) calc(l + 30) calc(c * 0.3) h);
 	--col-primary-m1: lch(from var(--col-primary) calc(l + 15) calc(c * 0.8) h);
 	--col-primary: lch(from var(--color-primary) 65 c h);
@@ -115,6 +200,7 @@ body.dark {
 	--col-primary-p3: lch(from var(--col-primary) calc(l - 45) calc(c * 0.8) h);
 	--col-primary-p4: lch(from var(--col-primary) calc(l - 60) calc(c * 0.3) h);
 
+	/* Secondary scale */
 	--col-secondary-m2: lch(from var(--col-secondary) calc(l + 30) calc(c * 0.3) h);
 	--col-secondary-m1: lch(from var(--col-secondary) calc(l + 15) calc(c * 0.8) h);
 	--col-secondary: lch(from var(--color-secondary) 65 c h);
@@ -123,6 +209,7 @@ body.dark {
 	--col-secondary-p3: lch(from var(--col-secondary) calc(l - 45) calc(c * 0.8) h);
 	--col-secondary-p4: lch(from var(--col-secondary) calc(l - 60) calc(c * 0.3) h);
 
+	/* Accent scale */
 	--col-accent-m2: lch(from var(--col-accent) calc(l + 30) calc(c * 0.3) h);
 	--col-accent-m1: lch(from var(--col-accent) calc(l + 15) calc(c * 0.8) h);
 	--col-accent: lch(from var(--color-accent) 65 c h);
@@ -131,24 +218,58 @@ body.dark {
 	--col-accent-p3: lch(from var(--col-accent) calc(l - 45) calc(c * 0.8) h);
 	--col-accent-p4: lch(from var(--col-accent) calc(l - 60) calc(c * 0.3) h);
 
-	--col-error: lch(from var(--color-error) 65 c h);
-	--col-warning: lch(from var(--color-warning) 65 c h);
-	--col-success: lch(from var(--color-success) 65 c h);
+	/* Neutral scale */
+	--col-neutral-m2: lch(from var(--color-neutral) calc(l + 30) calc(c * 0.3) h);
+	--col-neutral-m1: lch(from var(--color-neutral) calc(l + 15) calc(c * 0.8) h);
+	--col-neutral-p1: lch(from var(--color-neutral) calc(l - 15) c h);
+	--col-neutral-p2: lch(from var(--color-neutral) calc(l - 30) c h);
+	--col-neutral-p3: lch(from var(--color-neutral) calc(l - 45) calc(c * 0.8) h);
+	--col-neutral-p4: lch(from var(--color-neutral) calc(l - 60) calc(c * 0.3) h);
 
+	/* Semantic scales */
+	--col-error: lch(from var(--color-error) 65 c h);
+	--col-error-m2: lch(from var(--col-error) calc(l + 30) calc(c * 0.3) h);
+	--col-error-m1: lch(from var(--col-error) calc(l + 15) calc(c * 0.8) h);
+	--col-error-p1: lch(from var(--col-error) calc(l - 15) c h);
+	--col-error-p2: lch(from var(--col-error) calc(l - 30) c h);
+	--col-error-p3: lch(from var(--col-error) calc(l - 45) calc(c * 0.8) h);
+	--col-error-p4: lch(from var(--col-error) calc(l - 60) calc(c * 0.3) h);
+
+	--col-warning: lch(from var(--color-warning) 65 c h);
+	--col-warning-m2: lch(from var(--col-warning) calc(l + 30) calc(c * 0.3) h);
+	--col-warning-m1: lch(from var(--col-warning) calc(l + 15) calc(c * 0.8) h);
+	--col-warning-p1: lch(from var(--col-warning) calc(l - 15) c h);
+	--col-warning-p2: lch(from var(--col-warning) calc(l - 30) c h);
+	--col-warning-p3: lch(from var(--col-warning) calc(l - 45) calc(c * 0.8) h);
+	--col-warning-p4: lch(from var(--col-warning) calc(l - 60) calc(c * 0.3) h);
+
+	--col-success: lch(from var(--color-success) 65 c h);
+	--col-success-m2: lch(from var(--col-success) calc(l + 30) calc(c * 0.3) h);
+	--col-success-m1: lch(from var(--col-success) calc(l + 15) calc(c * 0.8) h);
+	--col-success-p1: lch(from var(--col-success) calc(l - 15) c h);
+	--col-success-p2: lch(from var(--col-success) calc(l - 30) c h);
+	--col-success-p3: lch(from var(--col-success) calc(l - 45) calc(c * 0.8) h);
+	--col-success-p4: lch(from var(--col-success) calc(l - 60) calc(c * 0.3) h);
+
+	/* "On" colors - inverted */
 	--col-on-primary: lch(from var(--col-primary) calc(l - 60) calc(c * 0.3) h);
 	--col-on-secondary: lch(from var(--col-secondary) calc(l - 60) calc(c * 0.3) h);
 	--col-on-accent: lch(from var(--col-accent) calc(l - 60) calc(c * 0.3) h);
+	--col-on-neutral: lch(from var(--color-neutral) calc(l - 60) calc(c * 0.3) h);
 	--col-on-error: lch(from var(--color-error) calc(l - 60) c h);
 	--col-on-warning: lch(from var(--color-warning) calc(l - 60) c h);
 	--col-on-success: lch(from var(--color-success) calc(l - 60) c h);
 
+	/* Emphasis colors - inverted */
 	--col-em-primary: lch(from var(--col-primary) calc(l - 65) calc(c * 0.3) h);
 	--col-em-secondary: lch(from var(--col-secondary) calc(l - 65) calc(c * 0.3) h);
 	--col-em-accent: lch(from var(--col-accent) calc(l - 65) calc(c * 0.3) h);
+	--col-em-neutral: lch(from var(--color-neutral) calc(l - 65) calc(c * 0.3) h);
 	--col-em-error: lch(from var(--color-error) calc(l - 65) c h);
 	--col-em-warning: lch(from var(--color-warning) calc(l - 65) c h);
 	--col-em-success: lch(from var(--color-success) calc(l - 65) c h);
 
+	/* Dark mode surfaces */
 	--col-surface: lch(from var(--color-neutral) 4 calc(c * 0.2) h);
 	--col-container-low: lch(from var(--color-neutral) 11 calc(c * 0.3) h);
 	--col-container: lch(from var(--color-neutral) 17 calc(c * 0.5) h);
@@ -160,6 +281,7 @@ body.dark {
 	--col-container-warning: lch(from var(--color-warning) 17 calc(c * 0.5) h);
 	--col-container-success: lch(from var(--color-success) 17 calc(c * 0.5) h);
 
+	/* Dark mode "on container" colors */
 	--col-on-surface: lch(from var(--color-neutral) 61 c h);
 	--col-on-container-low: lch(from var(--color-neutral) 65 c h);
 	--col-on-container: lch(from var(--color-neutral) 70 c h);
@@ -171,6 +293,7 @@ body.dark {
 	--col-on-container-warning: lch(from var(--color-warning) 70 c h);
 	--col-on-container-success: lch(from var(--color-success) 70 c h);
 
+	/* Dark mode emphasis on container */
 	--col-em-surface: lch(from var(--color-neutral) 71 c h);
 	--col-em-container-low: lch(from var(--color-neutral) 75 c h);
 	--col-em-container: lch(from var(--color-neutral) 80 c h);

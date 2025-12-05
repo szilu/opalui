@@ -6,324 +6,1261 @@
 		<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1.0, minimum-scale=1.0">
 		<link rel="stylesheet" href="themes/glass.css" id="theme-link">
 		<link rel="stylesheet" href="dist/opalui.css">
-		<!--
-		<script src="https://unpkg.com/feather-icons"></script>
-		-->
 		<script src="https://unpkg.com/lucide"></script>
+		<style>
+			/* Tab content visibility */
+			.tab-content { display: none; }
+			.tab-content.active { display: block; }
+			/* Demo section styles */
+			.demo-section { margin-bottom: 2rem; }
+			.demo-section h4 { margin-bottom: 0.75rem; opacity: 0.8; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.05em; }
+			.demo-box { padding: 1rem; border-radius: var(--border-radius-lg); background: var(--col-frost); margin-bottom: 1rem; }
+			.demo-box-dark { background: var(--col-neutral-m2); }
+			/* Code preview */
+			.code-hint { font-size: 0.75rem; opacity: 0.6; font-family: monospace; margin-top: 0.5rem; }
+		</style>
 	</head>
 
-	<!--
-	<body style="background: url(fa.jpg);">
-	-->
 	<body class="theme-glass">
-		<main class="c-container g-2">
+		<!-- Header -->
+		<header class="c-panel m-2" style="border-radius: var(--border-radius-lg);">
+			<div class="c-split">
+				<div class="c-cluster">
+					<h1 class="m-0">OpalUI</h1>
+					<span class="c-badge primary">v0.12</span>
+				</div>
+				<nav class="c-cluster">
+					<a href="https://github.com" class="c-button small" target="_blank">
+						<i data-lucide="github" style="width:1rem;height:1rem"></i>
+						GitHub
+					</a>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Main Navigation Tabs -->
+		<main class="c-container g-2 p-2">
 			<div class="row">
-				<div class="c-panel col">
-					<h1>OpalUI</h1>
-					<div class="c-card-body">
-						<h2>Introducing OpalUI: Elevate Your Web Design Experience!</h2>
+				<div class="col">
+					<div class="c-tabs" id="main-tabs" style="overflow-x: auto; flex-wrap: nowrap;">
+						<button class="c-tab active" data-tab="overview">Overview</button>
+						<button class="c-tab" data-tab="layout">Layout</button>
+						<button class="c-tab" data-tab="components">Components</button>
+						<button class="c-tab" data-tab="feedback">Feedback</button>
+						<button class="c-tab" data-tab="data">Data Display</button>
+						<button class="c-tab" data-tab="utilities">Utilities</button>
 					</div>
 				</div>
 			</div>
 
-			<div class="row mt-2 pos-relative">
-				<div id="filterbar" class="c-panel sm-hide hide-left col-md-4 col-lg-3">
-					<button class="c-link m-1 md-hide lg-hide pos-absolute top-0 right-0" onclick="toggleFilter()">&#10005;</button>
-					<h3>Left sidebar</h3>
-				</div>
+			<!-- ============================================================
+			     TAB: Overview
+			     ============================================================ -->
+			<div id="tab-overview" class="tab-content active">
+				<div class="row">
+					<div class="c-panel col col-lg-8">
+						<h2>Welcome to OpalUI</h2>
+						<p>A minimalistic CSS framework with theme support, featuring frosted glass and opaque themes with dark/light mode support.</p>
 
-				<div class="col col-md-8 col-lg-6">
-					<div class="c-nav flex-row mb-1 md-hide lg-hide">
-						<button class="c-link" onclick="toggleFilter()">&#10729;</button>
-						<div class="fill"></div>
-					</div>
-					<div class="c-panel">
-						<h3>Main area</h3>
-						<p>Some content here</p>
-						<p>This is a <button class="c-link primary" onclick="toggleDetails()">Link</button></p>
-					</div>
-				</div>
-
-				<div id="details-bar" class="c-panel sm-hide md-hide hide-right col-lg-3">
-					<button class="c-link m-1 lg-hide pos-absolute top-0 right-0" onclick="toggleDetails()">&#10005;</button>
-					<h3>Right sidebar</h3>
-				</div>
-			</div>
-
-			<div class="row mt-2">
-				<div class="c-panel col col-lg-3">
-					<h3>Buttons</h3>
-					<div class="c-hbox wrap align-items-center g-1">
-						<button class="c-button primary fill my-1">Primary button</button>
-						<button class="c-button fill my-1">Secondary button</button>
-						<button class="c-button fill my-1">Button</button>
-						<button class="c-button fill my-1">Another button</button>
-					</div>
-					<div class="c-hbox wrap align-items-center g-1">
-						<button class="c-button large">Large button</button>
-						<button class="c-button small">Small button</button>
-					</div>
-					<div class="c-hbox wrap align-items-center g-1">
-						<button class="c-button primary fill my-1" disabled>Primary button disabled</button>
-						<button class="c-button fill my-1" disabled>Secondary button disabled</button>
-					</div>
-					<div class="c-hbox wrap g-1">
-						<button class="c-button success fill my-1">Success button</button>
-						<button class="c-button warning fill my-1">Warning button</button>
-						<button class="c-button error fill my-1">Error button</button>
-					</div>
-				</div>
-
-				<div class="c-panel col col-lg-6">
-					<h3>Typography</h3>
-					<div class="c-card-body">
-
-						<p>OpalUI is a cutting-edge CSS framework designed to bring
-						elegance and sophistication to your web projects. With a
-						sleek and minimalistic aesthetic, OpalUI combines form and
-						function, making it the perfect choice for designers and
-						developers seeking a user-friendly, theming-capable
-						solution.
-						</p>
-
-						<h4>Key Features:</h4>
-						<p>Frosty Glass & Opaque Themes: OpalUI's default themes
-						offer a unique frosty glass and opaque design that adds a
-						touch of modern artistry to your websites.</p>
-
-						<p>🌓 <b>Daylight and Dark Modes:</b> Seamlessly transition
-						between daylight and dark modes, ensuring an optimal user
-						experience in any lighting condition.</p>
-
-						<p>🎨 <b>Theming Capabilities:</b> Customize OpalUI to match your
-						brand's identity with ease. Create unique, stunning designs
-						that resonate with your audience.</p>
-
-						<p>💻 <b>Responsive Design:</b> OpalUI is built with
-						responsiveness in mind, ensuring your websites look and
-						function flawlessly on various devices and screen sizes.</p>
-
-						<p>⚙️ <b>Lightweight and Easy to Use:</b> OpalUI's intuitive and
-						well-organized codebase simplifies development, saving you
-						time and effort.</p>
-
-						<p>Whether you're building a personal blog, an e-commerce
-						platform, or a corporate website, OpalUI empowers you to
-						craft exceptional web experiences that captivate and engage
-						your visitors. Join the OpalUI community today and discover
-						the limitless possibilities of modern web design.</p>
-					</div>
-					<div class="c-container w-100">
-						<div class="row">
-							<div class="c-panel col-6 success">This is an</div>
-							<div class="c-panel col-3 warning">embedded</div>
-							<div class="c-panel col-3 error">grid</div>
+						<div class="c-alert info mt-2">
+							<div class="c-alert-icon"><i data-lucide="info"></i></div>
+							<div class="c-alert-content">
+								<div class="c-alert-title">New in v0.12</div>
+								<div class="c-alert-message">Layout helpers, tables, alerts, tooltips, spinners, skeletons, progress rings, and much more!</div>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="c-panel col col-lg-3">
-					<h3>Forms</h3>
-					<form name="form">
-						<fieldset class="c-fieldset">
-							<legend>Legend</legend>
-
-							<label>Text input
-								<input class="c-input" type="text">
-							</label>
-							<label>Date input
-								<input class="c-input" type="date">
-							</label>
-							<label>Color input
-								<input class="c-input" type="color">
-							</label>
-							<label>Range input
-								<input class="c-input" type="range">
-							</label>
-							<label>Textarea
-								<textarea class="c-input resize"></textarea>
-							</label>
-							<label>Select
-								<select class="c-select">
-									<option value="1">Option 1</option>
-									<option value="2">Option 2</option>
-									<option value="3">Option 3</option>
-								</select>
-							</label>
-							<label>Input group
-								<div class="c-input-group">
-									<span class="m-1">&#128512;</span>
-									<input class="c-input" type="text" placeholder="Text input">
-									<button class="c-button secondary p-1">&times;</button>
+						<h3 class="mt-2">Key Features</h3>
+						<div class="c-grid auto-fit mt-1" style="--grid-min: 200px;">
+							<div class="c-stack compact">
+								<div class="c-cluster">
+									<span class="c-badge primary"><i data-lucide="palette" style="width:1em;height:1em"></i></span>
+									<strong>Theming</strong>
 								</div>
-							</label>
-						</fieldset>
-					</form>
+								<p class="m-0" style="font-size: 0.875rem;">Glass and opaque themes with dark/light modes</p>
+							</div>
+							<div class="c-stack compact">
+								<div class="c-cluster">
+									<span class="c-badge accent"><i data-lucide="layout" style="width:1em;height:1em"></i></span>
+									<strong>Layout Helpers</strong>
+								</div>
+								<p class="m-0" style="font-size: 0.875rem;">Stack, cluster, split, grid, and more</p>
+							</div>
+							<div class="c-stack compact">
+								<div class="c-cluster">
+									<span class="c-badge success"><i data-lucide="box" style="width:1em;height:1em"></i></span>
+									<strong>Components</strong>
+								</div>
+								<p class="m-0" style="font-size: 0.875rem;">Buttons, forms, cards, tables, alerts</p>
+							</div>
+							<div class="c-stack compact">
+								<div class="c-cluster">
+									<span class="c-badge warning"><i data-lucide="smartphone" style="width:1em;height:1em"></i></span>
+									<strong>Responsive</strong>
+								</div>
+								<p class="m-0" style="font-size: 0.875rem;">Mobile-first with breakpoint utilities</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="c-panel col col-lg-4">
+						<h3>Quick Start</h3>
+						<div class="c-stack">
+							<div class="demo-box">
+								<code style="font-size: 0.8rem;">npm install @symbion/opalui</code>
+							</div>
+							<p style="font-size: 0.875rem;">Or include via CDN:</p>
+							<div class="demo-box" style="font-size: 0.75rem; word-break: break-all;">
+								<code>&lt;link rel="stylesheet" href="opalui.min.css"&gt;</code>
+							</div>
+						</div>
+
+						<h4 class="mt-2">Theme Toggle</h4>
+						<div class="c-cluster">
+							<button class="c-button" onclick="changeTheme('glass')">Glass</button>
+							<button class="c-button" onclick="changeTheme('opaque')">Opaque</button>
+							<button class="c-button" onclick="toggleDark()">Dark/Light</button>
+						</div>
+					</div>
 				</div>
 			</div>
 
-			<div class="row mt-2">
-				<div class="c-panel col col-lg-4">
-					<h3>Avatars</h3>
-					<div class="c-hbox wrap align-items-center g-2">
-						<div class="c-avatar xs">AB</div>
-						<div class="c-avatar sm">CD</div>
-						<div class="c-avatar md">EF</div>
-						<div class="c-avatar lg">GH</div>
-						<div class="c-avatar xl">IJ</div>
+			<!-- ============================================================
+			     TAB: Layout
+			     ============================================================ -->
+			<div id="tab-layout" class="tab-content">
+				<div class="row">
+					<div class="col">
+						<h2>Layout Helpers</h2>
+						<p>Higher-level layout components for common patterns.</p>
 					</div>
-					<div class="c-hbox wrap align-items-center g-2 mt-2">
-						<div class="c-avatar md">
-							<span>KL</span>
-							<span class="c-avatar-status online"></span>
+				</div>
+
+				<!-- Stack -->
+				<div class="row mt-2">
+					<div class="c-panel col col-lg-6">
+						<h3>c-stack</h3>
+						<p style="font-size:0.875rem">Vertical spacing component. Automatically spaces children.</p>
+						<div class="demo-box">
+							<div class="c-stack">
+								<div class="c-panel p-1">Stack item 1</div>
+								<div class="c-panel p-1">Stack item 2</div>
+								<div class="c-panel p-1">Stack item 3</div>
+							</div>
 						</div>
-						<div class="c-avatar md">
-							<span>MN</span>
-							<span class="c-avatar-status offline"></span>
-						</div>
-						<div class="c-avatar md ring">
-							<span>OP</span>
-							<span class="c-avatar-badge">3</span>
+						<div class="c-cluster mt-1">
+							<span class="c-badge container-primary">.c-stack</span>
+							<span class="c-badge container-accent">.compact</span>
+							<span class="c-badge container-accent">.loose</span>
 						</div>
 					</div>
-					<div class="c-hbox wrap align-items-center g-2 mt-2">
-						<div class="c-avatar md square">SQ</div>
-						<div class="c-avatar md rounded">RD</div>
-					</div>
-					<div class="c-hbox wrap align-items-center g-2 mt-2">
-						<div class="c-avatar-group">
-							<div class="c-avatar sm">U1</div>
-							<div class="c-avatar sm">U2</div>
-							<div class="c-avatar sm">U3</div>
-							<div class="c-avatar sm">U4</div>
+
+					<div class="c-panel col col-lg-6">
+						<h3>c-cluster</h3>
+						<p style="font-size:0.875rem">Flex wrap container for inline elements that may wrap.</p>
+						<div class="demo-box">
+							<div class="c-cluster">
+								<span class="c-tag">Tag One</span>
+								<span class="c-tag primary">Tag Two</span>
+								<span class="c-tag accent">Tag Three</span>
+								<span class="c-tag success">Tag Four</span>
+								<span class="c-tag warning">Tag Five</span>
+								<span class="c-tag error">Tag Six</span>
+							</div>
+						</div>
+						<div class="c-cluster mt-1">
+							<span class="c-badge container-primary">.c-cluster</span>
+							<span class="c-badge container-accent">.center</span>
+							<span class="c-badge container-accent">.between</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="c-panel col col-lg-8">
-					<h3>Toast Notifications</h3>
-					<p>Click buttons to show toast notifications:</p>
-					<div class="c-hbox wrap g-1">
-						<button class="c-button" onclick="showToast('success')">Success Toast</button>
-						<button class="c-button" onclick="showToast('error')">Error Toast</button>
-						<button class="c-button" onclick="showToast('warning')">Warning Toast</button>
-						<button class="c-button" onclick="showToast('info')">Info Toast</button>
+				<!-- Split & Center -->
+				<div class="row mt-2">
+					<div class="c-panel col col-lg-6">
+						<h3>c-split</h3>
+						<p style="font-size:0.875rem">Push items to opposite ends. Perfect for headers.</p>
+						<div class="demo-box">
+							<div class="c-split">
+								<div><strong>Logo</strong></div>
+								<nav class="c-cluster">
+									<a href="#" class="c-link">Home</a>
+									<a href="#" class="c-link">About</a>
+									<a href="#" class="c-link">Contact</a>
+								</nav>
+							</div>
+						</div>
+						<p class="code-hint">&lt;div class="c-split"&gt;...&lt;/div&gt;</p>
+					</div>
+
+					<div class="c-panel col col-lg-6">
+						<h3>c-center</h3>
+						<p style="font-size:0.875rem">Perfect centering with CSS Grid.</p>
+						<div class="demo-box" style="height: 120px;">
+							<div class="c-center h-100">
+								<div class="c-panel p-2">Perfectly Centered</div>
+							</div>
+						</div>
+						<p class="code-hint">&lt;div class="c-center"&gt;...&lt;/div&gt;</p>
+					</div>
+				</div>
+
+				<!-- Grid System -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>c-grid</h3>
+						<p style="font-size:0.875rem">CSS Grid utilities with auto-fit/fill support.</p>
+
+						<h4 class="mt-2">Fixed Columns</h4>
+						<div class="demo-box">
+							<div class="c-grid cols-4" style="--grid-gap: 0.5rem;">
+								<div class="c-panel p-1 text-center">1</div>
+								<div class="c-panel p-1 text-center">2</div>
+								<div class="c-panel p-1 text-center">3</div>
+								<div class="c-panel p-1 text-center">4</div>
+							</div>
+						</div>
+
+						<h4 class="mt-2">Auto-fit (Responsive)</h4>
+						<div class="demo-box">
+							<div class="c-grid auto-fit" style="--grid-min: 150px; --grid-gap: 0.5rem;">
+								<div class="c-panel p-1 text-center">Auto</div>
+								<div class="c-panel p-1 text-center">Auto</div>
+								<div class="c-panel p-1 text-center">Auto</div>
+								<div class="c-panel p-1 text-center">Auto</div>
+								<div class="c-panel p-1 text-center">Auto</div>
+							</div>
+						</div>
+
+						<h4 class="mt-2">With Spanning</h4>
+						<div class="demo-box">
+							<div class="c-grid cols-4" style="--grid-gap: 0.5rem;">
+								<div class="c-panel p-1 text-center span-2">Span 2</div>
+								<div class="c-panel p-1 text-center">1</div>
+								<div class="c-panel p-1 text-center">1</div>
+								<div class="c-panel p-1 text-center">1</div>
+								<div class="c-panel p-1 text-center span-3">Span 3</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Reel -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>c-reel</h3>
+						<p style="font-size:0.875rem">Horizontal scrolling container for carousels and galleries.</p>
+						<div class="c-reel snap" style="--reel-item-width: 200px;">
+							<div class="c-panel p-2">
+								<div class="c-aspect square" style="background: var(--col-primary-p2); border-radius: var(--border-radius-sm);"></div>
+								<p class="mt-1 m-0"><strong>Card 1</strong></p>
+							</div>
+							<div class="c-panel p-2">
+								<div class="c-aspect square" style="background: var(--col-accent-p2); border-radius: var(--border-radius-sm);"></div>
+								<p class="mt-1 m-0"><strong>Card 2</strong></p>
+							</div>
+							<div class="c-panel p-2">
+								<div class="c-aspect square" style="background: var(--col-secondary-p2); border-radius: var(--border-radius-sm);"></div>
+								<p class="mt-1 m-0"><strong>Card 3</strong></p>
+							</div>
+							<div class="c-panel p-2">
+								<div class="c-aspect square" style="background: var(--col-success-p2); border-radius: var(--border-radius-sm);"></div>
+								<p class="mt-1 m-0"><strong>Card 4</strong></p>
+							</div>
+							<div class="c-panel p-2">
+								<div class="c-aspect square" style="background: var(--col-warning-p2); border-radius: var(--border-radius-sm);"></div>
+								<p class="mt-1 m-0"><strong>Card 5</strong></p>
+							</div>
+						</div>
+						<p class="code-hint mt-1">&lt;div class="c-reel snap"&gt;...&lt;/div&gt; - Scroll horizontally!</p>
 					</div>
 				</div>
 			</div>
+
+			<!-- ============================================================
+			     TAB: Components
+			     ============================================================ -->
+			<div id="tab-components" class="tab-content">
+				<div class="row">
+					<div class="col">
+						<h2>UI Components</h2>
+					</div>
+				</div>
+
+				<!-- Buttons -->
+				<div class="row mt-2">
+					<div class="c-panel col col-lg-6">
+						<h3>Buttons</h3>
+						<div class="c-stack">
+							<div class="c-cluster">
+								<button class="c-button primary">Primary</button>
+								<button class="c-button secondary">Secondary</button>
+								<button class="c-button">Default</button>
+							</div>
+							<div class="c-cluster">
+								<button class="c-button success">Success</button>
+								<button class="c-button warning">Warning</button>
+								<button class="c-button error">Error</button>
+							</div>
+							<div class="c-cluster">
+								<button class="c-button large">Large</button>
+								<button class="c-button">Normal</button>
+								<button class="c-button small">Small</button>
+							</div>
+							<div class="c-cluster">
+								<button class="c-button primary" disabled>Disabled</button>
+								<button class="c-button fill">Full Width</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="c-panel col col-lg-6">
+						<h3>Badges</h3>
+						<div class="c-stack">
+							<h4>Sizes</h4>
+							<div class="c-cluster">
+								<span class="c-badge xs">XS</span>
+								<span class="c-badge sm">SM</span>
+								<span class="c-badge">Default</span>
+								<span class="c-badge lg">LG</span>
+								<span class="c-badge xl">XL</span>
+							</div>
+							<h4>Colors</h4>
+							<div class="c-cluster">
+								<span class="c-badge primary">Primary</span>
+								<span class="c-badge secondary">Secondary</span>
+								<span class="c-badge accent">Accent</span>
+								<span class="c-badge success">Success</span>
+								<span class="c-badge warning">Warning</span>
+								<span class="c-badge error">Error</span>
+							</div>
+							<h4>Outline</h4>
+							<div class="c-cluster">
+								<span class="c-badge outline primary">Primary</span>
+								<span class="c-badge outline success">Success</span>
+								<span class="c-badge outline error">Error</span>
+							</div>
+							<h4>Container (Soft)</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-primary">Primary</span>
+								<span class="c-badge container-success">Success</span>
+								<span class="c-badge container-error">Error</span>
+							</div>
+							<h4>Dot Indicators</h4>
+							<div class="c-cluster">
+								<span class="c-badge dot success"></span>
+								<span class="c-badge dot warning"></span>
+								<span class="c-badge dot error"></span>
+								<span class="c-badge dot error pulse"></span>
+								<span style="font-size:0.875rem">with pulse animation</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Avatars & Tooltips -->
+				<div class="row mt-2">
+					<div class="c-panel col col-lg-6">
+						<h3>Avatars</h3>
+						<div class="c-stack">
+							<h4>Sizes</h4>
+							<div class="c-cluster">
+								<div class="c-avatar xs">XS</div>
+								<div class="c-avatar sm">SM</div>
+								<div class="c-avatar md">MD</div>
+								<div class="c-avatar lg">LG</div>
+								<div class="c-avatar xl">XL</div>
+							</div>
+							<h4>With Status</h4>
+							<div class="c-cluster">
+								<div class="c-avatar md">
+									<span>AB</span>
+									<span class="c-avatar-status online"></span>
+								</div>
+								<div class="c-avatar md">
+									<span>CD</span>
+									<span class="c-avatar-status offline"></span>
+								</div>
+								<div class="c-avatar md ring">
+									<span>EF</span>
+									<span class="c-avatar-badge">3</span>
+								</div>
+							</div>
+							<h4>Avatar Group</h4>
+							<div class="c-avatar-group">
+								<div class="c-avatar sm">U1</div>
+								<div class="c-avatar sm">U2</div>
+								<div class="c-avatar sm">U3</div>
+								<div class="c-avatar sm">+5</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="c-panel col col-lg-6">
+						<h3>Tooltips</h3>
+						<p style="font-size:0.875rem">Pure CSS tooltips on hover. No JavaScript needed!</p>
+						<div class="c-stack">
+							<h4>Positions</h4>
+							<div class="c-cluster" style="padding: 2rem 0;">
+								<span class="c-tooltip" data-tooltip="Tooltip on top">
+									<button class="c-button small">Top</button>
+								</span>
+								<span class="c-tooltip bottom" data-tooltip="Tooltip on bottom">
+									<button class="c-button small">Bottom</button>
+								</span>
+								<span class="c-tooltip left" data-tooltip="Left!">
+									<button class="c-button small">Left</button>
+								</span>
+								<span class="c-tooltip right" data-tooltip="Right!">
+									<button class="c-button small">Right</button>
+								</span>
+							</div>
+							<h4>Styles</h4>
+							<div class="c-cluster" style="padding-top: 2rem;">
+								<span class="c-tooltip dark" data-tooltip="Dark tooltip">
+									<button class="c-button small">Dark</button>
+								</span>
+								<span class="c-tooltip primary" data-tooltip="Primary color">
+									<button class="c-button small">Primary</button>
+								</span>
+								<span class="c-tooltip error" data-tooltip="Error/danger">
+									<button class="c-button small">Error</button>
+								</span>
+								<span class="c-tooltip multiline" data-tooltip="This is a longer tooltip that wraps to multiple lines for more content.">
+									<button class="c-button small">Multiline</button>
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Forms -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>Forms</h3>
+						<form class="c-grid md:cols-3" style="--grid-gap: 1rem;">
+							<fieldset class="c-fieldset">
+								<legend>Text Inputs</legend>
+								<label>Name
+									<input class="c-input" type="text" placeholder="Enter your name">
+								</label>
+								<label>Email
+									<input class="c-input" type="email" placeholder="you@example.com">
+								</label>
+								<label>Password
+									<input class="c-input" type="password" placeholder="********">
+								</label>
+							</fieldset>
+							<fieldset class="c-fieldset">
+								<legend>Other Inputs</legend>
+								<label>Date
+									<input class="c-input" type="date">
+								</label>
+								<label>Color
+									<input class="c-input" type="color" value="#6366f1">
+								</label>
+								<label>Range
+									<input class="c-input" type="range">
+								</label>
+							</fieldset>
+							<fieldset class="c-fieldset">
+								<legend>Select and Textarea</legend>
+								<label>Select
+									<select class="c-select">
+										<option>Option 1</option>
+										<option>Option 2</option>
+										<option>Option 3</option>
+									</select>
+								</label>
+								<label>Message
+									<textarea class="c-input resize" rows="3" placeholder="Your message..."></textarea>
+								</label>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- ============================================================
+			     TAB: Feedback
+			     ============================================================ -->
+			<div id="tab-feedback" class="tab-content">
+				<div class="row">
+					<div class="col">
+						<h2>Feedback Components</h2>
+						<p>Alerts, toasts, spinners, progress indicators, and skeletons.</p>
+					</div>
+				</div>
+
+				<!-- Alerts -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>Alerts</h3>
+						<div class="c-stack">
+							<div class="c-alert info">
+								<div class="c-alert-icon"><i data-lucide="info"></i></div>
+								<div class="c-alert-content">
+									<div class="c-alert-title">Information</div>
+									<div class="c-alert-message">This is an informational alert with some helpful details.</div>
+								</div>
+								<button class="c-alert-close"><i data-lucide="x"></i></button>
+							</div>
+							<div class="c-alert success">
+								<div class="c-alert-icon"><i data-lucide="check-circle"></i></div>
+								<div class="c-alert-content">
+									<div class="c-alert-title">Success!</div>
+									<div class="c-alert-message">Your changes have been saved successfully.</div>
+								</div>
+							</div>
+							<div class="c-alert warning">
+								<div class="c-alert-icon"><i data-lucide="alert-triangle"></i></div>
+								<div class="c-alert-content">
+									<div class="c-alert-title">Warning</div>
+									<div class="c-alert-message">Please review your input before proceeding.</div>
+								</div>
+							</div>
+							<div class="c-alert error">
+								<div class="c-alert-icon"><i data-lucide="alert-circle"></i></div>
+								<div class="c-alert-content">
+									<div class="c-alert-title">Error</div>
+									<div class="c-alert-message">Something went wrong. Please try again.</div>
+								</div>
+							</div>
+						</div>
+
+						<h4 class="mt-2">Filled Variants</h4>
+						<div class="c-stack compact">
+							<div class="c-alert filled info compact">
+								<div class="c-alert-icon"><i data-lucide="info"></i></div>
+								<div class="c-alert-content"><div class="c-alert-title">Filled info alert</div></div>
+							</div>
+							<div class="c-alert filled success compact">
+								<div class="c-alert-icon"><i data-lucide="check"></i></div>
+								<div class="c-alert-content"><div class="c-alert-title">Filled success alert</div></div>
+							</div>
+							<div class="c-alert filled warning compact">
+								<div class="c-alert-icon"><i data-lucide="alert-triangle"></i></div>
+								<div class="c-alert-content"><div class="c-alert-title">Filled warning alert</div></div>
+							</div>
+							<div class="c-alert filled error compact">
+								<div class="c-alert-icon"><i data-lucide="x-circle"></i></div>
+								<div class="c-alert-content"><div class="c-alert-title">Filled error alert</div></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Progress & Spinners -->
+				<div class="row mt-2">
+					<div class="c-panel col col-lg-6">
+						<h3>Progress Bars</h3>
+						<div class="c-stack">
+							<h4>Sizes</h4>
+							<div class="c-progress xs"><div class="bar" style="width: 60%"></div></div>
+							<div class="c-progress sm"><div class="bar" style="width: 60%"></div></div>
+							<div class="c-progress"><div class="bar" style="width: 60%"></div></div>
+							<div class="c-progress lg"><div class="bar" style="width: 60%"></div></div>
+
+							<h4>Colors</h4>
+							<div class="c-progress primary"><div class="bar" style="width: 70%"></div></div>
+							<div class="c-progress success"><div class="bar" style="width: 85%"></div></div>
+							<div class="c-progress warning"><div class="bar" style="width: 50%"></div></div>
+							<div class="c-progress error"><div class="bar" style="width: 30%"></div></div>
+
+							<h4>Special Effects</h4>
+							<p style="font-size:0.75rem; margin:0;">Indeterminate (loading)</p>
+							<div class="c-progress indeterminate primary"><div class="bar"></div></div>
+							<p style="font-size:0.75rem; margin:0;">Striped animated</p>
+							<div class="c-progress striped animated success"><div class="bar" style="width: 75%"></div></div>
+
+							<h4>With Label</h4>
+							<div class="c-progress with-label primary">
+								<div class="bar" style="width: 65%">
+									<span class="c-progress-label">65%</span>
+								</div>
+							</div>
+
+							<h4>Stacked Progress</h4>
+							<div class="c-progress-stack">
+								<div class="success" style="width: 30%"></div>
+								<div class="warning" style="width: 20%"></div>
+								<div class="error" style="width: 15%"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="c-panel col col-lg-6">
+						<h3>Spinners</h3>
+						<div class="c-stack">
+							<h4>Circle Spinner (Sizes)</h4>
+							<div class="c-cluster">
+								<div class="c-spinner xs"></div>
+								<div class="c-spinner sm"></div>
+								<div class="c-spinner"></div>
+								<div class="c-spinner lg"></div>
+								<div class="c-spinner xl"></div>
+							</div>
+
+							<h4>Colors</h4>
+							<div class="c-cluster">
+								<div class="c-spinner primary"></div>
+								<div class="c-spinner secondary"></div>
+								<div class="c-spinner accent"></div>
+								<div class="c-spinner success"></div>
+								<div class="c-spinner warning"></div>
+								<div class="c-spinner error"></div>
+							</div>
+
+							<h4>Dots Spinner</h4>
+							<div class="c-cluster">
+								<div class="c-spinner-dots sm"><span></span><span></span><span></span></div>
+								<div class="c-spinner-dots"><span></span><span></span><span></span></div>
+								<div class="c-spinner-dots lg success"><span></span><span></span><span></span></div>
+							</div>
+
+							<h4>Pulse Spinner</h4>
+							<div class="c-cluster">
+								<div class="c-spinner-pulse sm primary"></div>
+								<div class="c-spinner-pulse accent"></div>
+								<div class="c-spinner-pulse lg secondary"></div>
+							</div>
+
+							<h4>Bar Spinner</h4>
+							<div class="c-spinner-bar primary"></div>
+
+							<h4>Progress Rings</h4>
+							<div class="c-cluster">
+								<div class="c-progress-ring sm" style="--ring-progress: 25">
+									<svg viewBox="0 0 36 36">
+										<circle class="ring-bg" cx="18" cy="18" r="15.9"/>
+										<circle class="ring-fill" cx="18" cy="18" r="15.9" pathLength="100"/>
+									</svg>
+								</div>
+								<div class="c-progress-ring primary" style="--ring-progress: 65">
+									<svg viewBox="0 0 36 36">
+										<circle class="ring-bg" cx="18" cy="18" r="15.9"/>
+										<circle class="ring-fill" cx="18" cy="18" r="15.9" pathLength="100"/>
+									</svg>
+									<span class="c-progress-ring-label">65%</span>
+								</div>
+								<div class="c-progress-ring lg success" style="--ring-progress: 85">
+									<svg viewBox="0 0 36 36">
+										<circle class="ring-bg" cx="18" cy="18" r="15.9"/>
+										<circle class="ring-fill" cx="18" cy="18" r="15.9" pathLength="100"/>
+									</svg>
+									<span class="c-progress-ring-label">85%</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Skeletons & Toasts -->
+				<div class="row mt-2">
+					<div class="c-panel col col-lg-6">
+						<h3>Skeletons</h3>
+						<p style="font-size:0.875rem">Loading placeholders for content.</p>
+						<div class="c-stack">
+							<h4>Basic Shapes</h4>
+							<div class="c-cluster">
+								<div class="c-skeleton avatar"></div>
+								<div class="c-skeleton avatar lg"></div>
+								<div class="c-skeleton icon"></div>
+								<div class="c-skeleton button"></div>
+							</div>
+
+							<h4>Text Lines</h4>
+							<div class="c-skeleton-paragraph">
+								<div class="c-skeleton text"></div>
+								<div class="c-skeleton text w-75"></div>
+								<div class="c-skeleton text w-50"></div>
+							</div>
+
+							<h4>Card Skeleton</h4>
+							<div class="c-skeleton-card" style="max-width: 300px;">
+								<div class="c-skeleton image"></div>
+								<div class="c-skeleton heading w-75"></div>
+								<div class="c-skeleton text"></div>
+								<div class="c-skeleton text w-50"></div>
+							</div>
+
+							<h4>List Item Skeleton</h4>
+							<div class="c-skeleton-list-item">
+								<div class="c-skeleton avatar"></div>
+								<div class="c-skeleton-content">
+									<div class="c-skeleton text w-50"></div>
+									<div class="c-skeleton text-sm w-75"></div>
+								</div>
+							</div>
+
+							<h4>Wave Animation</h4>
+							<div class="c-skeleton wave text"></div>
+						</div>
+					</div>
+
+					<div class="c-panel col col-lg-6">
+						<h3>Toast Notifications</h3>
+						<p style="font-size:0.875rem">Click buttons to show toast notifications.</p>
+						<div class="c-cluster">
+							<button class="c-button success" onclick="showToast('success')">
+								<i data-lucide="check" style="width:1rem;height:1rem"></i> Success
+							</button>
+							<button class="c-button error" onclick="showToast('error')">
+								<i data-lucide="x" style="width:1rem;height:1rem"></i> Error
+							</button>
+							<button class="c-button warning" onclick="showToast('warning')">
+								<i data-lucide="alert-triangle" style="width:1rem;height:1rem"></i> Warning
+							</button>
+							<button class="c-button primary" onclick="showToast('info')">
+								<i data-lucide="info" style="width:1rem;height:1rem"></i> Info
+							</button>
+						</div>
+
+						<h4 class="mt-2">Toast Preview</h4>
+						<div class="c-stack compact" style="position: relative;">
+							<div class="c-toast success" style="position: relative; animation: none;">
+								<div class="c-toast-icon">OK</div>
+								<div class="c-toast-content">
+									<div class="c-toast-title">Success!</div>
+									<div class="c-toast-message">Your changes have been saved.</div>
+								</div>
+							</div>
+							<div class="c-toast error" style="position: relative; animation: none;">
+								<div class="c-toast-icon">X</div>
+								<div class="c-toast-content">
+									<div class="c-toast-title">Error</div>
+									<div class="c-toast-message">Something went wrong.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ============================================================
+			     TAB: Data Display
+			     ============================================================ -->
+			<div id="tab-data" class="tab-content">
+				<div class="row">
+					<div class="col">
+						<h2>Data Display</h2>
+						<p>Tables and data visualization components.</p>
+					</div>
+				</div>
+
+				<!-- Tables -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>Tables</h3>
+						<div class="c-tabs mb-2" id="table-tabs">
+							<button class="c-tab active small" data-table="basic">Basic</button>
+							<button class="c-tab small" data-table="striped">Striped</button>
+							<button class="c-tab small" data-table="bordered">Bordered</button>
+							<button class="c-tab small" data-table="hoverable">Hoverable</button>
+						</div>
+
+						<div id="table-basic" class="table-content active">
+							<div class="c-table-responsive">
+								<table class="c-table">
+									<thead>
+										<tr>
+											<th>Name</th>
+											<th>Email</th>
+											<th>Role</th>
+											<th class="numeric">Balance</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>John Doe</td>
+											<td>john@example.com</td>
+											<td>Admin</td>
+											<td class="numeric">$1,234.56</td>
+											<td><span class="c-badge success sm">Active</span></td>
+										</tr>
+										<tr>
+											<td>Jane Smith</td>
+											<td>jane@example.com</td>
+											<td>User</td>
+											<td class="numeric">$567.89</td>
+											<td><span class="c-badge success sm">Active</span></td>
+										</tr>
+										<tr>
+											<td>Bob Johnson</td>
+											<td>bob@example.com</td>
+											<td>Editor</td>
+											<td class="numeric">$89.00</td>
+											<td><span class="c-badge warning sm">Pending</span></td>
+										</tr>
+										<tr>
+											<td>Alice Brown</td>
+											<td>alice@example.com</td>
+											<td>User</td>
+											<td class="numeric">$2,345.67</td>
+											<td><span class="c-badge error sm">Inactive</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div id="table-striped" class="table-content">
+							<div class="c-table-responsive">
+								<table class="c-table striped">
+									<thead>
+										<tr>
+											<th>Product</th>
+											<th>Category</th>
+											<th class="numeric">Price</th>
+											<th class="numeric">Stock</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr><td>Widget A</td><td>Electronics</td><td class="numeric">$29.99</td><td class="numeric">150</td></tr>
+										<tr><td>Gadget B</td><td>Electronics</td><td class="numeric">$49.99</td><td class="numeric">75</td></tr>
+										<tr><td>Tool C</td><td>Hardware</td><td class="numeric">$19.99</td><td class="numeric">200</td></tr>
+										<tr><td>Device D</td><td>Electronics</td><td class="numeric">$99.99</td><td class="numeric">50</td></tr>
+										<tr><td>Part E</td><td>Hardware</td><td class="numeric">$9.99</td><td class="numeric">500</td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div id="table-bordered" class="table-content">
+							<div class="c-table-responsive">
+								<table class="c-table bordered">
+									<thead>
+										<tr>
+											<th>Date</th>
+											<th>Description</th>
+											<th class="numeric">Amount</th>
+											<th>Type</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr><td>2024-01-15</td><td>Subscription renewal</td><td class="numeric">-$49.00</td><td><span class="c-badge error sm">Expense</span></td></tr>
+										<tr><td>2024-01-14</td><td>Client payment</td><td class="numeric">+$1,200.00</td><td><span class="c-badge success sm">Income</span></td></tr>
+										<tr><td>2024-01-13</td><td>Office supplies</td><td class="numeric">-$85.50</td><td><span class="c-badge error sm">Expense</span></td></tr>
+										<tr><td>2024-01-12</td><td>Refund</td><td class="numeric">+$25.00</td><td><span class="c-badge success sm">Income</span></td></tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+
+						<div id="table-hoverable" class="table-content">
+							<div class="c-table-responsive">
+								<table class="c-table hoverable striped">
+									<thead>
+										<tr>
+											<th class="sortable">ID</th>
+											<th class="sortable asc">Name</th>
+											<th class="sortable">Department</th>
+											<th class="sortable">Joined</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr><td>#001</td><td>Alice Johnson</td><td>Engineering</td><td>2023-03-15</td></tr>
+										<tr><td>#002</td><td>Bob Smith</td><td>Marketing</td><td>2023-05-20</td></tr>
+										<tr class="selected"><td>#003</td><td>Carol Williams</td><td>Design</td><td>2023-01-10</td></tr>
+										<tr><td>#004</td><td>David Brown</td><td>Engineering</td><td>2023-08-01</td></tr>
+										<tr><td>#005</td><td>Eve Davis</td><td>Sales</td><td>2023-11-25</td></tr>
+									</tbody>
+								</table>
+							</div>
+							<p class="code-hint">Row #003 shows the .selected state. Headers show .sortable with .asc indicator.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Row States -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>Table Row States</h3>
+						<div class="c-table-responsive">
+							<table class="c-table compact">
+								<thead>
+									<tr>
+										<th>State</th>
+										<th>Class</th>
+										<th>Description</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr class="selected"><td>Selected</td><td><code>.selected</code></td><td>Highlighted row for selection</td></tr>
+									<tr class="success"><td>Success</td><td><code>.success</code></td><td>Indicates successful operation</td></tr>
+									<tr class="warning"><td>Warning</td><td><code>.warning</code></td><td>Needs attention</td></tr>
+									<tr class="error"><td>Error</td><td><code>.error</code></td><td>Failed or invalid</td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- ============================================================
+			     TAB: Utilities
+			     ============================================================ -->
+			<div id="tab-utilities" class="tab-content">
+				<div class="row">
+					<div class="col">
+						<h2>Utility Classes</h2>
+						<p>Low-level utility classes for fine-grained control.</p>
+					</div>
+				</div>
+
+				<div class="row mt-2">
+					<!-- Spacing -->
+					<div class="c-panel col col-lg-4">
+						<h3>Spacing</h3>
+						<div class="c-stack compact">
+							<h4>Margin</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-primary">.m-0</span>
+								<span class="c-badge container-primary">.m-1</span>
+								<span class="c-badge container-primary">.m-2</span>
+								<span class="c-badge container-primary">.m-3</span>
+								<span class="c-badge container-primary">.m-4</span>
+							</div>
+							<div class="c-cluster">
+								<span class="c-badge container-accent">.mt-*</span>
+								<span class="c-badge container-accent">.mr-*</span>
+								<span class="c-badge container-accent">.mb-*</span>
+								<span class="c-badge container-accent">.ml-*</span>
+							</div>
+							<div class="c-cluster">
+								<span class="c-badge container-secondary">.mx-*</span>
+								<span class="c-badge container-secondary">.my-*</span>
+							</div>
+
+							<h4>Padding</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-primary">.p-0</span>
+								<span class="c-badge container-primary">.p-1</span>
+								<span class="c-badge container-primary">.p-2</span>
+								<span class="c-badge container-primary">.p-3</span>
+								<span class="c-badge container-primary">.p-4</span>
+							</div>
+
+							<h4>Gap</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-success">.g-0</span>
+								<span class="c-badge container-success">.g-1</span>
+								<span class="c-badge container-success">.g-2</span>
+								<span class="c-badge container-success">.g-3</span>
+								<span class="c-badge container-success">.g-4</span>
+							</div>
+							<div class="c-cluster">
+								<span class="c-badge container-warning">.gx-*</span>
+								<span class="c-badge container-warning">.gy-*</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Display & Position -->
+					<div class="c-panel col col-lg-4">
+						<h3>Display</h3>
+						<div class="c-stack compact">
+							<div class="c-cluster">
+								<span class="c-badge container-primary">.d-none</span>
+								<span class="c-badge container-primary">.d-block</span>
+								<span class="c-badge container-primary">.d-flex</span>
+								<span class="c-badge container-primary">.d-grid</span>
+							</div>
+
+							<h4>Position</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-accent">.pos-relative</span>
+								<span class="c-badge container-accent">.pos-absolute</span>
+								<span class="c-badge container-accent">.pos-fixed</span>
+							</div>
+							<div class="c-cluster">
+								<span class="c-badge container-secondary">.top-0</span>
+								<span class="c-badge container-secondary">.right-0</span>
+								<span class="c-badge container-secondary">.bottom-0</span>
+								<span class="c-badge container-secondary">.left-0</span>
+							</div>
+
+							<h4>Flexbox</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-success">.flex-row</span>
+								<span class="c-badge container-success">.flex-col</span>
+								<span class="c-badge container-success">.wrap</span>
+								<span class="c-badge container-success">.fill</span>
+							</div>
+							<div class="c-cluster">
+								<span class="c-badge container-warning">.justify-*</span>
+								<span class="c-badge container-warning">.align-items-*</span>
+							</div>
+						</div>
+					</div>
+
+					<!-- Text & Visual -->
+					<div class="c-panel col col-lg-4">
+						<h3>Text</h3>
+						<div class="c-stack compact">
+							<div class="c-cluster">
+								<span class="c-badge container-primary">.text-left</span>
+								<span class="c-badge container-primary">.text-center</span>
+								<span class="c-badge container-primary">.text-right</span>
+							</div>
+							<div class="c-cluster">
+								<span class="c-badge container-accent">.truncate</span>
+								<span class="c-badge container-accent">.nowrap</span>
+							</div>
+
+							<h4>Shadows</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-secondary">.shadow-sm</span>
+								<span class="c-badge container-secondary">.shadow-md</span>
+								<span class="c-badge container-secondary">.shadow-lg</span>
+								<span class="c-badge container-secondary">.shadow-xl</span>
+							</div>
+
+							<h4>Responsive</h4>
+							<p style="font-size:0.75rem">Prefix with breakpoint:</p>
+							<div class="c-cluster">
+								<span class="c-badge container-success">.md:d-flex</span>
+								<span class="c-badge container-success">.lg:g-3</span>
+								<span class="c-badge container-success">.md:cols-3</span>
+							</div>
+
+							<h4>Visibility</h4>
+							<div class="c-cluster">
+								<span class="c-badge container-warning">.sm-hide</span>
+								<span class="c-badge container-warning">.md-hide</span>
+								<span class="c-badge container-warning">.lg-hide</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Width Demo -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>Width Utilities</h3>
+						<div class="c-stack compact">
+							<div class="demo-box p-1 w-25" style="background: var(--col-primary-p2);">.w-25</div>
+							<div class="demo-box p-1 w-50" style="background: var(--col-accent-p2);">.w-50</div>
+							<div class="demo-box p-1 w-75" style="background: var(--col-secondary-p2);">.w-75</div>
+							<div class="demo-box p-1 w-100" style="background: var(--col-success-p2);">.w-100</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Shadow Demo -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>Shadow Examples</h3>
+						<div class="c-cluster" style="padding: 1rem 0;">
+							<div class="c-panel p-2 shadow-sm">shadow-sm</div>
+							<div class="c-panel p-2 shadow-md">shadow-md</div>
+							<div class="c-panel p-2 shadow-lg">shadow-lg</div>
+							<div class="c-panel p-2 shadow-xl">shadow-xl</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Background Color System -->
+				<div class="row mt-2">
+					<div class="c-panel col">
+						<h3>Background Color System</h3>
+						<p style="font-size:0.875rem">Use <code>.bg</code> + <code>.bg-*</code> utilities to apply the color system to any element.</p>
+
+						<h4 class="mt-2">Elevation Modifiers</h4>
+						<div class="c-cluster">
+							<div class="bg bg-low p-2 border-radius-lg">.bg-low</div>
+							<div class="bg bg-mid p-2 border-radius-lg">.bg-mid</div>
+							<div class="bg bg-high p-2 border-radius-lg">.bg-high</div>
+						</div>
+
+						<h4 class="mt-2">Solid Colors</h4>
+						<div class="c-cluster">
+							<div class="bg bg-primary p-2 border-radius-lg">.bg-primary</div>
+							<div class="bg bg-secondary p-2 border-radius-lg">.bg-secondary</div>
+							<div class="bg bg-accent p-2 border-radius-lg">.bg-accent</div>
+							<div class="bg bg-neutral p-2 border-radius-lg">.bg-neutral</div>
+						</div>
+						<div class="c-cluster mt-1">
+							<div class="bg bg-success p-2 border-radius-lg">.bg-success</div>
+							<div class="bg bg-warning p-2 border-radius-lg">.bg-warning</div>
+							<div class="bg bg-error p-2 border-radius-lg">.bg-error</div>
+						</div>
+
+						<h4 class="mt-2">Container Colors (Softer)</h4>
+						<div class="c-cluster">
+							<div class="bg bg-container-primary p-2 border-radius-lg">.bg-container-primary</div>
+							<div class="bg bg-container-secondary p-2 border-radius-lg">.bg-container-secondary</div>
+							<div class="bg bg-container-accent p-2 border-radius-lg">.bg-container-accent</div>
+						</div>
+						<div class="c-cluster mt-1">
+							<div class="bg bg-container-success p-2 border-radius-lg">.bg-container-success</div>
+							<div class="bg bg-container-warning p-2 border-radius-lg">.bg-container-warning</div>
+							<div class="bg bg-container-error p-2 border-radius-lg">.bg-container-error</div>
+						</div>
+
+						<h4 class="mt-2">With Components</h4>
+						<p style="font-size:0.75rem">Apply to any component that uses the color system variables.</p>
+						<div class="c-cluster">
+							<div class="c-panel bg bg-container-accent p-2">Panel + .bg-container-accent</div>
+							<nav class="c-nav bg bg-high p-1">Nav + .bg-high</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+
 		</main>
+
+		<!-- Theme Controls (Fixed) -->
 		<div class="c-hbox g-1 pos-fixed bottom-0 right-0 m-2">
 			<details id="theme-dropdown" class="c-dropdown up right">
-				<summary class="c-button">🎨 Themes</summary>
+				<summary class="c-button">Themes</summary>
 				<ul class="c-panel">
 					<li class="c-nav-item p-1">
-						<button class="c-link" onclick="event.stopPropagation(); changeTheme('glass');" id="theme-glass">
-							<span id="glass-check">✓ </span>Glass
+						<button class="c-link" onclick="event.stopPropagation(); changeTheme('glass');">
+							<span id="glass-check">* </span>Glass
 						</button>
 					</li>
 					<li class="c-nav-item p-1">
-						<button class="c-link" onclick="event.stopPropagation(); changeTheme('opaque');" id="theme-opaque">
-							<span id="opaque-check" style="opacity: 0">✓ </span>Opaque
+						<button class="c-link" onclick="event.stopPropagation(); changeTheme('opaque');">
+							<span id="opaque-check" style="opacity: 0">* </span>Opaque
 						</button>
 					</li>
 				</ul>
 			</details>
-			<button class="c-button" type="button" onClick="toggleDark()">☀️/🌙</button>
+			<button class="c-button" type="button" onClick="toggleDark()">Light/Dark</button>
 		</div>
-		<div class="c-modal">
-			<div class="c-dialog c-panel">
-				<h1>Modal</h1>
-				<div class="c-card-body">
-					<p>Some text</p>
-				</div>
-			</div>
-		</div>
-	<div class="c-toast-container top-right" id="toast-container"></div>
-		<script>
-			//feather.replace()
-			lucide.createIcons()
 
-			console.log('init')
+		<!-- Toast Container -->
+		<div class="c-toast-container top-right" id="toast-container"></div>
+
+		<script>
+			// Initialize Lucide icons
+			lucide.createIcons();
+
+			// Dark mode detection
 			if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 				document.body.classList.add('dark');
 			}
 
+			// Theme switching
 			window.changeTheme = function(theme) {
-				console.log('changeTheme called with:', theme)
-				const link = document.getElementById('theme-link')
-				console.log('Link element:', link)
-				link.href = `themes/${theme}.css`
+				const link = document.getElementById('theme-link');
+				link.href = 'themes/' + theme + '.css';
+				document.body.classList.remove('theme-glass', 'theme-opaque');
+				document.body.classList.add('theme-' + theme);
 
-				// Update body class - remove old theme class and add new one
-				document.body.classList.remove('theme-glass', 'theme-opaque')
-				document.body.classList.add(`theme-${theme}`)
-
-				// Update checkmarks
-				const glassCheck = document.getElementById('glass-check')
-				const opaqueCheck = document.getElementById('opaque-check')
-				if (glassCheck) glassCheck.style.opacity = theme === 'glass' ? '1' : '0'
-				if (opaqueCheck) opaqueCheck.style.opacity = theme === 'opaque' ? '1' : '0'
-
-				document.getElementById('theme-dropdown').open = false
+				const glassCheck = document.getElementById('glass-check');
+				const opaqueCheck = document.getElementById('opaque-check');
+				if (glassCheck) glassCheck.style.opacity = theme === 'glass' ? '1' : '0';
+				if (opaqueCheck) opaqueCheck.style.opacity = theme === 'opaque' ? '1' : '0';
+				document.getElementById('theme-dropdown').open = false;
 			}
 
 			function toggleDark() {
-				document.body.classList.toggle('dark')
+				document.body.classList.toggle('dark');
 			}
 
-			function toggleFilter() {
-				document.getElementById('filterbar').classList.toggle('show')
+			// Main Tab Navigation
+			document.querySelectorAll('#main-tabs .c-tab').forEach(function(tab) {
+				tab.addEventListener('click', function() {
+					// Update active tab
+					document.querySelectorAll('#main-tabs .c-tab').forEach(function(t) {
+						t.classList.remove('active');
+					});
+					this.classList.add('active');
+
+					// Show corresponding content
+					var tabId = this.dataset.tab;
+					document.querySelectorAll('.tab-content').forEach(function(content) {
+						content.classList.remove('active');
+					});
+					document.getElementById('tab-' + tabId).classList.add('active');
+
+					// Re-initialize icons for newly visible content
+					lucide.createIcons();
+				});
+			});
+
+			// Table Tab Navigation
+			document.querySelectorAll('#table-tabs .c-tab').forEach(function(tab) {
+				tab.addEventListener('click', function() {
+					document.querySelectorAll('#table-tabs .c-tab').forEach(function(t) {
+						t.classList.remove('active');
+					});
+					this.classList.add('active');
+
+					var tableId = this.dataset.table;
+					document.querySelectorAll('.table-content').forEach(function(content) {
+						content.classList.remove('active');
+					});
+					document.getElementById('table-' + tableId).classList.add('active');
+				});
+			});
+
+			// Toast notifications using DOM methods (safe)
+			var toastId = 0;
+			var toastMessages = {
+				success: { title: 'Success!', message: 'Operation completed successfully', icon: 'OK' },
+				error: { title: 'Error!', message: 'Something went wrong', icon: 'X' },
+				warning: { title: 'Warning!', message: 'Please review this action', icon: '!' },
+				info: { title: 'Info', message: 'Here is some information', icon: 'i' }
+			};
+
+			function showToast(variant) {
+				var container = document.getElementById('toast-container');
+				var id = 'toast-' + (toastId++);
+				var msg = toastMessages[variant];
+
+				// Create toast using safe DOM methods
+				var toast = document.createElement('div');
+				toast.id = id;
+				toast.className = 'c-toast ' + variant + ' with-progress';
+				toast.style.setProperty('--toast-duration', '5s');
+
+				var iconDiv = document.createElement('div');
+				iconDiv.className = 'c-toast-icon';
+				iconDiv.textContent = msg.icon;
+
+				var contentDiv = document.createElement('div');
+				contentDiv.className = 'c-toast-content';
+
+				var titleDiv = document.createElement('div');
+				titleDiv.className = 'c-toast-title';
+				titleDiv.textContent = msg.title;
+
+				var messageDiv = document.createElement('div');
+				messageDiv.className = 'c-toast-message';
+				messageDiv.textContent = msg.message;
+
+				contentDiv.appendChild(titleDiv);
+				contentDiv.appendChild(messageDiv);
+
+				var closeBtn = document.createElement('button');
+				closeBtn.className = 'c-toast-close';
+				closeBtn.textContent = '\u00D7';
+				closeBtn.onclick = function() { dismissToast(id); };
+
+				var progressDiv = document.createElement('div');
+				progressDiv.className = 'c-toast-progress';
+
+				toast.appendChild(iconDiv);
+				toast.appendChild(contentDiv);
+				toast.appendChild(closeBtn);
+				toast.appendChild(progressDiv);
+
+				container.appendChild(toast);
+				setTimeout(function() { dismissToast(id); }, 5000);
 			}
 
-			function toggleDetails() {
-				document.getElementById('details-bar').classList.toggle('show')
+			function dismissToast(id) {
+				var toast = document.getElementById(id);
+				if (toast) {
+					toast.classList.add('dismissing');
+					setTimeout(function() { toast.remove(); }, 300);
+				}
 			}
-
-		// Toast notifications
-		let toastId = 0
-		const toastMessages = {
-			success: { title: "Success!", message: "Operation completed successfully" },
-			error: { title: "Error!", message: "Something went wrong" },
-			warning: { title: "Warning!", message: "Please review this action" },
-			info: { title: "Info", message: "Here is some information" }
-		}
-
-		function showToast(variant) {
-			const container = document.getElementById("toast-container")
-			const id = "toast-" + (toastId++)
-			const msg = toastMessages[variant]
-
-			const toast = document.createElement("div")
-			toast.id = id
-			toast.className = `c-toast ${variant} with-progress`
-			toast.style.setProperty("--toast-duration", "5s")
-			toast.innerHTML = `
-				<div class="c-toast-icon">
-					${variant === "success" ? "✓" : variant === "error" ? "✗" : variant === "warning" ? "⚠" : "ℹ"}
-				</div>
-				<div class="c-toast-content">
-					<div class="c-toast-title">${msg.title}</div>
-					<div class="c-toast-message">${msg.message}</div>
-				</div>
-				<button class="c-toast-close" onclick="dismissToast('${id}')">&times;</button>
-				<div class="c-toast-progress"></div>
-			`
-
-			container.appendChild(toast)
-
-			// Auto dismiss after 5 seconds
-			setTimeout(() => dismissToast(id), 5000)
-		}
-
-		function dismissToast(id) {
-			const toast = document.getElementById(id)
-			if (toast) {
-				toast.classList.add("dismissing")
-				setTimeout(() => toast.remove(), 300)
-			}
-		}
 		</script>
 	</body>
-	<!-- vim: ts=4
-	-->
 </html>

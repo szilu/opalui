@@ -39,6 +39,38 @@
 		--col-em: var(--col-em-container-high);
 		--col-bg: var(--col-container-high);
 	}
+
+	/* Color modifiers */
+	&.primary {
+		--col-bg: var(--col-container-primary);
+		--col-on: var(--col-on-container-primary);
+		--col-em: var(--col-em-container-primary);
+	}
+	&.secondary {
+		--col-bg: var(--col-container-secondary);
+		--col-on: var(--col-on-container-secondary);
+		--col-em: var(--col-em-container-secondary);
+	}
+	&.accent {
+		--col-bg: var(--col-container-accent);
+		--col-on: var(--col-on-container-accent);
+		--col-em: var(--col-em-container-accent);
+	}
+	&.error {
+		--col-bg: var(--col-container-error);
+		--col-on: var(--col-on-container-error);
+		--col-em: var(--col-em-container-error);
+	}
+	&.warning {
+		--col-bg: var(--col-container-warning);
+		--col-on: var(--col-on-container-warning);
+		--col-em: var(--col-em-container-warning);
+	}
+	&.success {
+		--col-bg: var(--col-container-success);
+		--col-on: var(--col-on-container-success);
+		--col-em: var(--col-em-container-success);
+	}
 }
 
 .c-nav-group {

@@ -4,34 +4,87 @@
 .c-tabs {
 	display: flex;
 	align-items: center;
+
+	/* Color system */
+	--col-bg: var(--col-container-low);
+	--col-on: var(--col-on-container-low);
+	--col-em: var(--col-em-container-low);
+	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
+	backdrop-filter: blur(var(--blur-radius));
+	color: var(--col-on);
+	border-radius: var(--border-radius-lg);
+	padding: var(--space-1);
+	gap: var(--space-1);
+
+	/* Elevation modifiers */
+	&.low {
+		--col-bg: var(--col-container-low);
+		--col-on: var(--col-on-container-low);
+		--col-em: var(--col-em-container-low);
+	}
+	&.mid {
+		--col-bg: var(--col-container);
+		--col-on: var(--col-on-container);
+		--col-em: var(--col-em-container);
+	}
+	&.high {
+		--col-bg: var(--col-container-high);
+		--col-on: var(--col-on-container-high);
+		--col-em: var(--col-em-container-high);
+	}
+
+	/* Color modifiers */
+	&.primary {
+		--col-bg: var(--col-container-primary);
+		--col-on: var(--col-on-container-primary);
+		--col-em: var(--col-em-container-primary);
+	}
+	&.secondary {
+		--col-bg: var(--col-container-secondary);
+		--col-on: var(--col-on-container-secondary);
+		--col-em: var(--col-em-container-secondary);
+	}
+	&.accent {
+		--col-bg: var(--col-container-accent);
+		--col-on: var(--col-on-container-accent);
+		--col-em: var(--col-em-container-accent);
+	}
+	&.error {
+		--col-bg: var(--col-container-error);
+		--col-on: var(--col-on-container-error);
+		--col-em: var(--col-em-container-error);
+	}
+	&.warning {
+		--col-bg: var(--col-container-warning);
+		--col-on: var(--col-on-container-warning);
+		--col-em: var(--col-em-container-warning);
+	}
+	&.success {
+		--col-bg: var(--col-container-success);
+		--col-on: var(--col-on-container-success);
+		--col-em: var(--col-em-container-success);
+	}
 }
 
 .c-tab {
-	border-bottom: var(--border-w-lg) solid var(--col-secondary);
-	margin: 0 var(--border-radius-lg);
-	padding: 0.5rem 1rem;
+	border: none;
+	border-bottom: var(--border-w-lg) solid transparent;
+	background: none;
+	padding: var(--space-1) var(--space-2);
 	text-decoration: none;
 	cursor: pointer;
 	user-select: none;
-	transition: color, background 0.3s;
-}
-.c-tab.active {
-	color: var(--col-em);
-	border-color: var(--col-em);
-}
+	color: var(--col-on);
+	transition: color 0.3s, border-color 0.3s;
 
-.c-tab.primary {
-	color: var(--col-primary);
-}
-.c-tab.primary.active {
-	border-color: var(--col-primary);
-}
+	&:hover {
+		color: var(--col-em);
+	}
 
-.c-tab.secondary {
-	color: var(--col-secondary);
-}
-.c-tab.secondary.active {
-	border-color: var(--col-secondary);
+	&.active {
+		color: var(--col-em);
+		border-color: var(--col-em);
+	}
 }
 
 /* vim: ts=4

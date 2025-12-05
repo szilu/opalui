@@ -9,7 +9,7 @@
 	user-select: none;
 	background-color: lch(from var(--col-secondary) l c h / var(--op-button));
 	color: var(--col-on-secondary);
-	transition: color, background 0.3s;
+	transition: color 0.3s, background-color 0.3s;
 
 	&.primary {
 		background-color: var(--col-primary);

@@ -18,7 +18,7 @@
 	--col-em: var(--col-em-secondary);
 	background-color: lch(from var(--col-bg) l c h / var(--op-button));
 	color: var(--col-on);
-	transition: color, background 0.3s;
+	transition: color 0.3s, background-color 0.3s;
 	white-space: nowrap;
 
 	&.clicked {

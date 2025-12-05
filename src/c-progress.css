@@ -1,11 +1,265 @@
-.c-progress-bar {
-	background-color: var(--col-secondary);
-	height: 4px;
+/* ==========================================================================
+   Progress Component - OpalUI
+   Progress bars with various styles and states
+   ========================================================================== */
 
-	.bar {
-		background-color: var(--col-primary);
-		height: 100%;
+.c-progress {
+	--progress-height: 0.5rem;
+	--progress-bg: var(--col-secondary-p3);
+	--progress-fill: var(--col-primary);
+	--progress-radius: var(--radius-full, 9999px);
+
+	position: relative;
+	width: 100%;
+	height: var(--progress-height);
+	background-color: var(--progress-bg);
+	border-radius: var(--progress-radius);
+	overflow: hidden;
+}
+
+/* Progress bar fill */
+.c-progress-bar,
+.c-progress > .bar {
+	height: 100%;
+	background-color: var(--progress-fill);
+	border-radius: inherit;
+	transition: width 0.3s ease;
+}
+
+/* -------------------------------------------------------------------------
+   Size Variants
+   ------------------------------------------------------------------------- */
+.c-progress.xs {
+	--progress-height: 0.25rem;
+}
+
+.c-progress.sm {
+	--progress-height: 0.375rem;
+}
+
+.c-progress.md {
+	--progress-height: 0.5rem;
+}
+
+.c-progress.lg {
+	--progress-height: 0.75rem;
+}
+
+.c-progress.xl {
+	--progress-height: 1rem;
+}
+
+/* -------------------------------------------------------------------------
+   Color Variants
+   ------------------------------------------------------------------------- */
+.c-progress.primary {
+	--progress-fill: var(--col-primary);
+}
+
+.c-progress.secondary {
+	--progress-fill: var(--col-secondary);
+}
+
+.c-progress.accent {
+	--progress-fill: var(--col-accent);
+}
+
+.c-progress.success {
+	--progress-fill: var(--col-success);
+}
+
+.c-progress.warning {
+	--progress-fill: var(--col-warning);
+}
+
+.c-progress.error {
+	--progress-fill: var(--col-error);
+}
+
+/* -------------------------------------------------------------------------
+   Indeterminate State
+   Loading animation when progress is unknown
+   ------------------------------------------------------------------------- */
+.c-progress.indeterminate .c-progress-bar,
+.c-progress.indeterminate > .bar {
+	width: 30% !important;
+	animation: progress-indeterminate 1.5s infinite ease-in-out;
+}
+
+@keyframes progress-indeterminate {
+	0% {
+		transform: translateX(-100%);
 	}
+	100% {
+		transform: translateX(400%);
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Striped Variant
+   Diagonal stripes for visual distinction
+   ------------------------------------------------------------------------- */
+.c-progress.striped .c-progress-bar,
+.c-progress.striped > .bar {
+	background-image: linear-gradient(
+		45deg,
+		rgba(255, 255, 255, 0.15) 25%,
+		transparent 25%,
+		transparent 50%,
+		rgba(255, 255, 255, 0.15) 50%,
+		rgba(255, 255, 255, 0.15) 75%,
+		transparent 75%,
+		transparent
+	);
+	background-size: 1rem 1rem;
+}
+
+/* Animated stripes */
+.c-progress.striped.animated .c-progress-bar,
+.c-progress.striped.animated > .bar {
+	animation: progress-stripes 1s linear infinite;
+}
+
+@keyframes progress-stripes {
+	from {
+		background-position: 1rem 0;
+	}
+	to {
+		background-position: 0 0;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Shape Variants
+   ------------------------------------------------------------------------- */
+.c-progress.square {
+	--progress-radius: 0;
+}
+
+.c-progress.rounded {
+	--progress-radius: var(--border-radius-sm, 0.25rem);
+}
+
+/* -------------------------------------------------------------------------
+   With Label
+   Progress bar with text label showing percentage
+   ------------------------------------------------------------------------- */
+.c-progress.with-label {
+	--progress-height: 1.25rem;
+}
+
+.c-progress.with-label .c-progress-bar,
+.c-progress.with-label > .bar {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 2rem;
+}
+
+.c-progress-label {
+	font-size: 0.75rem;
+	font-weight: 600;
+	color: var(--col-on-primary);
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* -------------------------------------------------------------------------
+   Stacked Progress
+   Multiple progress bars in one container
+   ------------------------------------------------------------------------- */
+.c-progress-stack {
+	display: flex;
+	width: 100%;
+	height: var(--progress-height, 0.5rem);
+	background-color: var(--col-secondary-p3);
+	border-radius: var(--radius-full, 9999px);
+	overflow: hidden;
+}
+
+.c-progress-stack > * {
+	height: 100%;
+	transition: width 0.3s ease;
+}
+
+.c-progress-stack > .primary { background-color: var(--col-primary); }
+.c-progress-stack > .secondary { background-color: var(--col-secondary); }
+.c-progress-stack > .accent { background-color: var(--col-accent); }
+.c-progress-stack > .success { background-color: var(--col-success); }
+.c-progress-stack > .warning { background-color: var(--col-warning); }
+.c-progress-stack > .error { background-color: var(--col-error); }
+
+/* -------------------------------------------------------------------------
+   Circular Progress (Ring)
+   ------------------------------------------------------------------------- */
+.c-progress-ring {
+	--ring-size: 3rem;
+	--ring-stroke: 0.25rem;
+	--ring-progress: 0;
+	--ring-color: var(--col-primary);
+	--ring-bg: var(--col-secondary-p3);
+
+	position: relative;
+	width: var(--ring-size);
+	height: var(--ring-size);
+}
+
+.c-progress-ring svg {
+	width: 100%;
+	height: 100%;
+	transform: rotate(-90deg);
+}
+
+.c-progress-ring circle {
+	fill: none;
+	stroke-width: var(--ring-stroke);
+	stroke-linecap: round;
+}
+
+.c-progress-ring .ring-bg {
+	stroke: var(--ring-bg);
+}
+
+.c-progress-ring .ring-fill {
+	stroke: var(--ring-color);
+	stroke-dasharray: 100;
+	stroke-dashoffset: calc(100 - var(--ring-progress));
+	transition: stroke-dashoffset 0.3s ease;
+}
+
+/* Ring sizes */
+.c-progress-ring.sm {
+	--ring-size: 2rem;
+	--ring-stroke: 0.1875rem;
+}
+
+.c-progress-ring.lg {
+	--ring-size: 4rem;
+	--ring-stroke: 0.375rem;
+}
+
+.c-progress-ring.xl {
+	--ring-size: 6rem;
+	--ring-stroke: 0.5rem;
+}
+
+/* Ring colors */
+.c-progress-ring.primary { --ring-color: var(--col-primary); }
+.c-progress-ring.secondary { --ring-color: var(--col-secondary); }
+.c-progress-ring.accent { --ring-color: var(--col-accent); }
+.c-progress-ring.success { --ring-color: var(--col-success); }
+.c-progress-ring.warning { --ring-color: var(--col-warning); }
+.c-progress-ring.error { --ring-color: var(--col-error); }
+
+/* Ring label (centered text) */
+.c-progress-ring-label {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(var(--ring-size) / 4);
+	font-weight: 600;
+	color: var(--col-on);
 }
 
 /* vim: ts=4

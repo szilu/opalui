@@ -1,0 +1,267 @@
+/* ==========================================================================
+   Tooltip Component - OpalUI
+   Pure CSS tooltips on hover/focus
+   ========================================================================== */
+
+.c-tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+/* Tooltip text container */
+.c-tooltip::before,
+.c-tooltip::after {
+	position: absolute;
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+	z-index: var(--z-tooltip, 800);
+	transition: opacity 0.15s ease, visibility 0.15s ease;
+}
+
+/* Tooltip content */
+.c-tooltip::after {
+	content: attr(data-tooltip);
+	bottom: calc(100% + 0.5rem);
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 0.5rem 0.75rem;
+	font-size: 0.8125rem;
+	font-weight: 400;
+	line-height: 1.4;
+	white-space: nowrap;
+	background-color: var(--col-container-high);
+	color: var(--col-on-container-high);
+	border-radius: var(--border-radius-sm, 0.25rem);
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/* Arrow */
+.c-tooltip::before {
+	content: "";
+	bottom: calc(100% + 0.25rem);
+	left: 50%;
+	transform: translateX(-50%);
+	border: 0.25rem solid transparent;
+	border-top-color: var(--col-container-high);
+}
+
+/* Show on hover/focus */
+.c-tooltip:hover::before,
+.c-tooltip:hover::after,
+.c-tooltip:focus::before,
+.c-tooltip:focus::after,
+.c-tooltip:focus-within::before,
+.c-tooltip:focus-within::after {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* -------------------------------------------------------------------------
+   Position Variants
+   ------------------------------------------------------------------------- */
+
+/* Bottom */
+.c-tooltip.bottom::after {
+	bottom: auto;
+	top: calc(100% + 0.5rem);
+}
+
+.c-tooltip.bottom::before {
+	bottom: auto;
+	top: calc(100% + 0.25rem);
+	border-top-color: transparent;
+	border-bottom-color: var(--col-container-high);
+}
+
+/* Left */
+.c-tooltip.left::after {
+	bottom: auto;
+	top: 50%;
+	left: auto;
+	right: calc(100% + 0.5rem);
+	transform: translateY(-50%);
+}
+
+.c-tooltip.left::before {
+	bottom: auto;
+	top: 50%;
+	left: auto;
+	right: calc(100% + 0.25rem);
+	transform: translateY(-50%);
+	border-top-color: transparent;
+	border-left-color: var(--col-container-high);
+}
+
+/* Right */
+.c-tooltip.right::after {
+	bottom: auto;
+	top: 50%;
+	left: calc(100% + 0.5rem);
+	transform: translateY(-50%);
+}
+
+.c-tooltip.right::before {
+	bottom: auto;
+	top: 50%;
+	left: calc(100% + 0.25rem);
+	transform: translateY(-50%);
+	border-top-color: transparent;
+	border-right-color: var(--col-container-high);
+}
+
+/* -------------------------------------------------------------------------
+   Alignment Variants (for top/bottom tooltips)
+   ------------------------------------------------------------------------- */
+
+/* Start aligned */
+.c-tooltip.start::after {
+	left: 0;
+	transform: none;
+}
+
+.c-tooltip.start::before {
+	left: 1rem;
+	transform: none;
+}
+
+/* End aligned */
+.c-tooltip.end::after {
+	left: auto;
+	right: 0;
+	transform: none;
+}
+
+.c-tooltip.end::before {
+	left: auto;
+	right: 1rem;
+	transform: none;
+}
+
+/* -------------------------------------------------------------------------
+   Color Variants
+   ------------------------------------------------------------------------- */
+
+/* Dark theme (default works well on both) */
+.c-tooltip.dark::after {
+	background-color: var(--col-neutral-m2);
+	color: white;
+}
+
+.c-tooltip.dark::before {
+	border-top-color: var(--col-neutral-m2);
+}
+
+.c-tooltip.dark.bottom::before {
+	border-top-color: transparent;
+	border-bottom-color: var(--col-neutral-m2);
+}
+
+.c-tooltip.dark.left::before {
+	border-top-color: transparent;
+	border-left-color: var(--col-neutral-m2);
+}
+
+.c-tooltip.dark.right::before {
+	border-top-color: transparent;
+	border-right-color: var(--col-neutral-m2);
+}
+
+/* Primary */
+.c-tooltip.primary::after {
+	background-color: var(--col-primary);
+	color: var(--col-on-primary);
+}
+
+.c-tooltip.primary::before {
+	border-top-color: var(--col-primary);
+}
+
+.c-tooltip.primary.bottom::before {
+	border-top-color: transparent;
+	border-bottom-color: var(--col-primary);
+}
+
+/* Error */
+.c-tooltip.error::after {
+	background-color: var(--col-error);
+	color: var(--col-on-error);
+}
+
+.c-tooltip.error::before {
+	border-top-color: var(--col-error);
+}
+
+.c-tooltip.error.bottom::before {
+	border-top-color: transparent;
+	border-bottom-color: var(--col-error);
+}
+
+/* -------------------------------------------------------------------------
+   Size Variants
+   ------------------------------------------------------------------------- */
+
+/* Small */
+.c-tooltip.sm::after {
+	padding: 0.25rem 0.5rem;
+	font-size: 0.75rem;
+}
+
+/* Large */
+.c-tooltip.lg::after {
+	padding: 0.75rem 1rem;
+	font-size: 0.875rem;
+}
+
+/* -------------------------------------------------------------------------
+   Multiline Support
+   ------------------------------------------------------------------------- */
+.c-tooltip.multiline::after {
+	white-space: normal;
+	width: max-content;
+	max-width: 250px;
+	text-align: left;
+}
+
+/* -------------------------------------------------------------------------
+   Animation Variants
+   ------------------------------------------------------------------------- */
+
+/* Fade + Scale */
+.c-tooltip.animated::after,
+.c-tooltip.animated::before {
+	transform-origin: bottom center;
+}
+
+.c-tooltip.animated::after {
+	transform: translateX(-50%) scale(0.95);
+}
+
+.c-tooltip.animated:hover::after,
+.c-tooltip.animated:focus::after {
+	transform: translateX(-50%) scale(1);
+}
+
+.c-tooltip.animated.bottom::after {
+	transform-origin: top center;
+}
+
+/* -------------------------------------------------------------------------
+   Delay
+   ------------------------------------------------------------------------- */
+.c-tooltip.delay::before,
+.c-tooltip.delay::after {
+	transition-delay: 0.3s;
+}
+
+/* -------------------------------------------------------------------------
+   Always Visible (for demos/testing)
+   ------------------------------------------------------------------------- */
+.c-tooltip.always-visible::before,
+.c-tooltip.always-visible::after {
+	visibility: visible;
+	opacity: 1;
+}
+
+/* vim: ts=4
+ */

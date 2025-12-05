@@ -1,0 +1,243 @@
+/* ==========================================================================
+   Table Component - OpalUI
+   Data tables with various styles
+   ========================================================================== */
+
+.c-table {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
+	font-size: 0.875rem;
+}
+
+.c-table th,
+.c-table td {
+	padding: 0.75rem 1rem;
+	text-align: left;
+	vertical-align: middle;
+	border-bottom: 1px solid var(--col-outline);
+}
+
+.c-table th {
+	font-weight: 600;
+	background-color: var(--col-container-low);
+	color: var(--col-on-container-low);
+	white-space: nowrap;
+}
+
+.c-table td {
+	color: var(--col-on);
+}
+
+/* -------------------------------------------------------------------------
+   Striped Rows
+   ------------------------------------------------------------------------- */
+.c-table.striped tbody tr:nth-child(odd) {
+	background-color: var(--col-container-low);
+}
+
+.c-table.striped tbody tr:nth-child(odd) td {
+	color: var(--col-on-container-low);
+}
+
+/* -------------------------------------------------------------------------
+   Hoverable Rows
+   ------------------------------------------------------------------------- */
+.c-table.hoverable tbody tr {
+	transition: background-color 0.15s ease;
+}
+
+.c-table.hoverable tbody tr:hover {
+	background-color: var(--col-container);
+}
+
+.c-table.hoverable tbody tr:hover td {
+	color: var(--col-on-container);
+}
+
+/* -------------------------------------------------------------------------
+   Bordered
+   ------------------------------------------------------------------------- */
+.c-table.bordered {
+	border: 1px solid var(--col-outline);
+}
+
+.c-table.bordered th,
+.c-table.bordered td {
+	border: 1px solid var(--col-outline);
+}
+
+/* -------------------------------------------------------------------------
+   Borderless
+   ------------------------------------------------------------------------- */
+.c-table.borderless th,
+.c-table.borderless td {
+	border: none;
+}
+
+/* -------------------------------------------------------------------------
+   Compact
+   ------------------------------------------------------------------------- */
+.c-table.compact th,
+.c-table.compact td {
+	padding: 0.5rem 0.75rem;
+	font-size: 0.8125rem;
+}
+
+/* -------------------------------------------------------------------------
+   Comfortable (larger)
+   ------------------------------------------------------------------------- */
+.c-table.comfortable th,
+.c-table.comfortable td {
+	padding: 1rem 1.25rem;
+}
+
+/* -------------------------------------------------------------------------
+   Fixed Layout
+   ------------------------------------------------------------------------- */
+.c-table.fixed {
+	table-layout: fixed;
+}
+
+/* -------------------------------------------------------------------------
+   Sticky Header
+   ------------------------------------------------------------------------- */
+.c-table.sticky-header thead {
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.c-table.sticky-header th {
+	background-color: var(--col-container-high);
+}
+
+/* -------------------------------------------------------------------------
+   Responsive Wrapper
+   ------------------------------------------------------------------------- */
+.c-table-responsive {
+	width: 100%;
+	overflow-x: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.c-table-responsive .c-table {
+	min-width: 100%;
+}
+
+/* -------------------------------------------------------------------------
+   Row States
+   ------------------------------------------------------------------------- */
+.c-table tr.selected {
+	background-color: var(--col-container-primary) !important;
+}
+
+.c-table tr.selected td {
+	color: var(--col-on-container-primary);
+}
+
+.c-table tr.success {
+	background-color: var(--col-container-success) !important;
+}
+
+.c-table tr.success td {
+	color: var(--col-on-container-success);
+}
+
+.c-table tr.warning {
+	background-color: var(--col-container-warning) !important;
+}
+
+.c-table tr.warning td {
+	color: var(--col-on-container-warning);
+}
+
+.c-table tr.error {
+	background-color: var(--col-container-error) !important;
+}
+
+.c-table tr.error td {
+	color: var(--col-on-container-error);
+}
+
+/* -------------------------------------------------------------------------
+   Sortable Headers
+   ------------------------------------------------------------------------- */
+.c-table th.sortable {
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.15s ease;
+}
+
+.c-table th.sortable:hover {
+	background-color: var(--col-container);
+}
+
+.c-table th.sortable::after {
+	content: "";
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin-left: 0.5rem;
+	vertical-align: middle;
+	border-left: 0.25rem solid transparent;
+	border-right: 0.25rem solid transparent;
+	opacity: 0.3;
+}
+
+.c-table th.sortable.asc::after {
+	border-bottom: 0.3rem solid currentColor;
+	opacity: 1;
+}
+
+.c-table th.sortable.desc::after {
+	border-top: 0.3rem solid currentColor;
+	opacity: 1;
+}
+
+/* -------------------------------------------------------------------------
+   Cell Alignment
+   ------------------------------------------------------------------------- */
+.c-table .text-right {
+	text-align: right;
+}
+
+.c-table .text-center {
+	text-align: center;
+}
+
+.c-table .text-left {
+	text-align: left;
+}
+
+/* Numeric columns */
+.c-table .numeric {
+	text-align: right;
+	font-variant-numeric: tabular-nums;
+}
+
+/* -------------------------------------------------------------------------
+   Cell Truncation
+   ------------------------------------------------------------------------- */
+.c-table .truncate {
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+/* -------------------------------------------------------------------------
+   Empty State
+   ------------------------------------------------------------------------- */
+.c-table-empty {
+	padding: 3rem 1rem;
+	text-align: center;
+	color: var(--col-secondary);
+}
+
+.c-table-empty td {
+	border: none !important;
+}
+
+/* vim: ts=4
+ */

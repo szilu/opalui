@@ -1,0 +1,344 @@
+/* ==========================================================================
+   Layout Helpers - OpalUI
+   Higher-level layout components for common patterns
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   c-stack: Vertical spacing component
+   Automatically spaces children vertically
+   Usage: <div class="c-stack">...</div>
+   ------------------------------------------------------------------------- */
+.c-stack {
+	display: flex;
+	flex-direction: column;
+	gap: var(--stack-gap, 1rem);
+}
+
+.c-stack.compact {
+	--stack-gap: 0.5rem;
+}
+
+.c-stack.loose {
+	--stack-gap: 2rem;
+}
+
+.c-stack.none {
+	--stack-gap: 0;
+}
+
+/* Recursive stacks - nested stacks inherit gap by default */
+.c-stack.recursive > * {
+	--stack-gap: inherit;
+}
+
+/* -------------------------------------------------------------------------
+   c-cluster: Flex wrap container for inline elements
+   Groups items that may wrap to multiple lines
+   Usage: <div class="c-cluster"><span class="c-tag">...</span>...</div>
+   ------------------------------------------------------------------------- */
+.c-cluster {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--cluster-gap, 0.5rem);
+	align-items: center;
+}
+
+.c-cluster.start {
+	justify-content: flex-start;
+}
+
+.c-cluster.center {
+	justify-content: center;
+}
+
+.c-cluster.end {
+	justify-content: flex-end;
+}
+
+.c-cluster.between {
+	justify-content: space-between;
+}
+
+/* -------------------------------------------------------------------------
+   c-split: Push items to opposite ends
+   Common header pattern: logo left, nav right
+   Usage: <header class="c-split"><div>Logo</div><nav>Links</nav></header>
+   ------------------------------------------------------------------------- */
+.c-split {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--split-gap, 1rem);
+}
+
+.c-split > :last-child {
+	margin-left: auto;
+}
+
+/* When items shouldn't wrap */
+.c-split.nowrap {
+	flex-wrap: nowrap;
+}
+
+/* -------------------------------------------------------------------------
+   c-center: Perfect centering
+   Center anything horizontally and vertically
+   Usage: <div class="c-center"><div>Centered content</div></div>
+   ------------------------------------------------------------------------- */
+.c-center {
+	display: grid;
+	place-items: center;
+	min-height: var(--center-min-height, auto);
+}
+
+/* Full viewport centering */
+.c-center.viewport {
+	--center-min-height: 100vh;
+}
+
+/* Intrinsic centering - content determines width */
+.c-center.intrinsic {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+/* Text centering */
+.c-center.text {
+	text-align: center;
+}
+
+/* -------------------------------------------------------------------------
+   c-sidebar-layout: Sidebar with main content
+   Common app layout pattern
+   Usage: <div class="c-sidebar-layout"><aside>Sidebar</aside><main>Content</main></div>
+   ------------------------------------------------------------------------- */
+.c-sidebar-layout {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--layout-gap, 1rem);
+}
+
+.c-sidebar-layout > :first-child {
+	flex-basis: var(--sidebar-target-width, 16rem);
+	flex-grow: 1;
+}
+
+.c-sidebar-layout > :last-child {
+	flex-basis: 0;
+	flex-grow: 999;
+	min-width: var(--content-min-width, 50%);
+}
+
+/* Sidebar on the right */
+.c-sidebar-layout.right {
+	flex-direction: row-reverse;
+}
+
+/* -------------------------------------------------------------------------
+   c-grid: CSS Grid utilities
+   Modern grid layouts with auto-fit/fill
+   Usage: <div class="c-grid cols-3">...</div>
+   ------------------------------------------------------------------------- */
+.c-grid {
+	display: grid;
+	gap: var(--grid-gap, 1rem);
+}
+
+/* Fixed column counts */
+.c-grid.cols-1 { grid-template-columns: repeat(1, 1fr); }
+.c-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.c-grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.c-grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.c-grid.cols-5 { grid-template-columns: repeat(5, 1fr); }
+.c-grid.cols-6 { grid-template-columns: repeat(6, 1fr); }
+
+/* Auto-fit - items stretch to fill available space */
+.c-grid.auto-fit {
+	grid-template-columns: repeat(auto-fit, minmax(var(--grid-min, 250px), 1fr));
+}
+
+/* Auto-fill - maintains minimum size, creates empty columns */
+.c-grid.auto-fill {
+	grid-template-columns: repeat(auto-fill, minmax(var(--grid-min, 250px), 1fr));
+}
+
+/* Grid item spanning */
+.c-grid > .span-2 { grid-column: span 2; }
+.c-grid > .span-3 { grid-column: span 3; }
+.c-grid > .span-4 { grid-column: span 4; }
+.c-grid > .span-full { grid-column: 1 / -1; }
+
+/* Row spanning */
+.c-grid > .row-span-2 { grid-row: span 2; }
+.c-grid > .row-span-3 { grid-row: span 3; }
+
+/* -------------------------------------------------------------------------
+   c-cover: Full-bleed hero sections
+   Vertically centers main content with optional header/footer
+   Usage: <div class="c-cover"><header>...</header><main>...</main><footer>...</footer></div>
+   ------------------------------------------------------------------------- */
+.c-cover {
+	display: flex;
+	flex-direction: column;
+	min-height: var(--cover-height, 100vh);
+	padding: var(--cover-padding, 1rem);
+}
+
+.c-cover > * {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.c-cover > :first-child:not(.centered) {
+	margin-bottom: auto;
+}
+
+.c-cover > :last-child:not(.centered) {
+	margin-top: auto;
+}
+
+.c-cover > .centered {
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+/* -------------------------------------------------------------------------
+   c-aspect: Aspect ratio container
+   For responsive media and consistent image sizing
+   Usage: <div class="c-aspect video"><img src="..."></div>
+   ------------------------------------------------------------------------- */
+.c-aspect {
+	position: relative;
+	width: 100%;
+	aspect-ratio: var(--aspect-ratio, 16 / 9);
+}
+
+.c-aspect > * {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.c-aspect.square { --aspect-ratio: 1 / 1; }
+.c-aspect.video { --aspect-ratio: 16 / 9; }
+.c-aspect.portrait { --aspect-ratio: 3 / 4; }
+.c-aspect.wide { --aspect-ratio: 21 / 9; }
+.c-aspect.photo { --aspect-ratio: 4 / 3; }
+
+/* Object fit options for children */
+.c-aspect.contain > * { object-fit: contain; }
+.c-aspect.fill > * { object-fit: fill; }
+
+/* -------------------------------------------------------------------------
+   c-switcher: Responsive switch between horizontal and vertical
+   Items stack vertically when container is too narrow
+   Usage: <div class="c-switcher">...</div>
+   ------------------------------------------------------------------------- */
+.c-switcher {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--switcher-gap, 1rem);
+}
+
+.c-switcher > * {
+	flex-grow: 1;
+	flex-basis: calc((var(--switcher-threshold, 30rem) - 100%) * 999);
+}
+
+/* -------------------------------------------------------------------------
+   c-reel: Horizontal scrolling container
+   For carousels, horizontal lists, etc.
+   Usage: <div class="c-reel">...</div>
+   ------------------------------------------------------------------------- */
+.c-reel {
+	display: flex;
+	gap: var(--reel-gap, 1rem);
+	overflow-x: auto;
+	overflow-y: hidden;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+.c-reel::-webkit-scrollbar {
+	display: none;
+}
+
+.c-reel > * {
+	flex: 0 0 var(--reel-item-width, auto);
+}
+
+/* Show scrollbar on hover */
+.c-reel.show-scrollbar {
+	scrollbar-width: thin;
+}
+
+.c-reel.show-scrollbar::-webkit-scrollbar {
+	display: block;
+	height: 0.5rem;
+}
+
+/* Snap scrolling */
+.c-reel.snap {
+	scroll-snap-type: x mandatory;
+}
+
+.c-reel.snap > * {
+	scroll-snap-align: start;
+}
+
+/* -------------------------------------------------------------------------
+   c-imposter: Overlay positioned element
+   For modals, dialogs, and overlays
+   Usage: <div class="c-imposter"><div class="c-imposter-content">...</div></div>
+   ------------------------------------------------------------------------- */
+.c-imposter {
+	position: fixed;
+	inset: 0;
+	display: grid;
+	place-items: center;
+	overflow: auto;
+}
+
+.c-imposter > * {
+	max-width: calc(100% - 2rem);
+	max-height: calc(100% - 2rem);
+}
+
+/* -------------------------------------------------------------------------
+   Responsive Grid Columns
+   ------------------------------------------------------------------------- */
+@media screen and (max-width: 767px) {
+	.c-grid.cols-2,
+	.c-grid.cols-3,
+	.c-grid.cols-4,
+	.c-grid.cols-5,
+	.c-grid.cols-6 {
+		grid-template-columns: 1fr;
+	}
+
+	.c-grid.sm\:cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+	.c-sidebar-layout > :last-child {
+		min-width: 100%;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.c-grid.md\:cols-2 { grid-template-columns: repeat(2, 1fr); }
+	.c-grid.md\:cols-3 { grid-template-columns: repeat(3, 1fr); }
+	.c-grid.md\:cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media screen and (min-width: 1200px) {
+	.c-grid.lg\:cols-3 { grid-template-columns: repeat(3, 1fr); }
+	.c-grid.lg\:cols-4 { grid-template-columns: repeat(4, 1fr); }
+	.c-grid.lg\:cols-5 { grid-template-columns: repeat(5, 1fr); }
+	.c-grid.lg\:cols-6 { grid-template-columns: repeat(6, 1fr); }
+}
+
+/* vim: ts=4
+ */

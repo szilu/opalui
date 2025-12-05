@@ -1,0 +1,245 @@
+/* ==========================================================================
+   Skeleton Component - OpalUI
+   Loading placeholder animations
+   ========================================================================== */
+
+.c-skeleton {
+	--skeleton-bg: var(--col-container-low);
+	--skeleton-highlight: var(--col-container);
+	--skeleton-radius: var(--border-radius-sm, 0.25rem);
+
+	background-color: var(--skeleton-bg);
+	border-radius: var(--skeleton-radius);
+	animation: skeleton-pulse 2s ease-in-out infinite;
+}
+
+@keyframes skeleton-pulse {
+	0%, 100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Shape Variants
+   ------------------------------------------------------------------------- */
+
+/* Text line */
+.c-skeleton.text {
+	height: 1em;
+	width: 100%;
+}
+
+/* Shorter text lines */
+.c-skeleton.text-sm {
+	height: 0.875em;
+	width: 100%;
+}
+
+.c-skeleton.text-lg {
+	height: 1.25em;
+	width: 100%;
+}
+
+/* Heading */
+.c-skeleton.heading {
+	height: 1.5em;
+	width: 60%;
+}
+
+/* Avatar (circle) */
+.c-skeleton.avatar {
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.c-skeleton.avatar.xs {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.c-skeleton.avatar.sm {
+	width: 2rem;
+	height: 2rem;
+}
+
+.c-skeleton.avatar.lg {
+	width: 3rem;
+	height: 3rem;
+}
+
+.c-skeleton.avatar.xl {
+	width: 4rem;
+	height: 4rem;
+}
+
+/* Button */
+.c-skeleton.button {
+	height: 2.5rem;
+	width: 6rem;
+	border-radius: 1.25rem;
+}
+
+.c-skeleton.button.sm {
+	height: 2rem;
+	width: 4rem;
+}
+
+.c-skeleton.button.lg {
+	height: 3rem;
+	width: 8rem;
+}
+
+/* Image/Card */
+.c-skeleton.image {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	border-radius: var(--border-radius-lg, 0.5rem);
+}
+
+.c-skeleton.image.square {
+	aspect-ratio: 1 / 1;
+}
+
+.c-skeleton.image.portrait {
+	aspect-ratio: 3 / 4;
+}
+
+/* Icon */
+.c-skeleton.icon {
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: var(--border-radius-sm, 0.25rem);
+	flex-shrink: 0;
+}
+
+/* Badge */
+.c-skeleton.badge {
+	width: 3rem;
+	height: 1.25rem;
+	border-radius: var(--radius-full, 9999px);
+}
+
+/* -------------------------------------------------------------------------
+   Wave Animation (Alternative)
+   ------------------------------------------------------------------------- */
+.c-skeleton.wave {
+	background: linear-gradient(
+		90deg,
+		var(--skeleton-bg) 0%,
+		var(--skeleton-highlight) 50%,
+		var(--skeleton-bg) 100%
+	);
+	background-size: 200% 100%;
+	animation: skeleton-wave 1.5s linear infinite;
+}
+
+@keyframes skeleton-wave {
+	from {
+		background-position: 200% 0;
+	}
+	to {
+		background-position: -200% 0;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   No Animation
+   ------------------------------------------------------------------------- */
+.c-skeleton.static {
+	animation: none;
+}
+
+/* -------------------------------------------------------------------------
+   Width Variants
+   ------------------------------------------------------------------------- */
+.c-skeleton.w-25 { width: 25%; }
+.c-skeleton.w-50 { width: 50%; }
+.c-skeleton.w-75 { width: 75%; }
+.c-skeleton.w-100 { width: 100%; }
+
+/* -------------------------------------------------------------------------
+   Skeleton Group
+   Common skeleton layouts
+   ------------------------------------------------------------------------- */
+.c-skeleton-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+/* Card skeleton layout */
+.c-skeleton-card {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	padding: 1rem;
+	border-radius: var(--border-radius-lg, 0.5rem);
+	background-color: var(--col-container-low);
+}
+
+.c-skeleton-card .c-skeleton {
+	--skeleton-bg: var(--col-container);
+	--skeleton-highlight: var(--col-container-high);
+}
+
+/* List item skeleton */
+.c-skeleton-list-item {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.75rem 0;
+}
+
+.c-skeleton-list-item .c-skeleton-content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* User profile skeleton */
+.c-skeleton-profile {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+}
+
+.c-skeleton-profile-info {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+/* Table row skeleton */
+.c-skeleton-table-row {
+	display: flex;
+	gap: 1rem;
+	padding: 0.75rem 0;
+	border-bottom: 1px solid var(--col-outline);
+}
+
+.c-skeleton-table-row > .c-skeleton {
+	flex: 1;
+}
+
+/* -------------------------------------------------------------------------
+   Paragraph Skeleton (Multiple lines)
+   ------------------------------------------------------------------------- */
+.c-skeleton-paragraph {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.c-skeleton-paragraph > .c-skeleton:last-child {
+	width: 70%;
+}
+
+/* vim: ts=4
+ */

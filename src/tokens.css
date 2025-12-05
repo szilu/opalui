@@ -1,0 +1,98 @@
+/* ==========================================================================
+   Design Tokens - OpalUI
+   Single source of truth for spacing, sizing, z-index, and transitions
+   ========================================================================== */
+
+:root {
+	/* -------------------------------------------------------------------------
+	   Spacing Scale
+	   Used for margins, paddings, and gaps
+	   Scale: 0.25rem increments (4px base at 16px root)
+	   ------------------------------------------------------------------------- */
+	--space-0: 0;
+	--space-1: 0.25rem;   /* 4px */
+	--space-2: 0.5rem;    /* 8px */
+	--space-3: 1rem;      /* 16px */
+	--space-4: 2rem;      /* 32px */
+	--space-5: 4rem;      /* 64px */
+
+	/* -------------------------------------------------------------------------
+	   Typography Scale
+	   Font sizes following a modular scale
+	   ------------------------------------------------------------------------- */
+	--text-xs: 0.75rem;     /* 12px */
+	--text-sm: 0.875rem;    /* 14px */
+	--text-base: 1rem;      /* 16px */
+	--text-lg: 1.125rem;    /* 18px */
+	--text-xl: 1.25rem;     /* 20px */
+	--text-2xl: 1.5rem;     /* 24px */
+	--text-3xl: 1.875rem;   /* 30px */
+	--text-4xl: 2.25rem;    /* 36px */
+
+	/* -------------------------------------------------------------------------
+	   Border Radius
+	   ------------------------------------------------------------------------- */
+	--radius-none: 0;
+	--radius-sm: 0.25rem;   /* 4px */
+	--radius-md: 0.5rem;    /* 8px */
+	--radius-lg: 1rem;      /* 16px */
+	--radius-xl: 1.5rem;    /* 24px */
+	--radius-full: 9999px;
+
+	/* -------------------------------------------------------------------------
+	   Z-Index Scale
+	   Layering system for stacking contexts
+	   ------------------------------------------------------------------------- */
+	--z-base: 0;
+	--z-dropdown: 100;
+	--z-sticky: 200;
+	--z-fixed: 300;
+	--z-sidebar: 400;
+	--z-modal-backdrop: 500;
+	--z-modal: 600;
+	--z-popover: 700;
+	--z-tooltip: 800;
+	--z-toast: 900;
+
+	/* -------------------------------------------------------------------------
+	   Transitions
+	   Duration and easing functions
+	   ------------------------------------------------------------------------- */
+	--duration-fast: 150ms;
+	--duration-normal: 300ms;
+	--duration-slow: 500ms;
+	--ease-default: cubic-bezier(0.4, 0, 0.2, 1);
+	--ease-in: cubic-bezier(0.4, 0, 1, 1);
+	--ease-out: cubic-bezier(0, 0, 0.2, 1);
+	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+	/* -------------------------------------------------------------------------
+	   Shadows
+	   Box shadow presets
+	   ------------------------------------------------------------------------- */
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+	/* -------------------------------------------------------------------------
+	   Breakpoints (for reference - use in media queries)
+	   ------------------------------------------------------------------------- */
+	/* --breakpoint-sm: 640px; */
+	/* --breakpoint-md: 768px; */
+	/* --breakpoint-lg: 1024px; */
+	/* --breakpoint-xl: 1280px; */
+
+	/* -------------------------------------------------------------------------
+	   Component sizing
+	   Standard heights for interactive elements
+	   ------------------------------------------------------------------------- */
+	--size-xs: 1.5rem;    /* 24px */
+	--size-sm: 2rem;      /* 32px */
+	--size-md: 2.5rem;    /* 40px */
+	--size-lg: 3rem;      /* 48px */
+	--size-xl: 4rem;      /* 64px */
+}
+
+/* vim: ts=4
+ */

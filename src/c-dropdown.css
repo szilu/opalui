@@ -23,9 +23,65 @@ details.c-dropdown[open] > :last-child {
 	left: 0;
 	white-space: nowrap;
 	z-index: 100;
-	background: var(--col-container-high);
-	box-shadow: inset 0px 0px 1rem var(--col-shadow);
 	margin-top: 0.5rem;
+
+	/* Color system */
+	--col-bg: var(--col-container-high);
+	--col-on: var(--col-on-container-high);
+	--col-em: var(--col-em-container-high);
+	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
+	backdrop-filter: blur(var(--blur-radius));
+	color: var(--col-on);
+	box-shadow: inset 0px 0px 1rem var(--col-shadow);
+}
+
+/* Elevation modifiers */
+details.c-dropdown.low[open] > :last-child {
+	--col-bg: var(--col-container-low);
+	--col-on: var(--col-on-container-low);
+	--col-em: var(--col-em-container-low);
+}
+details.c-dropdown.mid[open] > :last-child {
+	--col-bg: var(--col-container);
+	--col-on: var(--col-on-container);
+	--col-em: var(--col-em-container);
+}
+details.c-dropdown.high[open] > :last-child {
+	--col-bg: var(--col-container-high);
+	--col-on: var(--col-on-container-high);
+	--col-em: var(--col-em-container-high);
+}
+
+/* Color modifiers */
+details.c-dropdown.primary[open] > :last-child {
+	--col-bg: var(--col-container-primary);
+	--col-on: var(--col-on-container-primary);
+	--col-em: var(--col-em-container-primary);
+}
+details.c-dropdown.secondary[open] > :last-child {
+	--col-bg: var(--col-container-secondary);
+	--col-on: var(--col-on-container-secondary);
+	--col-em: var(--col-em-container-secondary);
+}
+details.c-dropdown.accent[open] > :last-child {
+	--col-bg: var(--col-container-accent);
+	--col-on: var(--col-on-container-accent);
+	--col-em: var(--col-em-container-accent);
+}
+details.c-dropdown.error[open] > :last-child {
+	--col-bg: var(--col-container-error);
+	--col-on: var(--col-on-container-error);
+	--col-em: var(--col-em-container-error);
+}
+details.c-dropdown.warning[open] > :last-child {
+	--col-bg: var(--col-container-warning);
+	--col-on: var(--col-on-container-warning);
+	--col-em: var(--col-em-container-warning);
+}
+details.c-dropdown.success[open] > :last-child {
+	--col-bg: var(--col-container-success);
+	--col-on: var(--col-on-container-success);
+	--col-em: var(--col-em-container-success);
 }
 
 .c-dropdown.up[open] > :last-child {

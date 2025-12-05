@@ -1,0 +1,266 @@
+/* ==========================================================================
+   Spinner Component - OpalUI
+   Loading indicators and spinners
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   Circle Spinner (Default)
+   ------------------------------------------------------------------------- */
+.c-spinner {
+	--spinner-size: 2rem;
+	--spinner-border: 0.1875rem;
+	--spinner-color: var(--col-primary);
+	--spinner-track: var(--col-outline);
+
+	display: inline-block;
+	width: var(--spinner-size);
+	height: var(--spinner-size);
+	border: var(--spinner-border) solid var(--spinner-track);
+	border-top-color: var(--spinner-color);
+	border-radius: 50%;
+	animation: spinner-rotate 0.75s linear infinite;
+}
+
+@keyframes spinner-rotate {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Size Variants
+   ------------------------------------------------------------------------- */
+.c-spinner.xs {
+	--spinner-size: 1rem;
+	--spinner-border: 0.125rem;
+}
+
+.c-spinner.sm {
+	--spinner-size: 1.5rem;
+	--spinner-border: 0.125rem;
+}
+
+.c-spinner.md {
+	--spinner-size: 2rem;
+	--spinner-border: 0.1875rem;
+}
+
+.c-spinner.lg {
+	--spinner-size: 3rem;
+	--spinner-border: 0.25rem;
+}
+
+.c-spinner.xl {
+	--spinner-size: 4rem;
+	--spinner-border: 0.3125rem;
+}
+
+/* -------------------------------------------------------------------------
+   Color Variants
+   ------------------------------------------------------------------------- */
+.c-spinner.primary {
+	--spinner-color: var(--col-primary);
+}
+
+.c-spinner.secondary {
+	--spinner-color: var(--col-secondary);
+}
+
+.c-spinner.accent {
+	--spinner-color: var(--col-accent);
+}
+
+.c-spinner.success {
+	--spinner-color: var(--col-success);
+}
+
+.c-spinner.warning {
+	--spinner-color: var(--col-warning);
+}
+
+.c-spinner.error {
+	--spinner-color: var(--col-error);
+}
+
+.c-spinner.neutral {
+	--spinner-color: var(--col-neutral);
+}
+
+/* Light spinner (for dark backgrounds) */
+.c-spinner.light {
+	--spinner-color: white;
+	--spinner-track: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark spinner (for light backgrounds) */
+.c-spinner.dark {
+	--spinner-color: var(--col-neutral-m2);
+	--spinner-track: rgba(0, 0, 0, 0.1);
+}
+
+/* -------------------------------------------------------------------------
+   Dots Spinner
+   Three bouncing dots
+   ------------------------------------------------------------------------- */
+.c-spinner-dots {
+	--dot-size: 0.5rem;
+	--dot-color: var(--col-primary);
+
+	display: inline-flex;
+	align-items: center;
+	gap: 0.25rem;
+}
+
+.c-spinner-dots > span {
+	width: var(--dot-size);
+	height: var(--dot-size);
+	background-color: var(--dot-color);
+	border-radius: 50%;
+	animation: spinner-bounce 1.4s infinite ease-in-out both;
+}
+
+.c-spinner-dots > span:nth-child(1) {
+	animation-delay: -0.32s;
+}
+
+.c-spinner-dots > span:nth-child(2) {
+	animation-delay: -0.16s;
+}
+
+@keyframes spinner-bounce {
+	0%,
+	80%,
+	100% {
+		transform: scale(0.6);
+		opacity: 0.5;
+	}
+	40% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+/* Dots size variants */
+.c-spinner-dots.sm {
+	--dot-size: 0.375rem;
+}
+
+.c-spinner-dots.lg {
+	--dot-size: 0.75rem;
+	gap: 0.375rem;
+}
+
+/* Dots color variants */
+.c-spinner-dots.primary { --dot-color: var(--col-primary); }
+.c-spinner-dots.secondary { --dot-color: var(--col-secondary); }
+.c-spinner-dots.accent { --dot-color: var(--col-accent); }
+.c-spinner-dots.success { --dot-color: var(--col-success); }
+.c-spinner-dots.warning { --dot-color: var(--col-warning); }
+.c-spinner-dots.error { --dot-color: var(--col-error); }
+
+/* -------------------------------------------------------------------------
+   Pulse Spinner
+   Single pulsing circle
+   ------------------------------------------------------------------------- */
+.c-spinner-pulse {
+	--pulse-size: 2rem;
+	--pulse-color: var(--col-primary);
+
+	width: var(--pulse-size);
+	height: var(--pulse-size);
+	background-color: var(--pulse-color);
+	border-radius: 50%;
+	animation: spinner-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes spinner-pulse {
+	0% {
+		transform: scale(0.8);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1);
+		opacity: 0.5;
+	}
+	100% {
+		transform: scale(0.8);
+		opacity: 1;
+	}
+}
+
+/* Pulse size variants */
+.c-spinner-pulse.sm { --pulse-size: 1.5rem; }
+.c-spinner-pulse.lg { --pulse-size: 3rem; }
+
+/* Pulse color variants */
+.c-spinner-pulse.primary { --pulse-color: var(--col-primary); }
+.c-spinner-pulse.secondary { --pulse-color: var(--col-secondary); }
+.c-spinner-pulse.accent { --pulse-color: var(--col-accent); }
+
+/* -------------------------------------------------------------------------
+   Bar Spinner
+   Horizontal animated bar
+   ------------------------------------------------------------------------- */
+.c-spinner-bar {
+	--bar-height: 0.25rem;
+	--bar-color: var(--col-primary);
+
+	width: 100%;
+	height: var(--bar-height);
+	background-color: var(--col-outline);
+	border-radius: var(--radius-full, 9999px);
+	overflow: hidden;
+}
+
+.c-spinner-bar::after {
+	content: "";
+	display: block;
+	width: 30%;
+	height: 100%;
+	background-color: var(--bar-color);
+	border-radius: inherit;
+	animation: spinner-bar 1.5s ease-in-out infinite;
+}
+
+@keyframes spinner-bar {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(400%);
+	}
+}
+
+/* Bar color variants */
+.c-spinner-bar.primary { --bar-color: var(--col-primary); }
+.c-spinner-bar.secondary { --bar-color: var(--col-secondary); }
+.c-spinner-bar.accent { --bar-color: var(--col-accent); }
+
+/* -------------------------------------------------------------------------
+   Loading Overlay
+   Full container overlay with spinner
+   ------------------------------------------------------------------------- */
+.c-loading-overlay {
+	position: absolute;
+	inset: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: lch(from var(--col-surface) l c h / 0.8);
+	backdrop-filter: blur(2px);
+	z-index: 10;
+}
+
+/* With text */
+.c-loading-overlay.with-text {
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.c-loading-text {
+	font-size: 0.875rem;
+	color: var(--col-secondary);
+}
+
+/* vim: ts=4
+ */
