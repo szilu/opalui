@@ -7,6 +7,7 @@
 @import url("reset.css");
 @import url("tokens.css");
 @import url("color.css");
+@import url("animations.css");
 @import url("utils.css");
 @import url("layout.css");
 
@@ -23,11 +24,13 @@
 @import url("c-modal.css");
 @import url("c-nav.css");
 @import url("c-panel.css");
+@import url("c-card.css");
 @import url("c-sidebar.css");
 @import url("c-tab.css");
 @import url("c-tag.css");
 @import url("c-toast.css");
 @import url("c-fab.css");
+@import url("c-popper.css");
 
 /* New Components */
 @import url("c-progress.css");

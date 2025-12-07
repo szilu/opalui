@@ -1,3 +1,8 @@
+/* ==========================================================================
+   Modal Component - OpalUI
+   Overlay dialog with backdrop and animations
+   ========================================================================== */
+
 .c-modal {
 	display: none;
 	position: fixed;
@@ -7,12 +12,27 @@
 	height: 100%;
 	background: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(var(--blur-radius));
-	z-index: 999;
+	z-index: var(--z-modal, 600);
 }
+
 .c-modal.show {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	animation: fade-in var(--duration-fast) var(--ease-out) both;
+}
+
+.c-modal.show > .c-dialog {
+	animation: scale-spring var(--anim-modal) both;
+}
+
+/* Exit animation */
+.c-modal.closing {
+	animation: fade-out var(--duration-fast) var(--ease-in) both;
+}
+
+.c-modal.closing > .c-dialog {
+	animation: scale-out var(--duration-fast) var(--ease-in) both;
 }
 
 .c-modal > .c-dialog {

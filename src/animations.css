@@ -1,0 +1,412 @@
+/* ==========================================================================
+   Animations - OpalUI
+   Keyframes and animation utility classes
+   ========================================================================== */
+
+/* -------------------------------------------------------------------------
+   Entrance Animations
+   ------------------------------------------------------------------------- */
+
+/* Fade */
+@keyframes fade-in {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+
+@keyframes fade-out {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+/* Fade + Slide */
+@keyframes fade-slide-up {
+	from {
+		opacity: 0;
+		transform: translateY(1rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-slide-down {
+	from {
+		opacity: 0;
+		transform: translateY(-1rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fade-slide-left {
+	from {
+		opacity: 0;
+		transform: translateX(1rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fade-slide-right {
+	from {
+		opacity: 0;
+		transform: translateX(-1rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Scale */
+@keyframes scale-in {
+	from {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes scale-out {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.95);
+	}
+}
+
+/* Scale with spring (for modals, dialogs) */
+@keyframes scale-spring {
+	from {
+		opacity: 0;
+		transform: scale(0.9);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* Zoom (more dramatic) */
+@keyframes zoom-in {
+	from {
+		opacity: 0;
+		transform: scale(0.5);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Slide Animations (no fade)
+   ------------------------------------------------------------------------- */
+
+@keyframes slide-in-up {
+	from { transform: translateY(100%); }
+	to { transform: translateY(0); }
+}
+
+@keyframes slide-in-down {
+	from { transform: translateY(-100%); }
+	to { transform: translateY(0); }
+}
+
+@keyframes slide-in-left {
+	from { transform: translateX(100%); }
+	to { transform: translateX(0); }
+}
+
+@keyframes slide-in-right {
+	from { transform: translateX(-100%); }
+	to { transform: translateX(0); }
+}
+
+@keyframes slide-out-up {
+	from { transform: translateY(0); }
+	to { transform: translateY(-100%); }
+}
+
+@keyframes slide-out-down {
+	from { transform: translateY(0); }
+	to { transform: translateY(100%); }
+}
+
+@keyframes slide-out-left {
+	from { transform: translateX(0); }
+	to { transform: translateX(-100%); }
+}
+
+@keyframes slide-out-right {
+	from { transform: translateX(0); }
+	to { transform: translateX(100%); }
+}
+
+/* -------------------------------------------------------------------------
+   Attention/Emphasis Animations
+   ------------------------------------------------------------------------- */
+
+@keyframes pulse {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+	0%, 100% {
+		transform: translateY(0);
+		animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+	}
+	50% {
+		transform: translateY(-25%);
+		animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+	}
+}
+
+@keyframes shake {
+	0%, 100% { transform: translateX(0); }
+	10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+	20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+@keyframes wiggle {
+	0%, 100% { transform: rotate(0deg); }
+	25% { transform: rotate(-3deg); }
+	75% { transform: rotate(3deg); }
+}
+
+/* -------------------------------------------------------------------------
+   Continuous/Loading Animations
+   ------------------------------------------------------------------------- */
+
+@keyframes spin {
+	from { transform: rotate(0deg); }
+	to { transform: rotate(360deg); }
+}
+
+@keyframes ping {
+	75%, 100% {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Hover Effects
+   ------------------------------------------------------------------------- */
+
+@keyframes hover-lift {
+	from {
+		transform: translateY(0);
+		box-shadow: var(--shadow-md);
+	}
+	to {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+}
+
+/* -------------------------------------------------------------------------
+   Animation Utility Classes
+   ------------------------------------------------------------------------- */
+
+/* Entrance animations */
+.animate-fade-in {
+	animation: fade-in var(--anim-page-enter) both;
+}
+
+.animate-fade-slide-up {
+	animation: fade-slide-up var(--anim-page-enter) both;
+}
+
+.animate-fade-slide-down {
+	animation: fade-slide-down var(--anim-page-enter) both;
+}
+
+.animate-fade-slide-left {
+	animation: fade-slide-left var(--anim-page-enter) both;
+}
+
+.animate-fade-slide-right {
+	animation: fade-slide-right var(--anim-page-enter) both;
+}
+
+.animate-scale-in {
+	animation: scale-in var(--anim-page-enter) both;
+}
+
+.animate-scale-spring {
+	animation: scale-spring var(--anim-modal) both;
+}
+
+.animate-zoom-in {
+	animation: zoom-in var(--anim-page-enter) both;
+}
+
+/* Exit animations */
+.animate-fade-out {
+	animation: fade-out var(--duration-fast) var(--ease-in) both;
+}
+
+.animate-scale-out {
+	animation: scale-out var(--duration-fast) var(--ease-in) both;
+}
+
+/* Slide animations */
+.animate-slide-in-up {
+	animation: slide-in-up var(--anim-page-enter) both;
+}
+
+.animate-slide-in-down {
+	animation: slide-in-down var(--anim-page-enter) both;
+}
+
+.animate-slide-in-left {
+	animation: slide-in-left var(--anim-page-enter) both;
+}
+
+.animate-slide-in-right {
+	animation: slide-in-right var(--anim-page-enter) both;
+}
+
+/* Continuous animations */
+.animate-pulse {
+	animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-bounce {
+	animation: bounce 1s infinite;
+}
+
+.animate-spin {
+	animation: spin 1s linear infinite;
+}
+
+.animate-ping {
+	animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Attention animations */
+.animate-shake {
+	animation: shake 0.5s ease-in-out;
+}
+
+.animate-wiggle {
+	animation: wiggle 0.3s ease-in-out;
+}
+
+/* -------------------------------------------------------------------------
+   Stagger Delay Classes
+   For sequenced entrance animations
+   ------------------------------------------------------------------------- */
+
+.stagger-1 { animation-delay: calc(var(--anim-stagger-base) * 1); }
+.stagger-2 { animation-delay: calc(var(--anim-stagger-base) * 2); }
+.stagger-3 { animation-delay: calc(var(--anim-stagger-base) * 3); }
+.stagger-4 { animation-delay: calc(var(--anim-stagger-base) * 4); }
+.stagger-5 { animation-delay: calc(var(--anim-stagger-base) * 5); }
+.stagger-6 { animation-delay: calc(var(--anim-stagger-base) * 6); }
+.stagger-7 { animation-delay: calc(var(--anim-stagger-base) * 7); }
+.stagger-8 { animation-delay: calc(var(--anim-stagger-base) * 8); }
+
+/* -------------------------------------------------------------------------
+   Transition Utility Classes
+   For hover/focus states
+   ------------------------------------------------------------------------- */
+
+.transition-none {
+	transition: none;
+}
+
+.transition-all {
+	transition: all var(--duration-normal) var(--ease-default);
+}
+
+.transition-colors {
+	transition: color var(--duration-fast) var(--ease-default),
+	            background-color var(--duration-fast) var(--ease-default),
+	            border-color var(--duration-fast) var(--ease-default);
+}
+
+.transition-opacity {
+	transition: opacity var(--duration-fast) var(--ease-default);
+}
+
+.transition-transform {
+	transition: transform var(--duration-fast) var(--ease-default);
+}
+
+.transition-shadow {
+	transition: box-shadow var(--duration-fast) var(--ease-default);
+}
+
+/* -------------------------------------------------------------------------
+   Hover Effect Classes
+   ------------------------------------------------------------------------- */
+
+.hover-lift {
+	transition: transform var(--anim-hover), box-shadow var(--anim-hover);
+}
+
+.hover-lift:hover {
+	transform: translateY(-2px);
+	box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+	transition: transform var(--anim-hover);
+}
+
+.hover-scale:hover {
+	transform: scale(1.02);
+}
+
+.hover-glow {
+	transition: box-shadow var(--anim-hover);
+}
+
+.hover-glow:hover {
+	box-shadow: 0 0 20px lch(from var(--col-primary) l c h / 0.3);
+}
+
+/* -------------------------------------------------------------------------
+   Focus Effect Classes
+   ------------------------------------------------------------------------- */
+
+.focus-ring {
+	transition: outline-offset var(--duration-fast) var(--ease-out);
+}
+
+.focus-ring:focus-visible {
+	outline: 2px solid var(--col-primary);
+	outline-offset: 2px;
+}
+
+/* -------------------------------------------------------------------------
+   Motion Preference
+   Respect user's reduced motion preference
+   ------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* vim: ts=4
+ */

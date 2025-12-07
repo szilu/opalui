@@ -1,3 +1,8 @@
+/* ==========================================================================
+   Panel Component - OpalUI
+   Container cards with elevation and color variants
+   ========================================================================== */
+
 .c-panel {
 	display: flex;
 	flex-direction: column;
@@ -8,7 +13,11 @@
 	/*
 	box-shadow: inset 0px 0px 2rem var(--col-bg-emph);
 	*/
-	transition: background 0.3s, border 0.3s, color 0.3s;
+	transition: background-color var(--duration-normal) var(--ease-default),
+	            border-color var(--duration-normal) var(--ease-default),
+	            color var(--duration-normal) var(--ease-default),
+	            transform var(--duration-fast) var(--ease-out),
+	            box-shadow var(--duration-fast) var(--ease-out);
 	position: relative;
 	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
 	color: var(--col-on);
@@ -21,6 +30,21 @@
 
 	&.emph {
 		box-shadow: inset 0px 0px 2rem var(--col-frost);
+	}
+
+	/* Interactive panel with hover effect */
+	&.interactive {
+		cursor: pointer;
+	}
+
+	&.interactive:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-lg);
+	}
+
+	&.interactive:active {
+		transform: translateY(0);
+		box-shadow: var(--shadow-sm);
 	}
 	&.primary {
 		/*
@@ -110,6 +134,46 @@
 	.body {
 		flex: 1;
 	}
+}
+
+/* ==========================================================================
+   Automatic Nesting Detection
+   Nested panels automatically get elevated background + shadow
+   ========================================================================== */
+
+.c-panel .c-panel {
+	--col-bg: var(--col-container);
+	--col-on: var(--col-on-container);
+	--col-em: var(--col-em-container);
+	box-shadow: var(--shadow-sm);
+}
+
+.c-panel .c-panel .c-panel {
+	--col-bg: var(--col-container-high);
+	--col-on: var(--col-on-container-high);
+	--col-em: var(--col-em-container-high);
+	box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   Shadow Baseline for Explicit Elevation Variants
+   ========================================================================== */
+
+.c-panel.mid {
+	box-shadow: var(--shadow-sm);
+}
+
+.c-panel.high {
+	box-shadow: var(--shadow-md);
+}
+
+/* Preserve emph shadow when combined with elevation */
+.c-panel.mid.emph {
+	box-shadow: inset 0px 0px 2rem var(--col-frost), var(--shadow-sm);
+}
+
+.c-panel.high.emph {
+	box-shadow: inset 0px 0px 2rem var(--col-frost), var(--shadow-md);
 }
 
 /* vim: ts=4

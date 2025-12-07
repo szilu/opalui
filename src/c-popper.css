@@ -1,0 +1,59 @@
+/* ==========================================================================
+   Popper Component - OpalUI
+   Floating popup menus with entrance animations
+   ========================================================================== */
+
+.c-popper {
+	/* Color system based on elevation */
+	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
+	backdrop-filter: blur(var(--blur-radius));
+	color: var(--col-on);
+	border-radius: var(--border-radius-lg);
+	box-shadow: var(--shadow-lg), inset 0px 0px 1rem var(--col-shadow);
+	z-index: var(--z-popover, 700);
+
+	/* Entrance animation */
+	animation: scale-in var(--duration-fast) var(--ease-out) both;
+	transform-origin: top left;
+}
+
+/* Elevation variants */
+.c-popper.low {
+	--col-bg: var(--col-container-low);
+	--col-on: var(--col-on-container-low);
+	--col-em: var(--col-em-container-low);
+}
+
+.c-popper.mid {
+	--col-bg: var(--col-container);
+	--col-on: var(--col-on-container);
+	--col-em: var(--col-em-container);
+}
+
+.c-popper.high {
+	--col-bg: var(--col-container-high);
+	--col-on: var(--col-on-container-high);
+	--col-em: var(--col-em-container-high);
+}
+
+/* Color variants */
+.c-popper.primary {
+	--col-bg: var(--col-container-primary);
+	--col-on: var(--col-on-container-primary);
+	--col-em: var(--col-em-container-primary);
+}
+
+.c-popper.secondary {
+	--col-bg: var(--col-container-secondary);
+	--col-on: var(--col-on-container-secondary);
+	--col-em: var(--col-em-container-secondary);
+}
+
+.c-popper.accent {
+	--col-bg: var(--col-container-accent);
+	--col-on: var(--col-on-container-accent);
+	--col-em: var(--col-em-container-accent);
+}
+
+/* vim: ts=4
+ */

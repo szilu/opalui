@@ -111,6 +111,17 @@ ul.c-nav {
 	color: var(--col-on);
 	padding: 0;
 	gap: var(--gap);
+	transition: color var(--duration-fast) var(--ease-default),
+	            background-color var(--duration-fast) var(--ease-default),
+	            transform var(--duration-fast) var(--ease-out);
+
+	&:hover:not([disabled]) {
+		color: var(--col-em);
+	}
+
+	&:active:not([disabled]) {
+		transform: scale(0.98);
+	}
 
 	&[disabled] {
 		opacity: var(--op-disabled);
@@ -130,7 +141,7 @@ ul.c-nav {
 }
 
 .c-nav-item.active, .c-nav-link.active {
-	color: var(--col-frost);
+	color: var(--col-primary);
 }
 
 .c-nav-item:focus-visible, .c-nav-link:focus-visible {

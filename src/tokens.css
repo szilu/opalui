@@ -39,6 +39,9 @@
 	--radius-xl: 1.5rem;    /* 24px */
 	--radius-full: 9999px;
 
+	/* Semantic radius tokens */
+	--radius-control: var(--radius-md);   /* 8px - unified for buttons & inputs */
+
 	/* -------------------------------------------------------------------------
 	   Z-Index Scale
 	   Layering system for stacking contexts
@@ -55,16 +58,32 @@
 	--z-toast: 900;
 
 	/* -------------------------------------------------------------------------
-	   Transitions
+	   Transitions & Timing
 	   Duration and easing functions
 	   ------------------------------------------------------------------------- */
+	--duration-instant: 100ms;
 	--duration-fast: 150ms;
 	--duration-normal: 300ms;
 	--duration-slow: 500ms;
+	--duration-slower: 700ms;
+
 	--ease-default: cubic-bezier(0.4, 0, 0.2, 1);
 	--ease-in: cubic-bezier(0.4, 0, 1, 1);
 	--ease-out: cubic-bezier(0, 0, 0.2, 1);
 	--ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+	--ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+	--ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+	/* -------------------------------------------------------------------------
+	   Animation Presets
+	   Composite timing for common patterns
+	   ------------------------------------------------------------------------- */
+	--anim-stagger-base: 50ms;
+	--anim-page-enter: 400ms var(--ease-out);
+	--anim-hover: 200ms var(--ease-out);
+	--anim-press: 150ms var(--ease-in-out);
+	--anim-modal: 300ms var(--ease-spring);
+	--anim-toast: 300ms var(--ease-out);
 
 	/* -------------------------------------------------------------------------
 	   Shadows
@@ -92,6 +111,15 @@
 	--size-md: 2.5rem;    /* 40px */
 	--size-lg: 3rem;      /* 48px */
 	--size-xl: 4rem;      /* 64px */
+
+	/* -------------------------------------------------------------------------
+	   Accessibility Tokens
+	   Focus states and touch targets for better accessibility
+	   ------------------------------------------------------------------------- */
+	--focus-ring-width: 3px;
+	--focus-ring-offset: 2px;
+	--focus-ring-color: var(--col-focus, var(--col-primary));
+	--min-touch-target: 44px;  /* WCAG 2.5.5 minimum touch target size */
 }
 
 /* vim: ts=4

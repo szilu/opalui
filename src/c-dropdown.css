@@ -1,3 +1,8 @@
+/* ==========================================================================
+   Dropdown Component - OpalUI
+   Accessible dropdown menus with animations
+   ========================================================================== */
+
 .c-dropdown {
 	position: relative;
 	display: inline-block;
@@ -22,7 +27,7 @@ details.c-dropdown[open] > :last-child {
 	position: absolute;
 	left: 0;
 	white-space: nowrap;
-	z-index: 100;
+	z-index: var(--z-dropdown, 100);
 	margin-top: 0.5rem;
 
 	/* Color system */
@@ -33,6 +38,10 @@ details.c-dropdown[open] > :last-child {
 	backdrop-filter: blur(var(--blur-radius));
 	color: var(--col-on);
 	box-shadow: inset 0px 0px 1rem var(--col-shadow);
+
+	/* Entrance animation */
+	animation: fade-slide-down var(--duration-fast) var(--ease-out) both;
+	transform-origin: top center;
 }
 
 /* Elevation modifiers */
@@ -88,6 +97,8 @@ details.c-dropdown.success[open] > :last-child {
 	bottom: 100%;
 	margin-top: 0;
 	margin-bottom: 0.5rem;
+	animation: fade-slide-up var(--duration-fast) var(--ease-out) both;
+	transform-origin: bottom center;
 }
 
 .c-dropdown.right[open] > :last-child {

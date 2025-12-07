@@ -136,10 +136,10 @@ body {
 	/* -------------------------------------------------------------------------
 	   Surface & Container Colors
 	   ------------------------------------------------------------------------- */
-	--col-surface: lch(from var(--color-neutral) 99 calc(c * 0.2) h);
-	--col-container-low: lch(from var(--color-neutral) 95 calc(c * 0.3) h);
-	--col-container: lch(from var(--color-neutral) 90 calc(c * 0.5) h);
-	--col-container-high: lch(from var(--color-neutral) 85 calc(c * 0.6) h);
+	--col-surface: lch(from var(--color-neutral) 92 calc(c * 0.3) h);
+	--col-container-low: lch(from var(--color-neutral) 88 calc(c * 0.4) h);
+	--col-container: lch(from var(--color-neutral) 83 calc(c * 0.5) h);
+	--col-container-high: lch(from var(--color-neutral) 78 calc(c * 0.6) h);
 	--col-container-primary: lch(from var(--color-primary) 90 calc(c * 0.5) h);
 	--col-container-secondary: lch(from var(--color-secondary) 90 calc(c * 0.5) h);
 	--col-container-accent: lch(from var(--color-accent) 90 calc(c * 0.5) h);

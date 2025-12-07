@@ -3,7 +3,7 @@
 	position: fixed;
 	bottom: 5rem; /* Above mobile nav */
 	right: 1.5rem;
-	z-index: 100;
+	z-index: var(--z-fixed, 300);
 	width: 3.5rem;
 	height: 3.5rem;
 	display: flex;

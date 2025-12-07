@@ -12,7 +12,7 @@
 }
 
 .c-input, .c-select, .c-input-group {
-	border-radius: var(--border-radius-sm);
+	border-radius: var(--radius-control);
 	border: var(--border-w-sm) solid var(--col-secondary);
 	background: var(--col-container);
 	color: var(--col-on-container);
@@ -170,6 +170,59 @@ textarea.c-input.resize {
 .c-toggle:checked:after {
 	left: 1rem;
 	background: var(--col-em);
+}
+
+/*******************/
+/* Settings Fields */
+/*******************/
+
+/* Settings field layout - label and input on same line with constrained widths */
+.c-settings-field {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	max-width: 600px;
+	padding-bottom: 0.5rem;
+}
+
+.c-settings-field > span,
+.c-settings-field > label {
+	flex: 1 1 auto;
+	min-width: 0;
+}
+
+.c-settings-field .c-input,
+.c-settings-field .c-select {
+	flex: 0 0 auto;
+	width: auto;
+	min-width: 150px;
+	max-width: 200px;
+}
+
+.c-settings-field .c-toggle {
+	flex: 0 0 auto;
+}
+
+/* Password fields can be a bit wider */
+.c-settings-field .c-input[type="password"],
+.c-settings-field .c-input[type="text"] {
+	max-width: 250px;
+}
+
+/* Settings section for grouping related fields */
+.c-settings-section {
+	margin-bottom: 1.5rem;
+}
+
+.c-settings-section-title {
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: lch(from var(--col-on) l c h / 0.6);
+	margin-bottom: 0.75rem;
+	padding-bottom: 0.5rem;
+	border-bottom: var(--border-w-sm) solid var(--col-outline);
 }
 
 /* vim: ts=4

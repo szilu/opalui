@@ -1,0 +1,111 @@
+/* ==========================================================================
+   Card Component - OpalUI
+   Elevated container for nested content within panels
+   Cards default to 'mid' elevation with subtle shadow
+   ========================================================================== */
+
+.c-card {
+	display: flex;
+	flex-direction: column;
+	backdrop-filter: blur(var(--blur-radius));
+	border-radius: var(--border-radius-md);
+	padding: var(--space-3);
+	gap: var(--gap);
+	position: relative;
+
+	/* Cards default to mid elevation */
+	--col-bg: var(--col-container);
+	--col-on: var(--col-on-container);
+	--col-em: var(--col-em-container);
+	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
+	color: var(--col-on);
+	box-shadow: var(--shadow-sm);
+
+	transition: background-color var(--duration-normal) var(--ease-default),
+	            border-color var(--duration-normal) var(--ease-default),
+	            color var(--duration-normal) var(--ease-default),
+	            transform var(--duration-fast) var(--ease-out),
+	            box-shadow var(--duration-fast) var(--ease-out);
+
+	/* Interactive card styles */
+	&.interactive {
+		cursor: pointer;
+	}
+
+	&.interactive:hover {
+		transform: translateY(-2px);
+		box-shadow: var(--shadow-md);
+	}
+
+	&.interactive:active {
+		transform: translateY(0);
+		box-shadow: var(--shadow-sm);
+	}
+
+	&.interactive:focus-visible {
+		outline: none;
+		box-shadow: var(--shadow-sm), 0px 0px var(--sh-focus) var(--col-focus);
+	}
+
+	/* Color variants */
+	&.primary {
+		--col-on: var(--col-on-container-primary);
+		--col-em: var(--col-em-container-primary);
+		--col-bg: var(--col-container-primary);
+	}
+
+	&.secondary {
+		--col-on: var(--col-on-container-secondary);
+		--col-em: var(--col-em-container-secondary);
+		--col-bg: var(--col-container-secondary);
+	}
+
+	&.accent {
+		--col-on: var(--col-on-container-accent);
+		--col-em: var(--col-em-container-accent);
+		--col-bg: var(--col-container-accent);
+	}
+
+	&.error {
+		--col-on: var(--col-on-container-error);
+		--col-em: var(--col-em-container-error);
+		--col-bg: var(--col-container-error);
+	}
+
+	&.warning {
+		--col-on: var(--col-on-container-warning);
+		--col-em: var(--col-em-container-warning);
+		--col-bg: var(--col-container-warning);
+	}
+
+	&.success {
+		--col-on: var(--col-on-container-success);
+		--col-em: var(--col-em-container-success);
+		--col-bg: var(--col-container-success);
+	}
+
+	/* Elevation variants */
+	&.low {
+		--col-on: var(--col-on-container-low);
+		--col-em: var(--col-em-container-low);
+		--col-bg: var(--col-container-low);
+		box-shadow: none;
+	}
+
+	&.mid {
+		--col-on: var(--col-on-container);
+		--col-em: var(--col-em-container);
+		--col-bg: var(--col-container);
+		box-shadow: var(--shadow-sm);
+	}
+
+	&.high {
+		--col-on: var(--col-on-container-high);
+		--col-em: var(--col-em-container-high);
+		--col-bg: var(--col-container-high);
+		box-shadow: var(--shadow-md);
+	}
+}
+
+/* vim: ts=4
+ */
