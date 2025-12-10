@@ -1,6 +1,6 @@
 {
   "name": "@symbion/opalui",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "A minimalistic CSS framework",
   "main": "dist/opalui.css",
   "files": [

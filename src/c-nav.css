@@ -80,7 +80,8 @@
 	& li { display: flex; }
 }
 
-.c-nav.vertical, c-nav-group.vertical {
+.c-nav.vertical, .c-nav.flex-column,
+.c-nav-group.vertical, .c-nav-group.flex-column {
 	flex-direction: column;
 	align-items: stretch;
 }

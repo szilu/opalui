@@ -1,0 +1,97 @@
+/* ==========================================================================
+   Tag Input Component - OpalUI
+   Autocomplete input for adding and displaying tags
+   ========================================================================== */
+
+.c-tag-input {
+	position: relative;
+}
+
+.c-tag-input-field {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: var(--space-1);
+	padding: var(--space-1) var(--space-2);
+	border: 1px solid var(--col-outline);
+	border-radius: var(--radius-control);
+	background: var(--col-bg);
+	min-height: var(--size-md);
+	transition: border-color var(--duration-fast) var(--ease-default),
+	            box-shadow var(--duration-fast) var(--ease-default);
+
+	&:focus-within {
+		border-color: var(--col-primary);
+		box-shadow: 0 0 0 2px lch(from var(--col-primary) l c h / 0.2);
+	}
+
+	& input {
+		flex: 1;
+		border: none;
+		background: transparent;
+		outline: none;
+		font-size: var(--text-sm);
+		min-width: 6rem;
+		color: var(--col-txt);
+
+		&::placeholder {
+			color: var(--col-txt-muted);
+		}
+	}
+}
+
+.c-tag-input-suggestions {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	margin-top: var(--space-1);
+	background: var(--col-bg);
+	border: 1px solid var(--col-outline);
+	border-radius: var(--radius-sm);
+	box-shadow: var(--shadow-md);
+	max-height: 12rem;
+	overflow-y: auto;
+	z-index: var(--z-dropdown);
+	list-style: none;
+	padding: var(--space-1);
+	margin: var(--space-1) 0 0 0;
+}
+
+.c-tag-input-suggestion {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	padding: var(--space-2);
+	cursor: pointer;
+	border-radius: var(--radius-sm);
+	transition: background var(--duration-fast) var(--ease-default);
+
+	&:hover,
+	&.highlighted {
+		background: var(--col-container-low);
+	}
+}
+
+.c-tag-input-suggestion-new {
+	color: var(--col-txt-muted);
+	font-size: var(--text-xs);
+	margin-left: auto;
+}
+
+/* Inline tag input (no border, minimal) */
+.c-tag-input.inline {
+	& .c-tag-input-field {
+		border: none;
+		padding: 0;
+		min-height: auto;
+		background: transparent;
+
+		&:focus-within {
+			box-shadow: none;
+		}
+	}
+}
+
+/* vim: ts=4
+ */
