@@ -139,16 +139,17 @@
 /* ==========================================================================
    Automatic Nesting Detection
    Nested panels automatically get elevated background + shadow
+   Using :where() to lower specificity so explicit variants (primary, etc.) win
    ========================================================================== */
 
-.c-panel .c-panel {
+.c-panel :where(.c-panel) {
 	--col-bg: var(--col-container);
 	--col-on: var(--col-on-container);
 	--col-em: var(--col-em-container);
 	box-shadow: var(--shadow-sm);
 }
 
-.c-panel .c-panel .c-panel {
+.c-panel .c-panel :where(.c-panel) {
 	--col-bg: var(--col-container-high);
 	--col-on: var(--col-on-container-high);
 	--col-em: var(--col-em-container-high);

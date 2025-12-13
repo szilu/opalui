@@ -18,7 +18,7 @@
 	flex-flow: row wrap;
 	justify-content: flex-start;
 	position: relative;
-	gap: 0;
+	gap: 0 !important; /* Always use margin-based gaps, not CSS gap */
 	margin: 0 calc(var(--gap) / -2);
 	& > .col, & > [class^="col-"], & > [class*=" col-"] {
 		margin: 0 calc(var(--gap) / 2);
