@@ -114,7 +114,7 @@ textarea.c-input.resize {
 	padding: 0.125rem;
 	*/
 	border-radius: 1rem;
-	background: var(--col-bg);
+	background: var(--col-neutral-p2);
 	color: var(--col-on);
 	cursor: pointer;
 	display: inline-block;
@@ -122,6 +122,10 @@ textarea.c-input.resize {
 	--col-bg: var(--col-secondary);
 	--col-on: var(--col-on-secondary);
 	--col-em: var(--col-em-secondary);
+
+	&:checked {
+		background: var(--col-bg);
+	}
 
 	&.primary {
 		--col-bg: var(--col-primary);
@@ -164,12 +168,11 @@ textarea.c-input.resize {
 	margin: 0.125rem;
 	position: absolute;
 	left: 0;
-	background: var(--col-on);
+	background: var(--col-toggle-knob);
 	transition: all .2s ease-out;
 }
 .c-toggle:checked:after {
 	left: 1rem;
-	background: var(--col-em);
 }
 
 /*******************/

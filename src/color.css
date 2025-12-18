@@ -38,6 +38,7 @@ body {
 	--col-focus: var(--col-primary);
 	--col-outline: lch(from var(--color-neutral) l c h / 0.3);
 	--sh-focus: 0.25rem;
+	--col-toggle-knob: lch(98 0 0);
 
 	/* -------------------------------------------------------------------------
 	   Primary Color Scale
