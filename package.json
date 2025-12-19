@@ -24,7 +24,7 @@
   "author": "Szilard Hajba",
   "license": "MIT",
   "devDependencies": {
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.23",
     "cross-env": "^10.1.0",
     "cssnano": "^7.1.2",
     "normalize.css": "^8.0.1",
