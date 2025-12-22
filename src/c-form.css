@@ -16,7 +16,6 @@
 	border: var(--border-w-sm) solid var(--col-secondary);
 	background: var(--col-container);
 	color: var(--col-on-container);
-	min-height: 2.5rem;
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	width: 100%;
 }
