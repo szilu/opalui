@@ -6,64 +6,8 @@
 	align-items: center;
 
 	/* Color system */
-	--col-bg: var(--col-container-low);
-	--col-on: var(--col-on-container-low);
-	--col-em: var(--col-em-container-low);
-	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
-	backdrop-filter: blur(var(--blur-radius));
-	color: var(--col-on);
-	border-radius: var(--border-radius-lg);
 	padding: var(--space-1);
 	gap: var(--space-1);
-
-	/* Elevation modifiers */
-	&.low {
-		--col-bg: var(--col-container-low);
-		--col-on: var(--col-on-container-low);
-		--col-em: var(--col-em-container-low);
-	}
-	&.mid {
-		--col-bg: var(--col-container);
-		--col-on: var(--col-on-container);
-		--col-em: var(--col-em-container);
-	}
-	&.high {
-		--col-bg: var(--col-container-high);
-		--col-on: var(--col-on-container-high);
-		--col-em: var(--col-em-container-high);
-	}
-
-	/* Color modifiers */
-	&.primary {
-		--col-bg: var(--col-container-primary);
-		--col-on: var(--col-on-container-primary);
-		--col-em: var(--col-em-container-primary);
-	}
-	&.secondary {
-		--col-bg: var(--col-container-secondary);
-		--col-on: var(--col-on-container-secondary);
-		--col-em: var(--col-em-container-secondary);
-	}
-	&.accent {
-		--col-bg: var(--col-container-accent);
-		--col-on: var(--col-on-container-accent);
-		--col-em: var(--col-em-container-accent);
-	}
-	&.error {
-		--col-bg: var(--col-container-error);
-		--col-on: var(--col-on-container-error);
-		--col-em: var(--col-em-container-error);
-	}
-	&.warning {
-		--col-bg: var(--col-container-warning);
-		--col-on: var(--col-on-container-warning);
-		--col-em: var(--col-em-container-warning);
-	}
-	&.success {
-		--col-bg: var(--col-container-success);
-		--col-on: var(--col-on-container-success);
-		--col-em: var(--col-em-container-success);
-	}
 }
 
 .c-tab {
