@@ -62,7 +62,6 @@
 /* Toolbar divider - visual separator between button groups */
 .c-toolbar-divider {
 	border-left: 1px solid var(--col-outline);
-	padding-left: var(--space-2);
 	margin-left: var(--space-1);
 }
 
