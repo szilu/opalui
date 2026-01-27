@@ -159,5 +159,16 @@ ul.c-nav {
 	flex-direction: column;
 }
 
+/* Navigation section header - for grouping nav items */
+.c-nav-header {
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: var(--col-em);
+	padding: 0.75rem 0 0.25rem 0;
+	margin: 0;
+}
+
 /* vim: ts=4
  */

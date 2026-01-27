@@ -113,7 +113,7 @@ textarea.c-input.resize {
 	padding: 0.125rem;
 	*/
 	border-radius: 1rem;
-	background: var(--col-neutral-p2);
+	background: var(--col-neutral-m1);
 	color: var(--col-on);
 	cursor: pointer;
 	display: inline-block;
@@ -225,6 +225,13 @@ textarea.c-input.resize {
 	margin-bottom: 0.75rem;
 	padding-bottom: 0.5rem;
 	border-bottom: var(--border-w-sm) solid var(--col-outline);
+}
+
+/* Form hint text - muted styling for helper text */
+.c-hint {
+	font-size: 0.875rem;
+	color: lch(from var(--col-on) l c h / 0.6);
+	line-height: 1.4;
 }
 
 /* vim: ts=4
