@@ -1,6 +1,10 @@
 .w-auto { width: auto !important; }
 .w-100 { width: 100% !important; }
 .w-50 { width: 50% !important; }
+.w-xs { width: 5rem !important; flex: 0 0 auto !important; }
+.w-sm { width: 7.5rem !important; flex: 0 0 auto !important; }
+.w-md { width: 12.5rem !important; flex: 0 0 auto !important; }
+.w-lg { width: 18.75rem !important; flex: 0 0 auto !important; }
 .w-min-0 { min-width: 0 !important; }
 .w-min-100 { min-width: 100% !important; }
 .w-max-100 { max-width: 100% !important; }
@@ -166,6 +170,7 @@
 
 
 .text-emph { color: var(--col-em) !important; }
+.text-muted { color: lch(from var(--col-on) l c h / 0.6) !important; }
 .text-disabled { color: lch(from var(--col-on) l c h / var(--op-disabled)) !important; }
 .text-primary { color: var(--col-primary) !important; }
 .text-secondary { color: var(--col-secondary) !important; }
