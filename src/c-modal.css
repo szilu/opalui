@@ -36,6 +36,7 @@
 }
 
 .c-modal > .c-dialog {
+	--op-panel: 1;
 	position: relative;
 	width: auto;
 	max-width: 60rem;
