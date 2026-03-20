@@ -1,7 +1,7 @@
 
 * {
 	box-sizing: border-box;
-	scrollbar-color: var(--col-frost) transparent;
+	scrollbar-color: var(--col-outline) transparent;
 	scrollbar-width: thin;
 }
 
@@ -51,15 +51,15 @@ details summary::marker {
 
 *::-webkit-scrollbar {
 	width: 0.25rem;
-	background: var(--col-primary);
+	background: transparent;
 }
 *::-webkit-scrollbar-thumb {
 	width: 0.25rem;
-	background: var(--col-frost);
-	box-shadow: none;
+	background: var(--col-outline);
+	border-radius: 0.125rem;
 }
 *::-webkit-scrollbar-track, *::-webkit-scrollbar-track-piece {
-	background: var(--col-on-primary);
+	background: transparent;
 }
 
 /* vim: ts=4
