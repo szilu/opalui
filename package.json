@@ -1,6 +1,6 @@
 {
   "name": "@symbion/opalui",
-  "version": "0.14.6",
+  "version": "0.14.7",
   "description": "A minimalistic CSS framework",
   "main": "dist/opalui.css",
   "files": [
@@ -26,7 +26,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.27",
     "cross-env": "^10.1.0",
-    "cssnano": "^7.1.3",
+    "cssnano": "^7.1.4",
     "normalize.css": "^8.0.1",
     "postcss": "^8.5.8",
     "postcss-banner": "^4.0.1",
