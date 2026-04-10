@@ -215,11 +215,11 @@
 	user-select: none;
 
 	&:hover:not([disabled]) {
-		transform: scale(1.05);
+		transform: translateY(-1px);
 	}
 
 	&:active:not([disabled]) {
-		transform: scale(0.98);
+		transform: translateY(0);
 	}
 
 	&.text {
