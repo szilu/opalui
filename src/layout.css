@@ -81,6 +81,49 @@
 	}
 }
 
+/* xl = 100em ≈ 1600px at 16px root: where the right gutter beside a
+   centered 1200px container first becomes wide enough to host a dockable
+   side panel. The panel width adapts to the actual gutter between 1600–1840px
+   (see `--fcd-details-width` handling in components.css) and caps at 20rem
+   beyond that. */
+@media screen and (min-width: 100em) {
+	.c-container > .row {
+		& > .col-xl-1 { flex: 0 0 calc(100% / 12 - var(--gap)); max-width: calc(100% / 12 - var(--gap)); }
+		& > .col-xl-2 { flex: 0 0 calc(200% / 12 - var(--gap)); max-width: calc(200% / 12 - var(--gap)); }
+		& > .col-xl-3 { flex: 0 0 calc(300% / 12 - var(--gap)); max-width: calc(300% / 12 - var(--gap)); }
+		& > .col-xl-4 { flex: 0 0 calc(400% / 12 - var(--gap)); max-width: calc(400% / 12 - var(--gap)); }
+		& > .col-xl-5 { flex: 0 0 calc(500% / 12 - var(--gap)); max-width: calc(500% / 12 - var(--gap)); }
+		& > .col-xl-6 { flex: 0 0 calc(600% / 12 - var(--gap)); max-width: calc(600% / 12 - var(--gap)); }
+		& > .col-xl-7 { flex: 0 0 calc(700% / 12 - var(--gap)); max-width: calc(700% / 12 - var(--gap)); }
+		& > .col-xl-8 { flex: 0 0 calc(800% / 12 - var(--gap)); max-width: calc(800% / 12 - var(--gap)); }
+		& > .col-xl-9 { flex: 0 0 calc(900% / 12 - var(--gap)); max-width: calc(900% / 12 - var(--gap)); }
+		& > .col-xl-10 { flex: 0 0 calc(1000% / 12 - var(--gap)); max-width: calc(1000% / 12 - var(--gap)); }
+		& > .col-xl-11 { flex: 0 0 calc(1100% / 12 - var(--gap)); max-width: calc(1100% / 12 - var(--gap)); }
+		& > .col-xl-12 { flex: 0 0 calc(1200% / 12 - var(--gap)); max-width: calc(1200% / 12 - var(--gap)); }
+	}
+
+	.c-container > .row .xl-hide-dyn {
+		transition: transform .2s ease-in-out;
+		position: absolute;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+
+		&:not(.show, .hide-left, .hide-right) {
+			display: none;
+		}
+		&.hide-left:not(.show) {
+			transform: translateX(-100%);
+		}
+		&.hide-right:not(.show) {
+			transform: translateX(100%);
+		}
+	}
+	.xl-hide { display: none !important; }
+}
+
 @media screen and (max-width: 767px) {
 	.c-container > .row .sm-hide-dyn {
 		transition: transform .2s ease-in-out;
