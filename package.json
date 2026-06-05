@@ -13,7 +13,7 @@
   "scripts": {
     "build": "rimraf dist/* && postcss -o dist/opalui.css src/opalui.css && cross-env NODE_ENV=production postcss -o dist/opalui.min.css src/opalui.css && gzip -c dist/opalui.min.css |wc -c |xargs echo 'Size:'",
     "watch": "postcss --verbose -w -o dist/opalui.css src/opalui.css",
-    "pub": "npm publish --access public"
+    "pub": "pnpm publish --access public"
   },
   "keywords": [
     "css",
