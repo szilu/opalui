@@ -28,7 +28,7 @@
    ------------------------------------------------------------------------- */
 .c-badge.positioned {
 	position: absolute;
-	transform: translate(-50%, -50%);
+	transform: translate(-75%, -50%);
 }
 
 .c-badge.tl { top: 0; left: 0; }
