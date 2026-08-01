@@ -199,7 +199,7 @@
 }
 
 /* Responsive behavior */
-@media (max-width: 767px) {
+@media (width < 48rem) {
 	/* Mobile: always overlay mode */
 	.c-sidebar {
 		position: fixed;
@@ -223,14 +223,14 @@
 	}
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (48rem <= width < 72rem) {
 	/* Tablet: can be overlay or pinned */
 	.c-sidebar {
 		/* Default overlay behavior */
 	}
 }
 
-@media (min-width: 1024px) {
+@media (width >= 72rem) {
 	/* Desktop: prefer pinned mode */
 	.c-sidebar.auto-pin {
 		transform: translateX(0);

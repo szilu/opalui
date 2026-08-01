@@ -3,7 +3,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	max-width: 1200px;
+	max-width: var(--container-max-width, 75rem);
 	margin: 0 auto;
 	--gap: 0px;
 	overflow-x: hidden;
@@ -43,7 +43,7 @@
 .c-container > .row > .col-11 { flex: 0 0 calc(1100% / 12 - var(--gap));  max-width: calc(1100% / 12 - var(--gap)); }
 .c-container > .row > .col-12 { flex: 0 0 calc(1200% / 12 - var(--gap));  max-width: calc(1200% / 12 - var(--gap)); }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
 	.c-container > .row {
 		& > .col-md-1 { flex: 0 0 calc(100% / 12 - var(--gap)); max-width: calc(100% / 12 - var(--gap)); }
 		& > .col-md-2 { flex: 0 0 calc(200% / 12 - var(--gap)); max-width: calc(200% / 12 - var(--gap)); }
@@ -60,11 +60,11 @@
 	}
 
 	.c-dialog {
-		width: 768px;
+		width: 48rem;
 	}
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (width >= 72rem) {
 	.c-container > .row {
 		& > .col-lg-1 { flex: 0 0 calc(100% / 12 - var(--gap)); max-width: calc(100% / 12 - var(--gap)); }
 		& > .col-lg-2 { flex: 0 0 calc(200% / 12 - var(--gap)); max-width: calc(200% / 12 - var(--gap)); }
@@ -81,12 +81,10 @@
 	}
 }
 
-/* xl = 100em ≈ 1600px at 16px root: where the right gutter beside a
-   centered 1200px container first becomes wide enough to host a dockable
-   side panel. The panel width adapts to the actual gutter between 1600–1840px
-   (see `--fcd-details-width` handling in components.css) and caps at 20rem
-   beyond that. */
-@media screen and (min-width: 100em) {
+/* xl = 96rem (1536px at 16px root): first width where sidebar + main content +
+   detail rail all fit above a comfortable reading measure. Below xl the third
+   column is expected to be an overlay (see the *-hide-dyn helpers). */
+@media screen and (width >= 96rem) {
 	.c-container > .row {
 		& > .col-xl-1 { flex: 0 0 calc(100% / 12 - var(--gap)); max-width: calc(100% / 12 - var(--gap)); }
 		& > .col-xl-2 { flex: 0 0 calc(200% / 12 - var(--gap)); max-width: calc(200% / 12 - var(--gap)); }
@@ -124,7 +122,17 @@
 	.xl-hide { display: none !important; }
 }
 
-@media screen and (max-width: 767px) {
+/* Visibility helpers — two families scope differently, on purpose:
+
+     .{sm,md}-hide   band-scoped: apply only within their own band, so
+                     `md-hide lg-hide` is needed to hide from md upward.
+     .{lg,xl}-hide   cumulative: apply at their breakpoint and above.
+     .*-hide-dyn     all band-scoped, so an element can be a slide-in overlay
+                     in one band and a real in-flow column in the next.
+
+   Public API — consumers rely on both behaviours; don't unify them without a
+   major version bump. */
+@media screen and (width < 48rem) {
 	.c-container > .row .sm-hide-dyn {
 		transition: transform .2s ease-in-out;
 		position: absolute;
@@ -157,7 +165,7 @@
 	.sm-hide { display: none !important; }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (48rem <= width < 72rem) {
 	.c-container > .row .md-hide-dyn {
 		position: absolute;
 		left: 0;
@@ -185,7 +193,7 @@
 	.md-hide { display: none !important; }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (72rem <= width < 96rem) {
 	.c-container > .row .lg-hide-dyn {
 		transition: transform .2s ease-in-out;
 		position: absolute;
@@ -207,6 +215,9 @@
 			transform: translateX(100%);
 		}
 	}
+}
+
+@media screen and (width >= 72rem) {
 	.lg-hide { display: none !important; }
 }
 

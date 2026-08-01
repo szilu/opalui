@@ -95,12 +95,25 @@
 	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 
 	/* -------------------------------------------------------------------------
-	   Breakpoints (for reference - use in media queries)
+	   Breakpoints (reference only)
+
+	   sm  < 48rem      implicit base band — there is no --breakpoint-sm
+	   md  >= 48rem     (768px at a 16px root)
+	   lg  >= 72rem     (1152px)
+	   xl  >= 96rem     (1536px)
+
+	   Media queries cannot consume custom properties, so these stay commented
+	   out; changing the scale means editing layout.css, utils.css,
+	   c-layout-helpers.css, c-sidebar.css, c-fab.css and c-toast.css by hand.
 	   ------------------------------------------------------------------------- */
-	/* --breakpoint-sm: 640px; */
-	/* --breakpoint-md: 768px; */
-	/* --breakpoint-lg: 1024px; */
-	/* --breakpoint-xl: 1280px; */
+	/* --breakpoint-md: 48rem; */
+	/* --breakpoint-lg: 72rem; */
+	/* --breakpoint-xl: 96rem; */
+
+	/* -------------------------------------------------------------------------
+	   Layout
+	   ------------------------------------------------------------------------- */
+	--container-max-width: 75rem;    /* 1200px */
 
 	/* -------------------------------------------------------------------------
 	   Component sizing

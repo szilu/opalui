@@ -59,7 +59,7 @@
 }
 
 /* Desktop: position lower, no bottom nav */
-@media (min-width: 1024px) {
+@media (width >= 72rem) {
 	.c-fab {
 		bottom: 2rem;
 	}

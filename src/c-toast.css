@@ -286,7 +286,7 @@
 }
 
 /* Responsive */
-@media (width <= 767px) {
+@media (width < 48rem) {
 	.c-toast-container {
 		left: 0;
 		right: 0;

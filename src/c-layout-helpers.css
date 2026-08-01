@@ -311,7 +311,7 @@
 /* -------------------------------------------------------------------------
    Responsive Grid Columns
    ------------------------------------------------------------------------- */
-@media screen and (max-width: 767px) {
+@media screen and (width < 48rem) {
 	.c-grid.cols-2,
 	.c-grid.cols-3,
 	.c-grid.cols-4,
@@ -327,13 +327,13 @@
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
 	.c-grid.md\:cols-2 { grid-template-columns: repeat(2, 1fr); }
 	.c-grid.md\:cols-3 { grid-template-columns: repeat(3, 1fr); }
 	.c-grid.md\:cols-4 { grid-template-columns: repeat(4, 1fr); }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (width >= 72rem) {
 	.c-grid.lg\:cols-3 { grid-template-columns: repeat(3, 1fr); }
 	.c-grid.lg\:cols-4 { grid-template-columns: repeat(4, 1fr); }
 	.c-grid.lg\:cols-5 { grid-template-columns: repeat(5, 1fr); }

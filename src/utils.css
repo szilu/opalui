@@ -402,11 +402,11 @@
 
 /* ==========================================================================
    Responsive Utilities
-   Breakpoints: sm (max 767px), md (768px+), lg (1200px+)
+   Breakpoints: sm (< 48rem), md (>= 48rem), lg (>= 72rem) — no xl utilities yet
    ========================================================================== */
 
 /* Small screens (mobile) */
-@media screen and (max-width: 767px) {
+@media screen and (width < 48rem) {
 	.sm\:d-none { display: none !important; }
 	.sm\:d-block { display: block !important; }
 	.sm\:d-flex { display: flex !important; }
@@ -435,7 +435,7 @@
 }
 
 /* Medium screens (tablet+) */
-@media screen and (min-width: 768px) {
+@media screen and (width >= 48rem) {
 	.md\:d-none { display: none !important; }
 	.md\:d-block { display: block !important; }
 	.md\:d-flex { display: flex !important; }
@@ -478,7 +478,7 @@
 }
 
 /* Large screens (desktop) */
-@media screen and (min-width: 1200px) {
+@media screen and (width >= 72rem) {
 	.lg\:d-none { display: none !important; }
 	.lg\:d-block { display: block !important; }
 	.lg\:d-flex { display: flex !important; }
