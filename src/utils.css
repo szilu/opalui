@@ -8,12 +8,52 @@
 .w-min-0 { min-width: 0 !important; }
 .w-min-100 { min-width: 100% !important; }
 .w-max-100 { max-width: 100% !important; }
+.mw-sm { max-width: 20rem !important; }
+.mw-md { max-width: 30rem !important; }
+.mw-lg { max-width: 40rem !important; }
+.mw-xl { max-width: 60rem !important; }
 
 .h-auto { height: auto !important; }
 .h-100 { height: 100% !important; }
 .h-min-0 { min-height: 0 !important; }
 .h-min-100 { min-height: 100% !important; }
 .h-max-100 { max-height: 100% !important; }
+.mh-sm { max-height: 12.5rem !important; }
+.mh-md { max-height: 20rem !important; }
+.mh-lg { max-height: 30rem !important; }
+.mh-xl { max-height: 40rem !important; }
+
+/* Screen reader only - visually hidden but accessible */
+.sr-only {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
+/* Skip link - hidden above the viewport until focused */
+.c-skip-link {
+	position: fixed;
+	top: -100%;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10000;
+	padding: 0.5rem 1rem;
+	background: var(--col-primary);
+	color: var(--col-on-primary);
+	border-radius: var(--radius-md);
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.c-skip-link:focus {
+	top: 0.5rem;
+}
 
 .d-flex { display: flex !important; }
 .d-none { display: none !important; }
@@ -161,6 +201,7 @@
 .border-2 { border: 1rem; }
 .border-3 { border: 2rem; }
 .border-4 { border: 4rem; }
+.border-bottom { border-bottom: 1px solid var(--col-outline); }
 .border-end-0 { border-right: 0 !important; }
 .border-end-1 { border-right: 1px !important; }
 .border-end-2 { border-right: 2px !important; }
@@ -175,6 +216,8 @@
 .text-primary { color: var(--col-primary) !important; }
 .text-secondary { color: var(--col-secondary) !important; }
 .text-accent { color: var(--col-accent) !important; }
+.text-neutral { color: var(--col-neutral) !important; }
+.text-info { color: var(--col-info) !important; }
 .text-success { color: var(--col-success) !important; }
 .text-em-success { color: var(--col-em-success) !important; }
 .text-warning { color: var(--col-warning) !important; }
@@ -223,6 +266,7 @@
 }
 .text-wrap { white-space: normal !important; }
 .text-nowrap { white-space: nowrap !important; }
+.ws-pre-wrap { white-space: pre-wrap !important; }
 .text-clamp-2 {
 	display: -webkit-box !important;
 	-webkit-line-clamp: 2 !important;
@@ -248,6 +292,7 @@
 .font-medium { font-weight: 500 !important; }
 .font-semibold { font-weight: 600 !important; }
 .font-bold { font-weight: 700 !important; }
+.font-mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important; }
 
 /* Font sizes */
 .text-xs { font-size: 0.75rem !important; }
@@ -348,6 +393,25 @@
 .visible { visibility: visible !important; }
 .invisible { visibility: hidden !important; }
 
+/* Hide on touch-only devices (keyboard hints) */
+@media (pointer: coarse) {
+	.coarse-hide { display: none !important; }
+}
+
+/* Keyboard key / shortcut hint */
+.c-kbd {
+	display: inline-block;
+	padding: 0.1rem 0.4rem;
+	border: 1px solid lch(from var(--col-on-container) l c h / 0.25);
+	border-bottom-width: 2px;
+	border-radius: var(--radius-sm);
+	font-family: inherit;
+	font-size: 0.75rem;
+	line-height: 1.2;
+	white-space: nowrap;
+	opacity: 0.7;
+}
+
 /* Opacity utilities */
 .opacity-0 { opacity: 0 !important; }
 .opacity-25 { opacity: 0.25 !important; }
@@ -399,6 +463,48 @@
 .ring-2 { box-shadow: 0 0 0 2px var(--col-outline) !important; }
 .ring-primary { box-shadow: 0 0 0 2px var(--col-primary) !important; }
 .ring-focus { box-shadow: 0 0 0 var(--sh-focus) var(--col-focus) !important; }
+
+/* ==========================================================================
+   Auto background
+   Paints a glass surface only when no ancestor surface does. Surfaces set
+   --auto-bg: transparent on themselves; painters reset it on their children
+   (never on themselves — that would change their own var() resolution).
+   ========================================================================== */
+
+.auto-bg {
+	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-container-low)) l c h / var(--op-panel)));
+	backdrop-filter: var(--auto-bg-blur, blur(var(--blur-radius)));
+	border-radius: var(--border-radius-lg);
+	color: var(--auto-bg-fg, var(--auto-bg-on, var(--col-on-container-low)));
+}
+.auto-bg > * { --auto-bg: transparent; --auto-bg-blur: none; --auto-bg-fg: currentcolor; }
+
+/* Components that paint their own surface: opt out of auto-bg on themselves */
+.c-toolbar,
+.c-popper,
+details.c-dropdown[open] > :last-child,
+.c-menu,
+.c-toast,
+.c-sidebar,
+.c-tooltip-popup,
+.c-alert:not(.outline),
+.c-nav {
+	--auto-bg: transparent;
+	--auto-bg-blur: none;
+	--auto-bg-fg: currentcolor;
+}
+
+.auto-bg-low { --auto-bg-col: var(--col-container-low); --auto-bg-on: var(--col-on-container-low); }
+.auto-bg-mid { --auto-bg-col: var(--col-container); --auto-bg-on: var(--col-on-container); }
+.auto-bg-high { --auto-bg-col: var(--col-container-high); --auto-bg-on: var(--col-on-container-high); }
+.auto-bg-primary { --auto-bg-col: var(--col-container-primary); --auto-bg-on: var(--col-on-container-primary); }
+.auto-bg-secondary { --auto-bg-col: var(--col-container-secondary); --auto-bg-on: var(--col-on-container-secondary); }
+.auto-bg-accent { --auto-bg-col: var(--col-container-accent); --auto-bg-on: var(--col-on-container-accent); }
+.auto-bg-neutral { --auto-bg-col: var(--col-container); --auto-bg-on: var(--col-on-container); }
+.auto-bg-info { --auto-bg-col: var(--col-container-info); --auto-bg-on: var(--col-on-container-info); }
+.auto-bg-error { --auto-bg-col: var(--col-container-error); --auto-bg-on: var(--col-on-container-error); }
+.auto-bg-warning { --auto-bg-col: var(--col-container-warning); --auto-bg-on: var(--col-on-container-warning); }
+.auto-bg-success { --auto-bg-col: var(--col-container-success); --auto-bg-on: var(--col-on-container-success); }
 
 /* ==========================================================================
    Responsive Utilities
@@ -520,6 +626,25 @@
 	.lg\:align-items-start { align-items: flex-start !important; }
 	.lg\:align-items-center { align-items: center !important; }
 	.lg\:align-items-end { align-items: flex-end !important; }
+}
+
+/* Touch: invisible hit area of at least --min-touch-target, visual size unchanged */
+/* ponytail: hit areas may overlap in dense rows; add spacing if mis-taps reported */
+@media (pointer: coarse) {
+	:is(.c-button:not(.float), .c-link, .c-menu-item, .c-submenu-item, .c-nav-item, .c-nav-link, .c-tab, .c-tag-remove) {
+		position: relative;
+	}
+	:is(.c-button, .c-link, .c-menu-item, .c-submenu-item, .c-nav-item, .c-nav-link, .c-tab, .c-tag-remove)::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		height: 100%;
+		min-width: var(--min-touch-target);
+		min-height: var(--min-touch-target);
+		transform: translate(-50%, -50%);
+	}
 }
 
 /* vim: ts=4

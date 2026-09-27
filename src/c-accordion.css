@@ -1,38 +1,20 @@
 /* ==========================================================================
-   Accordion Component - OpalUI
-   Collapsible sections with headers and content
+   Disclosure, Accordion, Clamp - OpalUI
+   Disclosure is a native <details>/<summary>; Accordion groups Disclosures.
    ========================================================================== */
 
-.c-accordion {
-	border: 1px solid var(--col-outline);
-	border-radius: var(--radius-md);
-	overflow: hidden;
-}
-
-.c-accordion-item {
-	border-bottom: 1px solid var(--col-outline);
-
-	&:last-child {
-		border-bottom: none;
-	}
-}
-
-.c-accordion-header {
+.c-disclosure > summary {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	width: 100%;
-	padding: var(--space-3);
-	border: none;
-	background: transparent;
+	gap: var(--space-2);
+	padding: var(--space-2) 0;
 	color: var(--col-txt);
 	font-weight: 500;
 	cursor: pointer;
-	text-align: left;
-	transition: background var(--duration-fast) var(--ease-default);
+	list-style: none;
 
-	&:hover {
-		background: var(--col-container-low);
+	&::-webkit-details-marker {
+		display: none;
 	}
 
 	&:focus-visible {
@@ -41,53 +23,101 @@
 	}
 }
 
-.c-accordion-icon {
+.c-disclosure-icon {
+	display: flex;
+	align-items: center;
 	flex-shrink: 0;
-	transition: transform var(--duration-fast) var(--ease-out);
-	color: var(--col-secondary);
 }
 
-.c-accordion-item.open .c-accordion-icon {
+.c-disclosure-chevron {
+	flex-shrink: 0;
+	color: var(--col-secondary);
+	transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.c-disclosure[open] > summary > .c-disclosure-chevron {
 	transform: rotate(90deg);
 }
 
-.c-accordion-content {
-	padding: 0 var(--space-3) var(--space-3);
-	display: none;
+.c-disclosure-content {
+	padding-bottom: var(--space-2);
 }
 
-.c-accordion-item.open .c-accordion-content {
-	display: block;
+/* Panel variant - bordered box */
+.c-disclosure.panel {
+	border: 1px solid var(--col-outline);
+	border-radius: var(--radius-md);
 }
 
-/* Borderless variant - for inline use in panels */
+/* Boxed items (panel or accordion member): padded summary + content */
+:is(.c-disclosure.panel, .c-accordion > .c-disclosure) {
+	& > summary {
+		padding: var(--space-3);
+
+		&:hover {
+			background: var(--col-container-low);
+		}
+	}
+
+	& > .c-disclosure-content {
+		padding: 0 var(--space-3) var(--space-3);
+	}
+}
+
+/* Accordion - bordered group, items divided */
+.c-accordion {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--col-outline);
+	border-radius: var(--radius-md);
+	overflow: hidden;
+
+	& > .c-disclosure {
+		border: none;
+		border-radius: 0;
+		border-bottom: 1px solid var(--col-outline);
+
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+}
+
 .c-accordion.borderless {
 	border: none;
 	border-radius: 0;
 
-	& .c-accordion-item {
-		border: none;
-	}
+	& > .c-disclosure {
+		border-bottom: none;
 
-	& .c-accordion-header {
-		padding: var(--space-2) 0;
-	}
+		& > summary {
+			padding: var(--space-2) 0;
+		}
 
-	& .c-accordion-content {
-		padding: 0 0 var(--space-2);
+		& > .c-disclosure-content {
+			padding: 0 0 var(--space-2);
+		}
 	}
 }
 
-/* Compact variant */
-.c-accordion.compact {
-	& .c-accordion-header {
+.c-accordion.compact > .c-disclosure {
+	& > summary {
 		padding: var(--space-2);
 		font-size: var(--text-sm);
 	}
 
-	& .c-accordion-content {
+	& > .c-disclosure-content {
 		padding: 0 var(--space-2) var(--space-2);
 	}
+}
+
+/* Clamp - line-clamped content (lines via --clamp-lines) */
+.c-clamp.clamped > :first-child {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: var(--clamp-lines, 3);
+	line-clamp: var(--clamp-lines, 3);
+	overflow: hidden;
 }
 
 /* vim: ts=4

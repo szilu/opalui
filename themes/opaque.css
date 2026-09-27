@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=swap');
-
 body.theme-opaque {
 	/* Border sizing */
 	--border-w-lg: calc(2rem / 16);

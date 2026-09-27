@@ -8,7 +8,7 @@
 	display: flex;
 	flex-direction: column;
 	backdrop-filter: blur(var(--blur-radius));
-	border-radius: var(--border-radius-md);
+	border-radius: var(--radius-md);
 	padding: var(--space-3);
 	gap: var(--gap);
 	position: relative;
@@ -84,6 +84,17 @@
 		--col-bg: var(--col-container-success);
 	}
 
+	&.info {
+		--col-on: var(--col-on-container-info);
+		--col-em: var(--col-em-container-info);
+		--col-bg: var(--col-container-info);
+	}
+	&.neutral {
+		--col-on: var(--col-on-container);
+		--col-em: var(--col-em-container);
+		--col-bg: var(--col-container);
+	}
+
 	/* Elevation variants */
 	&.low {
 		--col-on: var(--col-on-container-low);
@@ -105,6 +116,54 @@
 		--col-bg: var(--col-container-high);
 		box-shadow: var(--shadow-md);
 	}
+}
+
+/* ==========================================================================
+   Shape variants (after elevation so they win), interactive element reset
+   ========================================================================== */
+
+:is(.c-card, .c-panel).soft {
+	background-color: lch(from var(--col-bg) l c h / calc(var(--op-panel) * 0.5));
+	backdrop-filter: none;
+	box-shadow: none;
+}
+
+:is(.c-card, .c-panel).outline {
+	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-container-low)) l c h / var(--op-panel)));
+	backdrop-filter: var(--auto-bg-blur, blur(var(--blur-radius)));
+	box-shadow: none;
+	border: 1px solid lch(from var(--col-em) l c h / 0.4);
+}
+
+:is(.c-card, .c-panel).plain {
+	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-container-low)) l c h / var(--op-panel)));
+	backdrop-filter: var(--auto-bg-blur, blur(var(--blur-radius)));
+	box-shadow: none;
+	padding: 0;
+	color: var(--auto-bg-fg, var(--auto-bg-on, var(--col-on-container-low)));
+}
+
+/* Auto background: filled cards/panels are surfaces, plain/outline ones paint only when bare */
+:is(.c-card, .c-panel):not(.plain, .outline) { --auto-bg: transparent; --auto-bg-blur: none; --auto-bg-fg: currentcolor; }
+:is(.c-card, .c-panel):is(.plain, .outline) > * { --auto-bg: transparent; --auto-bg-blur: none; --auto-bg-fg: currentcolor; }
+
+/* Rendered as a link/button (href/onClick) */
+:is(.c-card, .c-panel):is(a, button) {
+	font: inherit;
+	text-align: inherit;
+	text-decoration: none;
+	border: none;
+	width: 100%;
+}
+
+:is(.c-card, .c-panel).outline:is(a, button) {
+	border: 1px solid lch(from var(--col-em) l c h / 0.4);
+}
+
+:is(.c-card, .c-panel).interactive:focus-visible,
+:is(.c-card, .c-panel):has(.c-surface-link:focus-visible) {
+	outline: var(--focus-ring-width) solid var(--focus-ring-color);
+	outline-offset: var(--focus-ring-offset);
 }
 
 /* vim: ts=4

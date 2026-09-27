@@ -130,6 +130,17 @@
 		--col-bg: var(--col-container-success);
 	}
 
+	&.info {
+		--col-on: var(--col-on-container-info);
+		--col-em: var(--col-em-container-info);
+		--col-bg: var(--col-container-info);
+	}
+	&.neutral {
+		--col-on: var(--col-on-container);
+		--col-em: var(--col-em-container);
+		--col-bg: var(--col-container);
+	}
+
 	/**/
 	.body {
 		flex: 1;
@@ -176,6 +187,8 @@
 .c-panel.high.emph {
 	box-shadow: inset 0px 0px 2rem var(--col-frost), var(--shadow-md);
 }
+
+/* Shape variants: shared with .c-card, see c-card.css */
 
 /* vim: ts=4
  */

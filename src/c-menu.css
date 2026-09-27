@@ -27,6 +27,7 @@
 	text-align: left;
 	cursor: pointer;
 	border-radius: var(--radius-sm);
+	text-decoration: none;
 	transition: background var(--duration-fast) var(--ease-default);
 
 	&:hover:not([disabled]) {
@@ -39,7 +40,8 @@
 		box-shadow: inset 0 0 0 2px var(--col-focus);
 	}
 
-	&.danger {
+	/* `danger` is the deprecated spelling of `color="error"` */
+	&.danger, &.error {
 		color: var(--col-error);
 
 		&:hover:not([disabled]) {
@@ -70,6 +72,43 @@
 	font-size: var(--text-xs);
 	color: var(--col-txt-muted);
 	margin-left: var(--space-3);
+}
+
+.c-menu-item-description {
+	display: block;
+	font-size: var(--text-xs);
+	color: var(--col-txt-muted);
+}
+
+/* Secondary value after a submenu label (e.g. the current setting) */
+.c-menu-item-detail {
+	margin-left: var(--space-1);
+	font-weight: normal;
+	color: color-mix(in lch, var(--col-on-container), transparent 35%);
+}
+
+/* Tick column of checkbox / radio items; empty when off so labels stay aligned */
+.c-menu-item-check {
+	width: 1rem;
+	flex-shrink: 0;
+	text-align: center;
+	color: var(--col-primary);
+}
+
+.c-menu-item-trailing {
+	display: flex;
+	align-items: center;
+	margin-left: var(--space-2);
+	color: var(--col-txt-muted);
+}
+
+/* Menu items rendered by the sheet (Menu on touch / below 48rem) */
+.c-action-sheet-item {
+	text-decoration: none;
+
+	&.error {
+		color: var(--col-error);
+	}
 }
 
 .c-menu-divider {

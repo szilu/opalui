@@ -4,6 +4,18 @@ OpalUI
 *OpalUI* is minimalistic CSS framework with good theme support.
 It comes with a frosted glass and an opaque theme by default, both of them supports dark and light modes.
 
+## Themes & fonts
+
+`themes/glass.css` and `themes/opaque.css` use Roboto and Oswald, but they no longer
+load them. Pick one:
+
+- **Google Fonts:** also import `@symbion/opalui/themes/fonts-google.css`. Privacy note:
+  this makes every page load send a request to a third party (Google).
+- **Self-host:** serve the fonts yourself with your own `@font-face` rules. Nothing is
+  fetched from outside your origin.
+
+Without either, the stacks fall back to the system fonts.
+
 ## Breakpoints
 
 The responsive scale is font-relative, so the bands follow the user's root font size.

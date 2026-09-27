@@ -1,6 +1,7 @@
 .c-tag {
-	display: flex;
+	display: inline-flex;
 	align-items: center;
+	gap: 0.25rem;
 	border-radius: var(--border-radius-lg);
 	border: var(--border-w-sm) solid var(--col-secondary);
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
@@ -53,6 +54,69 @@
 	--gap: 0.25rem;
 	flex-flow: row wrap;
 	gap: var(--gap);
+}
+
+/* -------------------------------------------------------------------------
+   Interactive chips (button/link): filter toggle, tag cloud, reaction, menu
+   trigger. Pill-shaped and tonal — the former .c-reaction-chip look.
+   ------------------------------------------------------------------------- */
+.c-tag.interactive {
+	font: inherit;
+	font-size: 0.75rem;
+	line-height: 1;
+	padding: 0.25rem 0.6rem;
+	border-radius: var(--radius-full, 9999px);
+	border-color: transparent;
+	box-shadow: none;
+	background-color: var(--col-container-high);
+	color: var(--col-on-container-high);
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--col-container);
+	}
+	&:focus-visible {
+		outline: var(--border-w-md, 2px) solid var(--col-primary);
+		outline-offset: 2px;
+	}
+	&.pressed {
+		border-color: var(--col-primary);
+		background-color: var(--col-container-primary);
+		color: var(--col-on-container-primary);
+	}
+}
+
+.c-tag-icon {
+	display: inline-flex;
+	line-height: 1;
+}
+
+.c-tag-count {
+	font-weight: 600;
+	font-variant-numeric: tabular-nums;
+}
+
+.c-tag-caret {
+	width: 0.9em;
+	height: 0.9em;
+	opacity: 0.7;
+}
+
+.c-tag-remove {
+	display: inline-flex;
+	align-items: center;
+	border: none;
+	padding: 0;
+	background: none;
+	color: inherit;
+	cursor: pointer;
+	opacity: 0.7;
+
+	&:hover,
+	&:focus-visible {
+		opacity: 1;
+	}
 }
 
 /* vim: ts=4

@@ -1,0 +1,2 @@
+/* Opt-in: load the themes' fonts (Oswald, Roboto) from the Google Fonts CDN */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=swap');

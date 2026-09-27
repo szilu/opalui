@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Roboto:wght@400;700&display=swap');
-
 body.theme-glass {
 	/* Border sizing */
 	--border-w-lg: calc(2rem / 16);
@@ -45,7 +43,7 @@ body.theme-glass {
 }
 
 /* Glass panel depth enhancement */
-body.theme-glass .c-panel {
+body.theme-glass .c-panel:not(.soft, .outline, .plain) {
 	box-shadow: var(--glass-glow), var(--glass-shadow);
 	border: var(--glass-border);
 }
@@ -72,6 +70,11 @@ body.theme-glass .c-toast {
 
 /* Glass dropdown enhancement */
 body.theme-glass details.c-dropdown[open] > :last-child {
+	box-shadow: var(--glass-glow), var(--glass-shadow), inset 0px 0px 1rem var(--col-shadow);
+}
+
+/* Glass popper menu enhancement */
+body.theme-glass .c-popper {
 	box-shadow: var(--glass-glow), var(--glass-shadow), inset 0px 0px 1rem var(--col-shadow);
 }
 

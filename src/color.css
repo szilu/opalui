@@ -16,6 +16,7 @@ body {
 	--color-error: lch(35 50 25);
 	--color-warning: lch(35 50 80);
 	--color-success: lch(35 50 155);
+	--color-info: lch(35 50 230);
 
 	/* -------------------------------------------------------------------------
 	   Opacity Tokens
@@ -105,12 +106,19 @@ body {
 	--col-warning-p4: lch(from var(--color-warning) calc(l + 60) calc(c * 0.3) h);
 
 	--col-success-m2: lch(from var(--color-success) calc(l - 30) calc(c * 0.3) h);
+	--col-info-m2: lch(from var(--color-info) calc(l - 30) calc(c * 0.3) h);
 	--col-success-m1: lch(from var(--color-success) calc(l - 15) calc(c * 0.8) h);
+	--col-info-m1: lch(from var(--color-info) calc(l - 15) calc(c * 0.8) h);
 	--col-success: lch(from var(--color-success) 35 c h);
+	--col-info: lch(from var(--color-info) 35 c h);
 	--col-success-p1: lch(from var(--color-success) calc(l + 15) c h);
+	--col-info-p1: lch(from var(--color-info) calc(l + 15) c h);
 	--col-success-p2: lch(from var(--color-success) calc(l + 30) c h);
+	--col-info-p2: lch(from var(--color-info) calc(l + 30) c h);
 	--col-success-p3: lch(from var(--color-success) calc(l + 45) calc(c * 0.8) h);
+	--col-info-p3: lch(from var(--color-info) calc(l + 45) calc(c * 0.8) h);
 	--col-success-p4: lch(from var(--color-success) calc(l + 60) calc(c * 0.3) h);
+	--col-info-p4: lch(from var(--color-info) calc(l + 60) calc(c * 0.3) h);
 
 	/* -------------------------------------------------------------------------
 	   "On" Colors - Text on colored backgrounds
@@ -122,6 +130,7 @@ body {
 	--col-on-error: lch(from var(--color-error) calc(l + 60) c h);
 	--col-on-warning: lch(from var(--color-warning) calc(l + 60) c h);
 	--col-on-success: lch(from var(--color-success) calc(l + 60) c h);
+	--col-on-info: lch(from var(--color-info) calc(l + 60) c h);
 
 	/* -------------------------------------------------------------------------
 	   Emphasis Colors - Higher contrast text
@@ -133,6 +142,7 @@ body {
 	--col-em-error: lch(from var(--color-error) calc(l + 65) c h);
 	--col-em-warning: lch(from var(--color-warning) calc(l + 65) c h);
 	--col-em-success: lch(from var(--color-success) calc(l + 65) c h);
+	--col-em-info: lch(from var(--color-info) calc(l + 65) c h);
 
 	/* -------------------------------------------------------------------------
 	   Surface & Container Colors
@@ -147,11 +157,14 @@ body {
 	--col-container-error: lch(from var(--color-error) 90 calc(c * 0.5) h);
 	--col-container-warning: lch(from var(--color-warning) 90 calc(c * 0.5) h);
 	--col-container-success: lch(from var(--color-success) 90 calc(c * 0.5) h);
+	--col-container-info: lch(from var(--color-info) 90 calc(c * 0.5) h);
 
 	/* -------------------------------------------------------------------------
 	   "On Container" Colors - Text on container backgrounds
 	   ------------------------------------------------------------------------- */
 	--col-on-surface: lch(from var(--color-neutral) 39 c h);
+	--col-txt: var(--col-on-surface);
+	--col-txt-muted: lch(from var(--col-on-surface) l c h / 0.65);
 	--col-on-container-low: lch(from var(--color-neutral) 35 c h);
 	--col-on-container: lch(from var(--color-neutral) 30 c h);
 	--col-on-container-high: lch(from var(--color-neutral) 25 c h);
@@ -161,6 +174,7 @@ body {
 	--col-on-container-error: lch(from var(--color-error) 30 c h);
 	--col-on-container-warning: lch(from var(--color-warning) 30 c h);
 	--col-on-container-success: lch(from var(--color-success) 30 c h);
+	--col-on-container-info: lch(from var(--color-info) 30 c h);
 
 	/* -------------------------------------------------------------------------
 	   Emphasis on Container Colors
@@ -175,6 +189,7 @@ body {
 	--col-em-container-error: lch(from var(--color-error) 20 c h);
 	--col-em-container-warning: lch(from var(--color-warning) 20 c h);
 	--col-em-container-success: lch(from var(--color-success) 20 c h);
+	--col-em-container-info: lch(from var(--color-info) 20 c h);
 }
 
 /* ==========================================================================
@@ -245,12 +260,19 @@ body.dark {
 	--col-warning-p4: lch(from var(--col-warning) calc(l - 60) calc(c * 0.3) h);
 
 	--col-success: lch(from var(--color-success) 65 c h);
+	--col-info: lch(from var(--color-info) 65 c h);
 	--col-success-m2: lch(from var(--col-success) calc(l + 30) calc(c * 0.3) h);
+	--col-info-m2: lch(from var(--col-info) calc(l + 30) calc(c * 0.3) h);
 	--col-success-m1: lch(from var(--col-success) calc(l + 15) calc(c * 0.8) h);
+	--col-info-m1: lch(from var(--col-info) calc(l + 15) calc(c * 0.8) h);
 	--col-success-p1: lch(from var(--col-success) calc(l - 15) c h);
+	--col-info-p1: lch(from var(--col-info) calc(l - 15) c h);
 	--col-success-p2: lch(from var(--col-success) calc(l - 30) c h);
+	--col-info-p2: lch(from var(--col-info) calc(l - 30) c h);
 	--col-success-p3: lch(from var(--col-success) calc(l - 45) calc(c * 0.8) h);
+	--col-info-p3: lch(from var(--col-info) calc(l - 45) calc(c * 0.8) h);
 	--col-success-p4: lch(from var(--col-success) calc(l - 60) calc(c * 0.3) h);
+	--col-info-p4: lch(from var(--col-info) calc(l - 60) calc(c * 0.3) h);
 
 	/* "On" colors - inverted */
 	--col-on-primary: lch(from var(--col-primary) calc(l - 60) calc(c * 0.3) h);
@@ -260,6 +282,7 @@ body.dark {
 	--col-on-error: lch(from var(--color-error) calc(l - 60) c h);
 	--col-on-warning: lch(from var(--color-warning) calc(l - 60) c h);
 	--col-on-success: lch(from var(--color-success) calc(l - 60) c h);
+	--col-on-info: lch(from var(--color-info) calc(l - 60) c h);
 
 	/* Emphasis colors - inverted */
 	--col-em-primary: lch(from var(--col-primary) calc(l - 65) calc(c * 0.3) h);
@@ -269,6 +292,7 @@ body.dark {
 	--col-em-error: lch(from var(--color-error) calc(l - 65) c h);
 	--col-em-warning: lch(from var(--color-warning) calc(l - 65) c h);
 	--col-em-success: lch(from var(--color-success) calc(l - 65) c h);
+	--col-em-info: lch(from var(--color-info) calc(l - 65) c h);
 
 	/* Dark mode surfaces */
 	--col-surface: lch(from var(--color-neutral) 4 calc(c * 0.2) h);
@@ -281,9 +305,12 @@ body.dark {
 	--col-container-error: lch(from var(--color-error) 17 calc(c * 0.5) h);
 	--col-container-warning: lch(from var(--color-warning) 17 calc(c * 0.5) h);
 	--col-container-success: lch(from var(--color-success) 17 calc(c * 0.5) h);
+	--col-container-info: lch(from var(--color-info) 17 calc(c * 0.5) h);
 
 	/* Dark mode "on container" colors */
 	--col-on-surface: lch(from var(--color-neutral) 61 c h);
+	--col-txt: var(--col-on-surface);
+	--col-txt-muted: lch(from var(--col-on-surface) l c h / 0.65);
 	--col-on-container-low: lch(from var(--color-neutral) 65 c h);
 	--col-on-container: lch(from var(--color-neutral) 70 c h);
 	--col-on-container-high: lch(from var(--color-neutral) 75 c h);
@@ -293,6 +320,7 @@ body.dark {
 	--col-on-container-error: lch(from var(--color-error) 70 c h);
 	--col-on-container-warning: lch(from var(--color-warning) 70 c h);
 	--col-on-container-success: lch(from var(--color-success) 70 c h);
+	--col-on-container-info: lch(from var(--color-info) 70 c h);
 
 	/* Dark mode emphasis on container */
 	--col-em-surface: lch(from var(--color-neutral) 71 c h);
@@ -305,6 +333,7 @@ body.dark {
 	--col-em-container-error: lch(from var(--color-error) 80 c h);
 	--col-em-container-warning: lch(from var(--color-warning) 80 c h);
 	--col-em-container-success: lch(from var(--color-success) 80 c h);
+	--col-em-container-info: lch(from var(--color-info) 80 c h);
 }
 
 /* vim: ts=4

@@ -107,11 +107,11 @@
 	}
 
 	&.info {
-		--toast-color: var(--col-on-container-secondary, var(--col-on));
+		--toast-color: var(--col-on-container-info, var(--col-on));
 
-		border-color: var(--col-secondary);
-		background: var(--col-container-secondary, var(--col-surface));
-		color: var(--col-on-container-secondary, var(--col-on));
+		border-color: var(--col-info);
+		background: var(--col-container-info, var(--col-surface));
+		color: var(--col-on-container-info, var(--col-on));
 	}
 }
 

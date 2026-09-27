@@ -8,9 +8,16 @@
 	/* Color system */
 	padding: var(--space-1);
 	gap: var(--space-1);
+
+	&.wrap {
+		flex-wrap: wrap;
+	}
 }
 
 .c-tab {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-1);
 	border: none;
 	border-bottom: var(--border-w-lg) solid transparent;
 	background: none;
@@ -29,6 +36,12 @@
 		color: var(--col-em);
 		border-color: var(--col-em);
 	}
+}
+
+.c-tab-count {
+	font-size: 0.85em;
+	opacity: 0.7;
+	font-variant-numeric: tabular-nums;
 }
 
 /* vim: ts=4

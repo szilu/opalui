@@ -18,6 +18,29 @@
 
 .c-hbox > .fill, .c-vbox > .fill {
 	flex: 1;
+	min-width: 0;
+	min-height: 0;
+}
+
+.c-hbox.reverse {
+	flex-direction: row-reverse;
+}
+
+.c-vbox.reverse {
+	flex-direction: column-reverse;
+}
+
+.c-hbox.scroll {
+	overflow-x: auto;
+}
+
+.c-vbox.scroll {
+	overflow-y: auto;
+}
+
+/* Takes the free space in a flex row/column */
+.c-spacer {
+	flex: 1;
 }
 
 /* c-group */

@@ -15,7 +15,7 @@
 	visibility: hidden;
 	opacity: 0;
 	pointer-events: none;
-	z-index: var(--z-tooltip, 800);
+	z-index: var(--z-tooltip);
 	transition: opacity 0.15s ease, visibility 0.15s ease;
 }
 
@@ -261,6 +261,27 @@
 .c-tooltip.always-visible::after {
 	visibility: visible;
 	opacity: 1;
+}
+
+/* -------------------------------------------------------------------------
+   Popup (React <Tooltip>, positioned by popper in a portal)
+   ------------------------------------------------------------------------- */
+.c-tooltip-popup {
+	z-index: var(--z-tooltip);
+	max-width: min(20rem, calc(100vw - 1rem));
+	padding: 0.375rem 0.625rem;
+	font-size: 0.8125rem;
+	font-weight: 400;
+	line-height: 1.4;
+	background-color: var(--col-container-high);
+	color: var(--col-on-container-high);
+	border-radius: var(--border-radius-sm, 0.25rem);
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	pointer-events: none;
+	animation: fade-in var(--duration-fast, 0.15s) ease;
+}
+.c-tooltip-popup[hidden] {
+	display: none;
 }
 
 /* vim: ts=4

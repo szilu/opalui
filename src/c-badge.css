@@ -252,5 +252,45 @@
 	height: 1em;
 }
 
+/* -------------------------------------------------------------------------
+   Soft neutral (no container-neutral token)
+   ------------------------------------------------------------------------- */
+.c-badge.container-neutral {
+	background-color: var(--col-container-high);
+	color: var(--col-on-container-high);
+}
+
+/* -------------------------------------------------------------------------
+   BadgeAnchor - corner overlay, logical (RTL-aware) positions
+   Usage: <span class="c-badge-anchor">…<span class="c-badge-anchor-badge top-end">
+          <span class="c-badge">5</span></span></span>
+   ------------------------------------------------------------------------- */
+.c-badge-anchor {
+	position: relative;
+	display: inline-flex;
+}
+
+.c-badge-anchor-badge {
+	position: absolute;
+	display: inline-flex;
+	line-height: 1;
+	pointer-events: none;
+	z-index: 1;
+}
+
+.c-badge-anchor-badge > .c-badge {
+	box-shadow: 0 0 0 calc(2rem / 16) var(--col-surface);
+}
+
+.c-badge-anchor-badge.top-end { top: 0; inset-inline-end: 0; translate: 50% -50%; }
+.c-badge-anchor-badge.top-start { top: 0; inset-inline-start: 0; translate: -50% -50%; }
+.c-badge-anchor-badge.bottom-end { bottom: 0; inset-inline-end: 0; translate: 50% 50%; }
+.c-badge-anchor-badge.bottom-start { bottom: 0; inset-inline-start: 0; translate: -50% 50%; }
+
+.c-badge-anchor-badge.top-end:dir(rtl) { translate: -50% -50%; }
+.c-badge-anchor-badge.top-start:dir(rtl) { translate: 50% -50%; }
+.c-badge-anchor-badge.bottom-end:dir(rtl) { translate: -50% 50%; }
+.c-badge-anchor-badge.bottom-start:dir(rtl) { translate: 50% 50%; }
+
 /* vim: ts=4
  */

@@ -1,5 +1,7 @@
-/* Floating Action Button */
-.c-fab {
+/* Floating Action Button
+   `.c-button.float` is the deprecated Button mode="float"; it gets the FAB look too. */
+.c-fab,
+.c-button.float {
 	position: fixed;
 	bottom: 5rem; /* Above mobile nav */
 	right: 1.5rem;
@@ -60,9 +62,28 @@
 
 /* Desktop: position lower, no bottom nav */
 @media (width >= 72rem) {
-	.c-fab {
+	.c-fab,
+	.c-button.float {
 		bottom: 2rem;
 	}
+}
+
+/* FAB component: Affix does the pinning (and the safe-area/keyboard insets);
+   the margin keeps it above the mobile bottom nav. */
+.c-affix > .c-fab {
+	position: static;
+	margin-block-end: 4rem;
+}
+
+@media (width >= 72rem) {
+	.c-affix > .c-fab {
+		margin-block-end: 1rem;
+	}
+}
+
+/* affix={false}: in flow, the container positions it */
+.c-fab.inline {
+	position: static;
 }
 
 /* vim: ts=4

@@ -17,6 +17,34 @@
 	transform-origin: top left;
 }
 
+/* Native popover: drop the UA [popover] box (inset/margin/border) so the
+   positioning engine's inline rules win; zero specificity keeps content classes in charge */
+:where(.c-popper[popover]) {
+	inset: auto;
+	margin: 0;
+	border: 0;
+	padding: 0;
+	overflow: visible;
+}
+
+/* The surface itself takes focus on open (tabindex -1); no ring for that */
+.c-popper[tabindex='-1']:focus {
+	outline: none;
+}
+
+/* Widths */
+.c-popper.sm {
+	width: min(16rem, calc(100vw - 1rem));
+}
+
+.c-popper.md {
+	width: min(22rem, calc(100vw - 1rem));
+}
+
+.c-popper.lg {
+	width: min(32rem, calc(100vw - 1rem));
+}
+
 /* Elevation variants */
 .c-popper.low {
 	--col-bg: var(--col-container-low);

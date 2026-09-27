@@ -5,10 +5,21 @@
 
 .c-table {
 	width: 100%;
-	border-collapse: collapse;
+	border-collapse: separate;
 	border-spacing: 0;
 	font-size: 0.875rem;
+	/* Auto background */
+	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-container-low)) l c h / var(--op-panel)));
+	backdrop-filter: var(--auto-bg-blur, blur(var(--blur-radius)));
+	border-radius: var(--border-radius-lg);
+	color: var(--auto-bg-fg, var(--auto-bg-on, var(--col-on-container-low)));
 }
+.c-table > * { --auto-bg: transparent; --auto-bg-blur: none; --auto-bg-fg: currentcolor; }
+/* Separate borders: round the corner cells so their backgrounds follow the table radius */
+.c-table > :first-child > tr:first-child > :first-child { border-top-left-radius: var(--border-radius-lg); }
+.c-table > :first-child > tr:first-child > :last-child { border-top-right-radius: var(--border-radius-lg); }
+.c-table > :last-child > tr:last-child > :first-child { border-bottom-left-radius: var(--border-radius-lg); }
+.c-table > :last-child > tr:last-child > :last-child { border-bottom-right-radius: var(--border-radius-lg); }
 
 .c-table th,
 .c-table td {
@@ -62,10 +73,15 @@
 	border: 1px solid var(--col-outline);
 }
 
+/* Separate borders: each cell draws right + bottom only, the table draws the outer edge */
 .c-table.bordered th,
 .c-table.bordered td {
-	border: 1px solid var(--col-outline);
+	border-style: solid;
+	border-color: var(--col-outline);
+	border-width: 0 1px 1px 0;
 }
+.c-table.bordered tr > :last-child { border-right-width: 0; }
+.c-table.bordered > :last-child > tr:last-child > * { border-bottom-width: 0; }
 
 /* -------------------------------------------------------------------------
    Borderless
@@ -237,6 +253,59 @@
 
 .c-table-empty td {
 	border: none !important;
+}
+
+/* -------------------------------------------------------------------------
+   Stack: below 34rem of container width each row becomes a labelled card.
+   A container query, not a media query: tables sit in panels whose width
+   does not track the viewport. The wrapper supplies the container.
+   ------------------------------------------------------------------------- */
+.c-table-stack-container {
+	container-type: inline-size;
+}
+
+.c-table.stack td {
+	vertical-align: top;
+}
+
+/* A .c-input is width:100% by default; in a cell it must be able to shrink
+   or it forces the column open and pushes the other cells out of view. */
+.c-table.stack td .c-input {
+	min-width: 0;
+}
+
+@container (width < 34rem) {
+	.c-table.stack thead {
+		display: none;
+	}
+
+	.c-table.stack,
+	.c-table.stack tbody,
+	.c-table.stack tr,
+	.c-table.stack td {
+		display: block;
+		width: 100%;
+	}
+
+	.c-table.stack tr {
+		border: 1px solid var(--col-outline);
+		border-radius: var(--radius-md);
+		padding: 0.5rem 0.75rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.c-table.stack td {
+		border: none;
+		padding: 0.25rem 0;
+		text-align: left;
+	}
+
+	.c-table.stack td[data-label]::before {
+		content: attr(data-label);
+		display: block;
+		font-size: 0.75rem;
+		color: color-mix(in lch, var(--col-on-container), transparent 35%);
+	}
 }
 
 /* vim: ts=4

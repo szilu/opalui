@@ -87,13 +87,13 @@
    Severity Variants
    ------------------------------------------------------------------------- */
 .c-alert.info {
-	background-color: var(--col-container-primary);
-	border-color: var(--col-primary);
-	color: var(--col-on-container-primary);
+	background-color: var(--col-container-info);
+	border-color: var(--col-info);
+	color: var(--col-on-container-info);
 }
 
 .c-alert.info .c-alert-icon {
-	color: var(--col-primary);
+	color: var(--col-info);
 }
 
 .c-alert.success {
@@ -126,17 +126,21 @@
 	color: var(--col-error);
 }
 
+.c-alert.neutral .c-alert-icon {
+	color: var(--col-neutral);
+}
+
 /* -------------------------------------------------------------------------
    Filled Variants (Solid background)
    ------------------------------------------------------------------------- */
 .c-alert.filled.info {
-	background-color: var(--col-primary);
-	border-color: var(--col-primary);
-	color: var(--col-on-primary);
+	background-color: var(--col-info);
+	border-color: var(--col-info);
+	color: var(--col-on-info);
 }
 
 .c-alert.filled.info .c-alert-icon {
-	color: var(--col-on-primary);
+	color: var(--col-on-info);
 }
 
 .c-alert.filled.success {
@@ -177,8 +181,8 @@
 }
 
 .c-alert.outline.info {
-	border-color: var(--col-primary);
-	color: var(--col-primary);
+	border-color: var(--col-info);
+	color: var(--col-info);
 }
 
 .c-alert.outline.success {
@@ -194,6 +198,33 @@
 .c-alert.outline.error {
 	border-color: var(--col-error);
 	color: var(--col-error);
+}
+
+.c-alert.filled.neutral {
+	background-color: var(--col-neutral);
+	border-color: var(--col-neutral);
+	color: var(--col-on-neutral);
+}
+
+.c-alert.filled.neutral .c-alert-icon {
+	color: var(--col-on-neutral);
+}
+
+.c-alert.outline.neutral {
+	border-color: var(--col-outline);
+}
+
+/* -------------------------------------------------------------------------
+   Inverse (light-on-dark over media / dark overlays)
+   ------------------------------------------------------------------------- */
+.c-alert.inverse {
+	background-color: rgb(0 0 0 / 0.55);
+	border-color: rgb(255 255 255 / 0.25);
+	color: rgb(255 255 255 / 0.95);
+}
+
+.c-alert.inverse .c-alert-icon {
+	color: inherit;
 }
 
 /* -------------------------------------------------------------------------
