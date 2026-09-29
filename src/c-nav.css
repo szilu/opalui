@@ -86,6 +86,21 @@
 	align-items: stretch;
 }
 
+/* Surface model: vertical navs (rails, Settings, app rail) are quiet — they sit
+   on whatever is behind them. A popper that is also a nav keeps its overlay. */
+.c-nav:where(.vertical:not(.c-popper)) {
+	--col-bg: transparent;
+	backdrop-filter: none;
+	box-shadow: none;
+	border: 0;
+}
+
+/* The header is chrome: part of the frame, with the app rail */
+.c-nav:where(.nav-top) {
+	--col-bg: var(--col-frame);
+	border-bottom: 1px solid var(--col-outline);
+}
+
 ul.c-nav {
 	li {
 		list-style: none;
@@ -145,11 +160,6 @@ ul.c-nav {
 	color: var(--col-primary);
 }
 
-.c-nav-item:focus-visible, .c-nav-link:focus-visible {
-	outline: none;
-	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px var(--sh-focus) var(--col-focus);
-}
-
 .c-nav-item.h-small, .c-nav-link.h-small {
 	width: 4rem;
 	overflow: hidden;
@@ -194,6 +204,10 @@ ul.c-nav {
 	flex-wrap: wrap;
 	gap: var(--p-nav-item-x);
 }
+.c-nav.horizontal > .c-nav-list > li {
+	min-width: 0;
+	max-width: 100%;
+}
 .c-nav-list .c-nav-item {
 	width: 100%;
 	padding-block: var(--p-nav-item-y);
@@ -206,9 +220,9 @@ ul.c-nav {
 	&:hover:not([disabled]) {
 		background: var(--col-frost);
 	}
-	&[aria-current] {
+	&:is([aria-current], .active) {
 		color: var(--col-primary);
-		background: var(--col-frost);
+		background: var(--col-selected);
 	}
 }
 .c-nav-item-label {

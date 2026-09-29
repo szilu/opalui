@@ -26,6 +26,10 @@
 	            transform var(--duration-fast) var(--ease-out),
 	            box-shadow var(--duration-fast) var(--ease-out);
 	white-space: nowrap;
+	/* Shrink with the container */
+	/* ponytail: long labels overflow visibly; add a truncating label span if that matters */
+	min-width: 0;
+	max-width: 100%;
 
 	&:hover:not([disabled], [aria-disabled="true"]) {
 		transform: translateY(-1px);
@@ -109,10 +113,6 @@
 		cursor: not-allowed;
 	}
 
-	&:focus-visible {
-		outline: none;
-		box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px 1rem var(--col-focus);
-	}
 	&.active {
 		background: var(--col-container-secondary);
 		color: var(--col-on-container-secondary);
@@ -274,11 +274,6 @@
 	&[aria-disabled="true"] {
 		opacity: var(--op-disabled);
 		cursor: not-allowed;
-	}
-
-	&:focus-visible {
-		outline: none;
-		box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px var(--sh-focus) var(--col-focus);
 	}
 
 	&.clicked {

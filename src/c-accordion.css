@@ -16,11 +16,6 @@
 	&::-webkit-details-marker {
 		display: none;
 	}
-
-	&:focus-visible {
-		outline: none;
-		box-shadow: inset 0 0 0 2px var(--col-focus);
-	}
 }
 
 .c-disclosure-icon {

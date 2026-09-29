@@ -20,7 +20,7 @@
 .c-input, .c-select, .c-input-group {
 	border-radius: var(--radius-control);
 	border: var(--border-w-sm) solid var(--col-secondary);
-	background: var(--col-container);
+	background: var(--col-inset);
 	color: var(--col-on-container);
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	width: 100%;
@@ -31,11 +31,6 @@
 .c-select > option {
 	color: var(--col-on-surface);
 	background: var(--col-surface);
-}
-
-.c-input:focus-visible, .c-select:focus-visible {
-	outline: none;
-	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px var(--sh-focus) var(--col-focus);
 }
 
 input.c-input[type="color"] {
@@ -61,9 +56,9 @@ input.c-input[type="color"] {
 	padding-block: 0;
 	cursor: text;
 }
-.c-input.slotted:focus-within {
-	outline: 2px solid transparent;
-	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px var(--sh-focus) var(--col-focus);
+.c-input.slotted:has(> input:focus-visible) {
+	outline: var(--focus-ring-width) solid var(--focus-ring-color);
+	outline-offset: var(--focus-ring-offset);
 }
 .c-input.slotted > input {
 	flex: 1;
@@ -107,9 +102,6 @@ input.c-input[type="color"] {
 }
 .c-search-clear:hover {
 	background: lch(from var(--col-on-container) l c h / 0.08);
-}
-.c-search-clear:focus-visible {
-	outline: 2px solid var(--col-focus);
 }
 
 /* Slider: native range + value readout */
@@ -171,14 +163,13 @@ textarea.c-input.resize {
 	}
 }
 
-/*
-.c-input-group:has(:focus) {
-*/
-.c-input-group:focus-within {
-	box-shadow: inset 0px 0px 1rem var(--col-frost), 0px 0px var(--sh-focus) var(--col-focus);
+.c-input-group:has(> :is(.c-input, .c-select):focus-visible, > .c-dropdown > * > input:focus-visible) {
+	outline: var(--focus-ring-width) solid var(--focus-ring-color);
+	outline-offset: var(--focus-ring-offset);
 }
-.c-input-group > .c-input:focus-visible, .c-input-group > .c-select:focus-visible {
-	box-shadow: none;
+.c-input-group > :is(.c-input, .c-select):focus-visible,
+.c-input-group > .c-dropdown > * > input:focus-visible {
+	outline: none;
 }
 
 .c-input-group > *, .c-input-group > .c-dropdown > * > input {
@@ -205,6 +196,11 @@ textarea.c-input.resize {
 .c-input-group > *:not(:first-child) {
 	border-top-left-radius: 0;
 	border-bottom-left-radius: 0;
+}
+
+/* An absolutely-positioned leading icon is not a visual segment: the input keeps its radius */
+.c-input-group > .c-input-icon + * {
+	border-radius: inherit;
 }
 
 /**********/
@@ -340,8 +336,11 @@ textarea.c-input.resize {
 		background: lch(from var(--col-primary) l c h / 0.08);
 	}
 	&:has(input:focus-visible) {
-		outline: 2px solid transparent;
-		box-shadow: 0px 0px var(--sh-focus) var(--col-focus);
+		outline: var(--focus-ring-width) solid var(--focus-ring-color);
+		outline-offset: var(--focus-ring-offset);
+	}
+	& > input:focus-visible {
+		outline: none;
 	}
 }
 @media (pointer: coarse) {
@@ -369,10 +368,6 @@ textarea.c-input.resize {
 	&:checked {
 		background: var(--col-primary);
 		border-color: var(--col-primary);
-	}
-	&:focus-visible {
-		outline: var(--focus-ring-width) solid var(--col-focus);
-		outline-offset: 2px;
 	}
 }
 .c-check {
@@ -510,6 +505,15 @@ textarea.c-input.resize {
 .c-field.horizontal > .c-field-hint,
 .c-field.horizontal > .c-field-error {
 	grid-column: 2;
+}
+
+/* Stack label above control on narrow screens */
+@media (width < 48rem) {
+	.c-field.horizontal {
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+	}
 }
 
 .c-field.sm {

@@ -7,6 +7,7 @@
 
 body {
 	overflow-x: hidden;
+	overflow-wrap: break-word;
 
 	--col-bg: var(--col-surface);
 	--col-on: var(--col-on-surface);
@@ -19,6 +20,24 @@ h1, h2, h3, h4, h5, h6 {
 
 h1, h2, h3, h4 {
 	color: var(--col-em);
+}
+
+/* Font roles: --font-display for page titles, --font-heading for the rest (themes set them) */
+h1 {
+	font-family: var(--font-display, inherit);
+	font-size: var(--text-2xl);
+	font-weight: 600;
+}
+h2, h3, h4, h5, h6 {
+	font-family: var(--font-heading, inherit);
+	font-weight: 600;
+}
+h2 { font-size: var(--text-lg); }
+h3, h4, h5, h6 { font-size: var(--text-base); }
+
+:focus-visible {
+	outline: var(--focus-ring-width) solid var(--focus-ring-color);
+	outline-offset: var(--focus-ring-offset);
 }
 
 button {

@@ -24,9 +24,10 @@
 	/*
 	--col-bg: lch(from var(--col-surface) l c h / var(--op-panel));
 	*/
-	--col-bg: var(--col-container-low);
+	--col-bg: var(--col-raised);
 	--col-on: var(--col-on-container-low);
 	--col-em: var(--col-em-container-low);
+	border: 1px solid var(--col-outline);
 
 	&.emph {
 		box-shadow: inset 0px 0px 2rem var(--col-frost);
@@ -147,25 +148,7 @@
 	}
 }
 
-/* ==========================================================================
-   Automatic Nesting Detection
-   Nested panels automatically get elevated background + shadow
-   Using :where() to lower specificity so explicit variants (primary, etc.) win
-   ========================================================================== */
-
-.c-panel :where(.c-panel) {
-	--col-bg: var(--col-container);
-	--col-on: var(--col-on-container);
-	--col-em: var(--col-em-container);
-	box-shadow: var(--shadow-sm);
-}
-
-.c-panel .c-panel :where(.c-panel) {
-	--col-bg: var(--col-container-high);
-	--col-on: var(--col-on-container-high);
-	--col-em: var(--col-em-container-high);
-	box-shadow: var(--shadow-md);
-}
+/* Nesting (inset) is handled in c-card.css for both panels and cards */
 
 /* ==========================================================================
    Shadow Baseline for Explicit Elevation Variants

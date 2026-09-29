@@ -13,12 +13,13 @@
 	gap: var(--gap);
 	position: relative;
 
-	/* Cards default to mid elevation */
-	--col-bg: var(--col-container);
-	--col-on: var(--col-on-container);
-	--col-em: var(--col-em-container);
+	/* Cards are raised (L1) surfaces, see the surface model */
+	--col-bg: var(--col-raised);
+	--col-on: var(--col-on-container-low);
+	--col-em: var(--col-em-container-low);
 	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
 	color: var(--col-on);
+	border: 1px solid var(--col-outline);
 	box-shadow: var(--shadow-sm);
 
 	transition: background-color var(--duration-normal) var(--ease-default),
@@ -40,11 +41,6 @@
 	&.interactive:active {
 		transform: translateY(0);
 		box-shadow: var(--shadow-sm);
-	}
-
-	&.interactive:focus-visible {
-		outline: none;
-		box-shadow: var(--shadow-sm), 0px 0px var(--sh-focus) var(--col-focus);
 	}
 
 	/* Color variants */
@@ -118,6 +114,13 @@
 	}
 }
 
+/* Nested in an L1/L2 surface: inset, no shadow, no edge (surface model) */
+:is(.c-panel, .c-card, .c-dialog) :where(.c-panel, .c-card) {
+	--col-bg: var(--col-inset);
+	box-shadow: none;
+	border-color: transparent;
+}
+
 /* ==========================================================================
    Shape variants (after elevation so they win), interactive element reset
    ========================================================================== */
@@ -126,19 +129,21 @@
 	background-color: lch(from var(--col-bg) l c h / calc(var(--op-panel) * 0.5));
 	backdrop-filter: none;
 	box-shadow: none;
+	border: none;
 }
 
 :is(.c-card, .c-panel).outline {
-	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-container-low)) l c h / var(--op-panel)));
+	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-raised)) l c h / var(--op-panel)));
 	backdrop-filter: var(--auto-bg-blur, blur(var(--blur-radius)));
 	box-shadow: none;
 	border: 1px solid lch(from var(--col-em) l c h / 0.4);
 }
 
 :is(.c-card, .c-panel).plain {
-	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-container-low)) l c h / var(--op-panel)));
+	background-color: var(--auto-bg, lch(from var(--auto-bg-col, var(--col-raised)) l c h / var(--op-panel)));
 	backdrop-filter: var(--auto-bg-blur, blur(var(--blur-radius)));
 	box-shadow: none;
+	border: none;
 	padding: 0;
 	color: var(--auto-bg-fg, var(--auto-bg-on, var(--col-on-container-low)));
 }

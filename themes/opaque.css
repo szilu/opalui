@@ -27,7 +27,7 @@ body.theme-opaque {
 	/* Typography */
 	font-family: 'Roboto', sans-serif;
 	color: var(--col-on);
-	background-color: var(--col-container-low);
+	background-color: var(--col-canvas);
 	transition: background-color 0.3s, color 0.2s;
 }
 
@@ -35,14 +35,12 @@ body.theme-opaque {
 body.theme-opaque.light {
 	--color-primary: lch(45 60 250);
 	--color-frost: lch(100 0 0 / 0.1);
-	--color-focus: var(--col-primary);
 }
 
 /* Dark mode - Opaque theme */
 body.theme-opaque.dark {
 	--color-primary: lch(68 50 250);
 	--color-frost: lch(100 0 0 / 0.15);
-	--color-focus: lch(100 0 0 / 0.5);
 }
 
 /* Heading typography */

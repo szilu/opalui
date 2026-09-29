@@ -5,7 +5,7 @@
 
 .c-menu {
 	position: fixed;
-	background: var(--col-bg);
+	background: var(--col-overlay);
 	border: 1px solid var(--col-outline);
 	border-radius: var(--radius-md);
 	box-shadow: var(--shadow-lg);
@@ -31,13 +31,12 @@
 	transition: background var(--duration-fast) var(--ease-default);
 
 	&:hover:not([disabled]) {
-		background: var(--col-container-low);
+		background: var(--col-inset);
 	}
 
 	&:focus-visible {
-		outline: none;
-		background: var(--col-container-low);
-		box-shadow: inset 0 0 0 2px var(--col-focus);
+		background: var(--col-inset);
+		outline-offset: calc(-1 * var(--focus-ring-width));
 	}
 
 	/* `danger` is the deprecated spelling of `color="error"` */
@@ -135,13 +134,12 @@
 	position: relative;
 
 	&:hover:not([disabled]) {
-		background: var(--col-container-low);
+		background: var(--col-inset);
 	}
 
 	&:focus-visible {
-		outline: none;
-		background: var(--col-container-low);
-		box-shadow: inset 0 0 0 2px var(--col-focus);
+		background: var(--col-inset);
+		outline-offset: calc(-1 * var(--focus-ring-width));
 	}
 
 	&[disabled] {
@@ -160,7 +158,7 @@
 
 /* Submenu highlight when open */
 .c-submenu-item.active {
-	background: var(--col-container-low);
+	background: var(--col-inset);
 }
 
 /* Menu header - non-interactive label */

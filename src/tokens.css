@@ -12,7 +12,9 @@
 	--space-0: 0;
 	--space-1: 0.25rem;   /* 4px */
 	--space-2: 0.5rem;    /* 8px */
+	--space-2h: 0.75rem;  /* 12px */
 	--space-3: 1rem;      /* 16px */
+	--space-3h: 1.5rem;   /* 24px */
 	--space-4: 2rem;      /* 32px */
 	--space-5: 4rem;      /* 64px */
 
@@ -131,7 +133,6 @@
 	   ------------------------------------------------------------------------- */
 	--focus-ring-width: 3px;
 	--focus-ring-offset: 2px;
-	--focus-ring-color: var(--col-focus, var(--col-primary));
 	--min-touch-target: 44px;  /* WCAG 2.5.5 minimum touch target size */
 }
 

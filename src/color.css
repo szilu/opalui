@@ -10,7 +10,8 @@ body {
 	   ------------------------------------------------------------------------- */
 	--color-primary: lch(35 60 250);
 	--color-secondary: lch(from var(--color-primary) l calc(c / 2) h);
-	--color-accent: lch(from var(--color-primary) l c calc(h + 180));
+	/* Explicit magenta: the old primary h+180 landed on the warning amber (DESIGN-14) */
+	--color-accent: lch(35 60 330);
 	--color-neutral: lch(35 20 250);
 
 	--color-error: lch(35 50 25);
@@ -36,7 +37,8 @@ body {
 	   ------------------------------------------------------------------------- */
 	--col-shadow: lch(0 0 0 / 0.15);
 	--col-frost: lch(100 0 0 / 0.15);
-	--col-focus: var(--col-primary);
+	--col-focus: lch(from var(--col-primary) min(l, 40) c h);
+	--focus-ring-color: var(--col-focus);
 	--col-outline: lch(from var(--color-neutral) l c h / 0.3);
 	--sh-focus: 0.25rem;
 	--col-toggle-knob: lch(98 0 0);
@@ -157,7 +159,18 @@ body {
 	--col-container-error: lch(from var(--color-error) 90 calc(c * 0.5) h);
 	--col-container-warning: lch(from var(--color-warning) 90 calc(c * 0.5) h);
 	--col-container-success: lch(from var(--color-success) 90 calc(c * 0.5) h);
-	--col-container-info: lch(from var(--color-info) 90 calc(c * 0.5) h);
+	--col-container-info: lch(from var(--color-info) 90 calc(c * 0.3) h);
+
+	/* -------------------------------------------------------------------------
+	   Structural surfaces (surface model): elevation = lighter
+	   frame < canvas < inset < raised < overlay
+	   ------------------------------------------------------------------------- */
+	--col-canvas: lch(from var(--color-neutral) 80 calc(c * 0.4) h);
+	--col-frame: lch(from var(--color-neutral) 72 calc(c * 0.6) h);
+	--col-inset: lch(from var(--color-neutral) 93 calc(c * 0.3) h);
+	--col-raised: lch(from var(--color-neutral) 97 calc(c * 0.2) h);
+	--col-overlay: lch(from var(--color-neutral) 99 calc(c * 0.1) h);
+	--col-selected: lch(from var(--color-primary) 88 calc(c * 0.3) h);
 
 	/* -------------------------------------------------------------------------
 	   "On Container" Colors - Text on container backgrounds
@@ -197,10 +210,13 @@ body {
    ========================================================================== */
 
 body.dark {
+	color-scheme: dark;
+	--col-focus: var(--col-primary);
+
 	/* Base colors - lighter in dark mode */
 	--color-primary: lch(68 60 250);
 	--color-secondary: lch(from var(--color-primary) l calc(c / 2) h);
-	--color-accent: lch(from var(--color-primary) l c calc(h + 180));
+	--color-accent: lch(68 60 330);
 
 	/* Core UI colors for dark mode */
 	--col-shadow: lch(0 0 0 / 0.3);
@@ -305,7 +321,15 @@ body.dark {
 	--col-container-error: lch(from var(--color-error) 17 calc(c * 0.5) h);
 	--col-container-warning: lch(from var(--color-warning) 17 calc(c * 0.5) h);
 	--col-container-success: lch(from var(--color-success) 17 calc(c * 0.5) h);
-	--col-container-info: lch(from var(--color-info) 17 calc(c * 0.5) h);
+	--col-container-info: lch(from var(--color-info) 17 calc(c * 0.3) h);
+
+	/* Dark mode structural surfaces */
+	--col-canvas: lch(from var(--color-neutral) 8 calc(c * 0.3) h);
+	--col-frame: lch(from var(--color-neutral) 4 calc(c * 0.4) h);
+	--col-inset: lch(from var(--color-neutral) 16 calc(c * 0.3) h);
+	--col-raised: lch(from var(--color-neutral) 21 calc(c * 0.3) h);
+	--col-overlay: lch(from var(--color-neutral) 26 calc(c * 0.3) h);
+	--col-selected: lch(from var(--color-primary) 28 calc(c * 0.3) h);
 
 	/* Dark mode "on container" colors */
 	--col-on-surface: lch(from var(--color-neutral) 61 c h);
@@ -334,6 +358,11 @@ body.dark {
 	--col-em-container-warning: lch(from var(--color-warning) 80 c h);
 	--col-em-container-success: lch(from var(--color-success) 80 c h);
 	--col-em-container-info: lch(from var(--color-info) 80 c h);
+}
+
+/* Neutral tags sit on a translucent secondary tint: dark text on it drops below 3:1 */
+body.dark .c-tag:not(.primary, .secondary, .accent, .error, .warning, .success) {
+	color: lch(from var(--col-secondary) 85 calc(c * 0.3) h);
 }
 
 /* vim: ts=4

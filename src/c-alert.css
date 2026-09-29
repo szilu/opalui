@@ -9,7 +9,9 @@
 	gap: 0.75rem;
 	padding: 1rem;
 	border-radius: var(--border-radius-lg, 0.5rem);
-	border: 1px solid var(--col-outline);
+	/* Soft: no frame, a 3px tone bar at the inline start (DESIGN-13) */
+	border: 0 solid transparent;
+	border-inline-start: 3px solid var(--col-outline);
 	background-color: var(--col-container-low);
 	color: var(--col-on-container-low);
 }
@@ -74,8 +76,6 @@
 
 .c-alert-close:focus-visible {
 	opacity: 1;
-	outline: 2px solid var(--col-focus);
-	outline-offset: 2px;
 }
 
 .c-alert-close > svg {
@@ -87,8 +87,8 @@
    Severity Variants
    ------------------------------------------------------------------------- */
 .c-alert.info {
-	background-color: var(--col-container-info);
-	border-color: var(--col-info);
+	background-color: lch(from var(--col-container-info) l c h / var(--op-panel, 1));
+	border-inline-start-color: var(--col-info);
 	color: var(--col-on-container-info);
 }
 
@@ -97,8 +97,8 @@
 }
 
 .c-alert.success {
-	background-color: var(--col-container-success);
-	border-color: var(--col-success);
+	background-color: lch(from var(--col-container-success) l c h / var(--op-panel, 1));
+	border-inline-start-color: var(--col-success);
 	color: var(--col-on-container-success);
 }
 
@@ -107,8 +107,8 @@
 }
 
 .c-alert.warning {
-	background-color: var(--col-container-warning);
-	border-color: var(--col-warning);
+	background-color: lch(from var(--col-container-warning) l c h / var(--op-panel, 1));
+	border-inline-start-color: var(--col-warning);
 	color: var(--col-on-container-warning);
 }
 
@@ -117,8 +117,8 @@
 }
 
 .c-alert.error {
-	background-color: var(--col-container-error);
-	border-color: var(--col-error);
+	background-color: lch(from var(--col-container-error) l c h / var(--op-panel, 1));
+	border-inline-start-color: var(--col-error);
 	color: var(--col-on-container-error);
 }
 
@@ -133,6 +133,10 @@
 /* -------------------------------------------------------------------------
    Filled Variants (Solid background)
    ------------------------------------------------------------------------- */
+.c-alert.filled, .c-alert.inverse {
+	border: 1px solid var(--col-outline);
+}
+
 .c-alert.filled.info {
 	background-color: var(--col-info);
 	border-color: var(--col-info);
@@ -177,6 +181,7 @@
    Outline Variants
    ------------------------------------------------------------------------- */
 .c-alert.outline {
+	border: 1px solid var(--col-outline);
 	background-color: transparent;
 }
 

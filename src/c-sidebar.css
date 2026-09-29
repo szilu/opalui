@@ -20,8 +20,8 @@
 	transition: var(--sidebar-transition);
 	overflow: hidden;
 
-	/* Color system */
-	--col-bg: var(--col-container-low);
+	/* Color system: the app rail is chrome (frame), see the surface model */
+	--col-bg: var(--col-frame);
 	--col-on: var(--col-on-container-low);
 	--col-em: var(--col-em-container-low);
 	background-color: lch(from var(--col-bg) l c h / var(--op-panel));

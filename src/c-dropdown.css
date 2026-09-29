@@ -30,14 +30,14 @@ details.c-dropdown[open] > :last-child {
 	z-index: var(--z-dropdown, 100);
 	margin-top: 0.5rem;
 
-	/* Color system */
-	--col-bg: var(--col-container-high);
+	/* Color system: overlay (L2) surface */
+	--col-bg: var(--col-overlay);
 	--col-on: var(--col-on-container-high);
 	--col-em: var(--col-em-container-high);
-	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
-	backdrop-filter: blur(var(--blur-radius));
+	/* Opaque: overlays never show the page through (S3) */
+	background-color: var(--col-bg);
 	color: var(--col-on);
-	box-shadow: inset 0px 0px 1rem var(--col-shadow);
+	box-shadow: var(--shadow-lg);
 
 	/* Entrance animation */
 	animation: fade-slide-down var(--duration-fast) var(--ease-out) both;
@@ -54,11 +54,6 @@ details.c-dropdown.mid[open] > :last-child {
 	--col-bg: var(--col-container);
 	--col-on: var(--col-on-container);
 	--col-em: var(--col-em-container);
-}
-details.c-dropdown.high[open] > :last-child {
-	--col-bg: var(--col-container-high);
-	--col-on: var(--col-on-container-high);
-	--col-em: var(--col-em-container-high);
 }
 
 /* Color modifiers */

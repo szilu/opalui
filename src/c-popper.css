@@ -5,11 +5,14 @@
 
 .c-popper {
 	/* Color system based on elevation */
-	background-color: lch(from var(--col-bg) l c h / var(--op-panel));
-	backdrop-filter: blur(var(--blur-radius));
+	/* Opaque: overlays never show the page through (S3) */
+	--col-bg: var(--col-overlay);
+	--col-on: var(--col-on-container-high);
+	--col-em: var(--col-em-container-high);
+	background-color: var(--col-bg);
 	color: var(--col-on);
 	border-radius: var(--border-radius-lg);
-	box-shadow: var(--shadow-lg), inset 0px 0px 1rem var(--col-shadow);
+	box-shadow: var(--shadow-lg);
 	z-index: var(--z-popover, 700);
 
 	/* Entrance animation */
@@ -56,12 +59,6 @@
 	--col-bg: var(--col-container);
 	--col-on: var(--col-on-container);
 	--col-em: var(--col-em-container);
-}
-
-.c-popper.high {
-	--col-bg: var(--col-container-high);
-	--col-on: var(--col-on-container-high);
-	--col-em: var(--col-em-container-high);
 }
 
 /* Color variants */

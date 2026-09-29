@@ -73,7 +73,7 @@
 	gap: 0.75rem;
 	padding: 1rem;
 	border-radius: var(--border-radius-lg);
-	background: var(--col-surface);
+	background: var(--col-overlay);
 	border: var(--border-w-lg) solid var(--col-outline);
 	box-shadow: 0 4px 12px lch(from var(--col-on) l c h / 10%), 0 0 0 1px lch(from var(--col-on) l c h / 5%);
 	backdrop-filter: blur(var(--blur-radius));
