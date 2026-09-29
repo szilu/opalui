@@ -13,12 +13,16 @@
 	background: rgba(0, 0, 0, 0.5);
 	backdrop-filter: blur(var(--blur-radius));
 	z-index: var(--z-modal, 600);
+	/* Dialogs anchor to the top so a shell dialog always overlaps the shell header
+	   and cannot be mistaken for one drawn inside a sandboxed app iframe. */
+	--dialog-top: max(0.5rem, env(safe-area-inset-top));
 }
 
 .c-modal.show {
 	display: flex;
-	align-items: center;
+	align-items: flex-start;
 	justify-content: center;
+	padding-top: var(--dialog-top);
 	animation: fade-in var(--duration-fast) var(--ease-out) both;
 }
 
@@ -40,6 +44,11 @@
 	position: relative;
 	width: auto;
 	max-width: 60rem;
+}
+
+/* Size-less dialogs get a responsive default instead of shrinking to content */
+.c-modal > .c-dialog:not(.sm, .md, .lg, .full) {
+	width: min(36rem, calc(100vw - 2rem));
 }
 
 .c-dialog {
@@ -66,7 +75,7 @@ dialog.c-modal::backdrop {
 .c-modal > .c-dialog:has(> .c-dialog-body) {
 	display: flex;
 	flex-direction: column;
-	max-height: calc(100dvh - 2rem);
+	max-height: calc(100dvh - var(--dialog-top) - 1rem);
 	max-width: min(60rem, calc(100vw - 2rem));
 }
 
@@ -79,6 +88,8 @@ dialog.c-modal::backdrop {
 }
 
 .c-dialog-header > h2 {
+	flex: 1;
+	min-width: 0;
 	margin: 0;
 }
 
@@ -86,6 +97,9 @@ dialog.c-modal::backdrop {
 	flex: 1 1 auto;
 	min-height: 0;
 	overflow-y: auto;
+	/* Room for the outset focus ring inside the scroll box */
+	padding: calc(var(--focus-ring-width) + var(--focus-ring-offset));
+	margin: calc(-1 * (var(--focus-ring-width) + var(--focus-ring-offset)));
 }
 
 .c-dialog-description {
@@ -101,6 +115,10 @@ dialog.c-modal::backdrop {
 .c-dialog.sm { width: 24rem; }
 .c-dialog.md { width: 36rem; }
 .c-dialog.lg { width: 56rem; }
+
+.c-modal.show:has(> .c-dialog.full) {
+	padding-top: 0;
+}
 
 .c-modal > .c-dialog.full {
 	width: 100vw;
