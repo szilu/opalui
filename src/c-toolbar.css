@@ -61,8 +61,10 @@
 
 /* Toolbar divider - visual separator between button groups */
 .c-toolbar-divider {
-	border-left: 1px solid var(--col-outline);
-	margin-left: var(--space-1);
+	width: 1px;
+	height: 1.5rem;
+	background: var(--col-outline);
+	margin: 0 var(--space-1);
 }
 
 /* Compact variant */
@@ -110,6 +112,16 @@
 	.c-toolbar.auto-hide {
 		transition: none;
 	}
+}
+
+/* Opt-in scroll strip: scrolls instead of overflowing, so it clips popups; ring drawn inset */
+:is(.c-tabs, .c-toolbar).scroll {
+	min-width: 0;
+	overflow-x: auto;
+	overscroll-behavior-x: contain;
+	scrollbar-width: none;
+	& > * { flex-shrink: 0; }
+	& :focus-visible { outline-offset: calc(-1 * var(--focus-ring-width)); }
 }
 
 /* vim: ts=4

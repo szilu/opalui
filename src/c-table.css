@@ -279,6 +279,11 @@
 		display: none;
 	}
 
+	.c-table.stack caption {
+		display: block;
+		text-align: start;
+	}
+
 	.c-table.stack,
 	.c-table.stack tbody,
 	.c-table.stack tr,

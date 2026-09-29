@@ -27,6 +27,8 @@
 	user-select: none;
 	color: var(--col-on);
 	transition: color 0.3s, border-color 0.3s;
+	flex-shrink: 0;
+	white-space: nowrap;
 
 	&:hover {
 		color: var(--col-em);
