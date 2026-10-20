@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.16.1
+
+### Added
+
+- `--col-on-selected`: text color for content on `--col-selected` (≥ 4.5:1). `.c-nav`
+  active items use it.
+
+### Changed
+
+- `--col-selected` retuned: more chroma so the hue carries the state on any surface, and the
+  dark variant lifted above `--col-overlay` so selection stays visible in menus and popovers.
+
 ## 0.16.0
 
 ### Breaking
