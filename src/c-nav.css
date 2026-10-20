@@ -221,7 +221,7 @@ ul.c-nav {
 		background: var(--col-frost);
 	}
 	&:is([aria-current], .active) {
-		color: var(--col-primary);
+		color: var(--col-on-selected);
 		background: var(--col-selected);
 	}
 }
