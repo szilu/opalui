@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.16.2
+
+### Changed
+
+- `.c-button` labels are medium weight (`font-weight: 500`).
+- `.c-button.sm` label is 14px (`0.875rem`), up from 12px.
+- `--size-md` is 36px (`2.25rem`), down from 40px. Everything sized from the token follows,
+  including the default `.c-button` and `.c-tag-input` height.
+- Direct svg icons in `.c-button` have a fixed size from `--btn-icon-size`: 16px in `.xs` and
+  `.sm`, 24px at the default size and `.lg`, 32px in `.xl`. Toolbar buttons use 16px, and
+  `.float` buttons 16px, 24px or 32px. This overrides an icon's own `size`; set
+  `--btn-icon-size` on the button to change it.
+- Direct svg icons in `.c-button` no longer shrink when a row is too tight.
+
 ## 0.16.1
 
 ### Added
