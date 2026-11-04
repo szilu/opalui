@@ -79,7 +79,7 @@
 
 /* Button */
 .c-skeleton.button {
-	height: 2.5rem;
+	height: var(--size-md);
 	width: 6rem;
 	border-radius: 1.25rem;
 }
