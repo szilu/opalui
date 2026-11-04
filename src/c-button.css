@@ -12,8 +12,10 @@
 	border: 0px;
 	box-shadow: inset 0px 0px 1rem var(--col-frost);
 	--btn-height: var(--size-md);
+	--btn-icon-size: 1.5rem;
 	height: var(--btn-height);
 	padding: 0 1rem;
+	font-weight: 500;
 	cursor: pointer;
 	user-select: none;
 	--col-bg: var(--col-secondary);
@@ -30,6 +32,14 @@
 	/* ponytail: long labels overflow visibly; add a truncating label span if that matters */
 	min-width: 0;
 	max-width: 100%;
+
+	/* The nowrap label can't shrink, so the icon would take all of it and go out of shape */
+	& > svg,
+	& > .c-button-content > svg {
+		flex-shrink: 0;
+		width: var(--btn-icon-size);
+		height: var(--btn-icon-size);
+	}
 
 	&:hover:not([disabled], [aria-disabled="true"]) {
 		transform: translateY(-1px);
@@ -66,13 +76,15 @@
 
 	&.xs {
 		--btn-height: var(--size-xs);
+		--btn-icon-size: 1rem;
 		font-size: 0.75rem;
 		padding: 0 0.5rem;
 	}
 
 	&.sm {
 		--btn-height: var(--size-sm);
-		font-size: 0.75rem;
+		--btn-icon-size: 1rem;
+		font-size: 0.875rem;
 		padding: 0 0.75rem;
 	}
 
@@ -84,6 +96,7 @@
 
 	&.xl {
 		--btn-height: var(--size-xl);
+		--btn-icon-size: 2rem;
 		font-size: 1.75rem;
 		padding: 0 2rem;
 	}

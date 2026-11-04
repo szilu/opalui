@@ -51,12 +51,14 @@
 		width: 2.5rem;
 		height: 2.5rem;
 		font-size: 1rem;
+		--btn-icon-size: 1rem;
 	}
 
 	&.large {
 		width: 4.5rem;
 		height: 4.5rem;
 		font-size: 2rem;
+		--btn-icon-size: 2rem;
 	}
 }
 
